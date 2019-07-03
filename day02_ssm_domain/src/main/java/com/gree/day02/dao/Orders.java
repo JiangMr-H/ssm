@@ -1,6 +1,6 @@
 package com.gree.day02.dao;
 
-import com.itheima.ssm.utils.DateUtils;
+
 
 import java.util.Date;
 import java.util.List;
@@ -60,9 +60,9 @@ public class Orders {
     }
 
     public String getOrderTimeStr() {
-        if(orderTime!=null){
+      /*  if(orderTime!=null){
             orderTimeStr= DateUtils.date2String(orderTime,"yyyy-MM-dd HH:mm");
-        }
+        }*/
         return orderTimeStr;
     }
 
