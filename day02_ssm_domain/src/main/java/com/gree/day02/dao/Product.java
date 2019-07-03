@@ -28,7 +28,7 @@ public class Product {
     private String productNum; // 编号 唯一
     private String productName; // 名称
     private String cityName; // 出发城市
-    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm")
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm")  //主要用于局部的时间与日期转换  录进来的是字符串转换成时间
     private Date departureTime; // 出发时间
     private String departureTimeStr;
     private double productPrice; // 产品价格
