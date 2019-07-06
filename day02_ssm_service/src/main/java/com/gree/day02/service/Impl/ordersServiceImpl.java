@@ -11,6 +11,7 @@
 
 package com.gree.day02.service.Impl;
 
+import com.github.pagehelper.PageHelper;
 import com.gree.day02.dao.IOrdersDao;
 import com.gree.day02.dao.Orders;
 import com.gree.day02.service.IOrdersService;
@@ -36,8 +37,14 @@ public class ordersServiceImpl implements IOrdersService {
     private IOrdersDao iOrdersDao;
 
     @Override
-    public List<Orders> findAll() throws Exception {
-        List<Orders> ordersList = iOrdersDao.findAll();
-        return ordersList;
+    public List<Orders> findAll(int page,int size) throws Exception {
+                           //页码值          每页的条数
+        PageHelper.startPage(page,size);
+        return iOrdersDao.findAll();
+    }
+
+    @Override
+    public Orders findById(String ordersId) throws Exception {
+        return iOrdersDao.findById(ordersId);
     }
 }

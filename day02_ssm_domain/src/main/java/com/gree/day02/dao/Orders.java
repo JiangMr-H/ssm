@@ -2,6 +2,8 @@ package com.gree.day02.dao;
 
 
 
+import com.gree.day02.utils.DateUtils;
+
 import java.util.Date;
 import java.util.List;
 
@@ -9,7 +11,7 @@ import java.util.List;
 public class Orders {
     private String id;
     private String orderNum;
-    private Date orderTime;
+    private Date orderTime;     //时间类型需要转换
     private String orderTimeStr;
     private int orderStatus;
     private String orderStatusStr;
@@ -60,9 +62,9 @@ public class Orders {
     }
 
     public String getOrderTimeStr() {
-      /*  if(orderTime!=null){
-            orderTimeStr= DateUtils.date2String(orderTime,"yyyy-MM-dd HH:mm");
-        }*/
+        if(orderTime!=null){
+            orderTimeStr=DateUtils.data2String("yyyy-MM-dd HH:mm",orderTime);
+        }
         return orderTimeStr;
     }
 
