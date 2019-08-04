@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<title>ITCAST - AdminLTE2定制版</title>
+	<title>注塑无纸化管理平台</title>
 <meta name="description" content="AdminLTE2定制版">
 <meta name="keywords" content="AdminLTE2定制版">
 
@@ -147,15 +147,12 @@
 		</div>
 		<!-- 内容区域 /-->
 
-		<!-- 底部导航 -->
-		<footer class="main-footer">
-		<div class="pull-right hidden-xs">
-			<b>Version</b> 1.0.8
-		</div>
-		<strong>Copyright &copy; 2014-2017 <a
-			href="http://www.itcast.cn">研究院研发部</a>.
-		</strong> All rights reserved. </footer>
-		<!-- 底部导航 /-->
+
+		<!-- 底部侧栏 -->
+		<jsp:include page="foot.jsp"></jsp:include>
+		<!-- 底部侧栏 /-->
+
+
 
 	</div>
 

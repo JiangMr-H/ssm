@@ -12,7 +12,7 @@
 
 
 
-<title>数据 - AdminLTE2定制版</title>
+	<title>注塑无纸化管理平台</title>
 <meta name="description" content="AdminLTE2定制版">
 <meta name="keywords" content="AdminLTE2定制版">
 
@@ -195,7 +195,7 @@
 								<div class="form-group form-inline">
 									<div class="btn-group">
 										<button type="button" class="btn btn-default" title="新建"
-											onclick="location.href='${pageContext.request.contextPath}/pages/product-add.jsp'">
+											onclick="location.href='#'">
 											<i class="fa fa-file-o"></i> 新建
 										</button>
 										<button type="button" class="btn btn-default" title="删除">
@@ -231,12 +231,12 @@
 											id="selall" type="checkbox" class="icheckbox_square-blue">
 										</th>
 										<th class="sorting_asc">ID</th>
-										<th class="sorting_desc">订单编号</th>
-										<th class="sorting_asc sorting_asc_disabled">产品名称</th>
-										<th class="sorting_desc sorting_desc_disabled">金额</th>
-										<th class="sorting">下单时间</th>
-										<th class="text-center sorting">订单状态</th>
-										<th class="text-center">操作</th>
+										<th class="sorting_desc">生产日期</th>
+										<th class="sorting_asc sorting_asc_disabled">班组</th>
+										<th class="sorting_desc sorting_desc_disabled">产品编码</th>
+										<th class="sorting">工装编码</th>
+										<th class="text-center sorting">材料及颜色</th>
+										<th class="text-center">机床编码</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -358,16 +358,9 @@
 		<!-- @@close -->
 		<!-- 内容区域 /-->
 
-		<!-- 底部导航 -->
-		<footer class="main-footer">
-			<div class="pull-right hidden-xs">
-				<b>Version</b> 1.0.8
-			</div>
-			<strong>Copyright &copy; 2014-2017 <a
-				href="http://www.itcast.cn">研究院研发部</a>.
-			</strong> All rights reserved.
-		</footer>
-		<!-- 底部导航 /-->
+		<!-- 底部侧栏 -->
+		<jsp:include page="foot.jsp"></jsp:include>
+		<!-- 底部侧栏 /-->
 
 	</div>
 
