@@ -269,7 +269,7 @@
 		<!-- 内容区域 /-->
 
 		<!-- 底部侧栏 -->
-		<jsp:include page="foot.jsp"></jsp:include>
+		<jsp:include page="/pages/foot.jsp"></jsp:include>
 		<!-- 底部侧栏 /-->
 
 	</div>

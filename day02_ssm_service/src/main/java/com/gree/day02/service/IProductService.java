@@ -8,4 +8,7 @@ public interface IProductService {
     public List<Product> findAll()throws Exception;
 
    public void add(Product product) throws Exception;
+
+
+    Product findCustomerById(Long id);
 }

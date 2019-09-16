@@ -144,7 +144,6 @@
 									</tr>
 								</thead>
 								<tbody>
-
 									<c:forEach items="${userList}" var="user">
 										<tr>
 											<td><input name="ids" type="checkbox"></td>

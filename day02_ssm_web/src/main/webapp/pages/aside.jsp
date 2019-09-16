@@ -95,12 +95,12 @@
 				<ul class="treeview-menu">
 					<li >
 						<a
-							href="${pageContext.request.contextPath}/pages/scrap-list.jsp"> <i
+							href="${pageContext.request.contextPath}/scrap/findAll.do"> <i
 							class="fa fa-circle-o"></i> 填写报废单
 						</a>
 					</li>
 					<li ><a
-							href="${pageContext.request.contextPath}/pages/audit_TSY_list.jsp"> <i
+							href="${pageContext.request.contextPath}/scrap/findTSY.do"> <i
 							class="fa fa-circle-o"></i> 调试员审核
 					</a></li>
 					<li ><a

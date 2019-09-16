@@ -24,7 +24,6 @@ public interface IRoleDao {
     @Insert("insert into Role(roleName,roleDesc)values(#{roleName},#{roleDesc})")
    public void save(Role role)throws Exception;
 
-
     @Select("select * from role where id=#{roleId}")
    public Role findById(String roleId) throws Exception;
 

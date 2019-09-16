@@ -35,7 +35,6 @@ public interface IUserDao {
             @Result(property = "phoneNum",column = "phoneNum"),
             @Result(property = "status",column = "status"),
             @Result(property = "roles",column = "id",javaType = java.util.List.class,many = @Many(select = "com.gree.day02.dao.IRoleDao.findByUserId")),
-
     })
 
     public UserInfo findByUsername(String username)throws Exception;

@@ -44,4 +44,12 @@ public class productServiceImpl implements IProductService {
         productDao.add(product);
     }
 
+    @Override
+    public Product findCustomerById(Long id) {
+
+
+        return productDao.findByIds(id);
+    }
+
+
 }

@@ -20,4 +20,7 @@ public interface IProductDao {
     @Insert("insert into product(productNum,productName,cityName,departureTime,productPrice,productDesc,productStatus)" +
             " values(#{productNum},#{productName},#{cityName},#{departureTime},#{productPrice},#{productDesc},#{productStatus})")
     public void add(Product product);
+
+    @Select("select * from Product where id = id=#{id}")
+    public Product findByIds(Long id);
 }
