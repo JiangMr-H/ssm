@@ -62,12 +62,13 @@ public class scrapServiceImpl implements IScrapService {
 
 
     @Override
-    public void ScarpUpdate(Scrap scarp, Approval approval) {
-        iScrapDao.ScarpUpdate(scarp,approval);
+    public void ScarpUpdate(int scarpid) throws Exception{
+        iScrapDao.ScarpUpdate(scarpid);
     }
 
+
     @Override
-    public void insertTJY(Approval approval) {
-        iScrapDao.insertTJY(approval);
+    public void insertTJY(int T_id,String RoleName_TJY,String RoleDescription_TJY) throws Exception {
+        iScrapDao.insertTJY(T_id,RoleName_TJY,RoleDescription_TJY);
     }
 }

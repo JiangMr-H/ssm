@@ -28,7 +28,7 @@ public interface IScrapDao {
     void scrapAdd(Scrap scrap);
 
 
-    @Select("SELECT SCRQ,BZ,CPBM,GZBM,CLYS,JCBM,GYTS,QL,HBD,HW,QW,YS,SBW,SS,LSL,LBH,SJ,BX,SY,DKDL,YWB,SC,DS,HS,NM,MC,TJBL,SYBL,SM,SLHJ,JK,CZG,\"remake\" from \"scrap\" where \"id\"=#{scrapId}")
+    @Select("SELECT \"id\",SCRQ,BZ,CPBM,GZBM,CLYS,JCBM,GYTS,QL,HBD,HW,QW,YS,SBW,SS,LSL,LBH,SJ,BX,SY,DKDL,YWB,SC,DS,HS,NM,MC,TJBL,SYBL,SM,SLHJ,JK,CZG,\"remake\" from \"scrap\" where \"id\"=#{scrapId}")
     Scrap findscrapById(int scrapId);
 
     /**
@@ -52,13 +52,23 @@ public interface IScrapDao {
     /**
      * 修改状态（调试员审批后）
      */
-    @Update("update  set ")
-    void ScarpUpdate(Scrap scarp,Approval approval);
-
+    @Update("update \"scrap\" SET \"courseId\"=2 where \"id\"=#{scarpid}")
+    void ScarpUpdate(int scarpid);
 
     /**
      * 录入调试员描述信息
+     * @param id
+     * @param
+     * @param
      */
-    void insertTJY(Approval approval);
+    @Insert("insert into \"ZS_Approval\"(\"scrap_id\",\"RoleName_TJY\",\"RoleDescription_TJY\",\"scantime_TJY\")values(#{id},#{RoleName_TJY},#{RoleDescription_TJY},SYSDATE)")
+    void insertTJY(int id,String RoleName_TJY,String RoleDescription_TJY);
+
+
+
+
+
+
+
 
 }

@@ -17,7 +17,8 @@ public interface IScrapService {
 
     List<Scrap> findTSY(int page, int size)throws Exception;
 
-    void ScarpUpdate(Scrap scarp, Approval approval);
+    void ScarpUpdate(int scrapId)throws Exception;
 
-    void insertTJY(Approval approval);
+   void insertTJY(int T_id,String RoleName_TJY,String RoleDescription_TJY)throws Exception;
+
 }

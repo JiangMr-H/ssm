@@ -101,15 +101,17 @@ public class ScrapController {
         return mv;
     }
 
-    /**
-     * 修改状态
-     * @param scarp
-     * @return
-     */
+
     @RequestMapping("/updateTJY.do")
-    public String scrapUpdate(Scrap scarp, Approval approval){
-       scrapService.ScarpUpdate(scarp,approval);
-       scrapService.insertTJY(approval);
+    public String scrapUpdate(@RequestParam(name = "id",required = true)int id,@RequestParam(name = "RoleName_TJY",required = true)String RoleName_TJY,@RequestParam(name = "RoleDescription_TJY",required = true)String RoleDescription_TJY)throws Exception
+    {
+
+        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++"+id+"++++1++"+RoleName_TJY);
+        scrapService.insertTJY(id,RoleName_TJY,RoleDescription_TJY);
+        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++"+id+"++++2++"+RoleName_TJY);
+        //修改
+       scrapService.ScarpUpdate(id);
+        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++"+id+"++++3++"+RoleName_TJY);
         return "redirect:findAll.do";
     }
 

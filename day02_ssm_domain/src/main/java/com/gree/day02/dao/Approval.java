@@ -43,6 +43,15 @@ public class Approval {
     private String RoleName_CZ;
     private String RoleDescription_CZ;
     private Date scantime_CZ;
+    private int T_id;
+
+    public int getT_id() {
+        return T_id;
+    }
+
+    public void setT_id(int t_id) {
+        T_id = t_id;
+    }
 
     public int getId() {
         return id;

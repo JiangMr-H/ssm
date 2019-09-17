@@ -191,11 +191,11 @@
 					<div class="modal-dialog modal-lg  with-border" style="width: 1700px"  role="document">
 							<div class="modal-content">
 
-								<form action="${pageContext.request.contextPath}/scrap/updateTJY.do"
+								<form action="${pageContext.request.contextPath}/scrap/updateTJY.do?id=${TSYscrap.id}"
 									  method="post">
 								<div class="modal-header">
-									<h4 class="modal-title " id="gridSystemModalLabel" style="margin-left: 750px">
-										注塑件报废确认单</h4>
+									<h4 class="modal-title " name="id" style="margin-left: 750px">
+										注塑件报废确认单:${TSYscrap.id }</h4>
 								</div>
 								<div class="modal-body modal-lg" style="width: 1800px">
 										<table class="table table-bordered modal-lg" style="width: 1680px">
@@ -338,16 +338,14 @@
 
 												<div class="col-md-2 title">角色名称</div>
 												<div class="col-md-4 data">
-													<input type="text" class="form-control" name="roleName"
+													<input type="text" class="form-control" name="RoleName_TJY"
 														   placeholder="角色名称" value="">
 												</div>
 												<div class="col-md-2 title">角色描述</div>
 												<div class="col-md-4 data">
-													<input type="text" class="form-control" name="roleDesc"
+													<input type="text" class="form-control" name="RoleDescription_TJY"
 														   placeholder="角色描述" value="">
 												</div>
-
-
 											</div>
 										</div>
 										<!--订单信息/--> <!--工具栏-->
