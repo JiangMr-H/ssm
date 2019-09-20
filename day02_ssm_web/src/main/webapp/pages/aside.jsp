@@ -95,32 +95,36 @@
 				<ul class="treeview-menu">
 					<li >
 						<a
-							href="${pageContext.request.contextPath}/scrap/findAll.do"> <i
+							href="${pageContext.request.contextPath}/scrap/findNewPage.do"> <i
 							class="fa fa-circle-o"></i> 填写报废单
 						</a>
 					</li>
 					<li ><a
-							href="${pageContext.request.contextPath}/scrap/findTSY.do"> <i
+							href="${pageContext.request.contextPath}/scrap/findAll.do?count=1"> <i
 							class="fa fa-circle-o"></i> 调试员审核
 					</a></li>
 					<li ><a
-							href="${pageContext.request.contextPath}/pages/audit_Zz_list.jsp">
+							href="${pageContext.request.contextPath}/scrap/findAll.do?count=2">
 						<i class="fa fa-circle-o"></i> 组长审核
 					</a></li>
 					<li ><a
-							href="${pageContext.request.contextPath}/pages/audit_JYy_list.jsp"> <i
+							href="${pageContext.request.contextPath}/scrap/findAll.do?count=3"> <i
 							class="fa fa-circle-o"></i> 检验员审核
 					</a></li>
 					<li ><a
-							href="${pageContext.request.contextPath}/pages/audit_CZ_list.jsp"> <i
+							href="${pageContext.request.contextPath}/scrap/findAll.do?count=5"> <i
+							class="fa fa-circle-o"></i> 质量科长审核
+					</a></li>
+					<li ><a
+							href="${pageContext.request.contextPath}/scrap/findAll.do?count=6"> <i
 							class="fa fa-circle-o"></i> 厂长审核
 					</a></li>
 					<li ><a
-							href="${pageContext.request.contextPath}/pages/audit_SJY_list.jsp">
-						<i class="fa fa-circle-o"></i> 数据员核实
+							href="${pageContext.request.contextPath}/scrap/findAll.do?count=4">
+						<i class="fa fa-circle-o"></i> 接收员核实
 					</a></li>
 					<li ><a
-							href="${pageContext.request.contextPath}/pages/audit_ProcessQuery.jsp"> <i
+							href="${pageContext.request.contextPath}/scrap/findNewPage.do"> <i
 							class="fa fa-circle-o"></i> 进程查询
 					</a></li>
 				</ul>

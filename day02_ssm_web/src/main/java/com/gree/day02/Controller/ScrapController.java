@@ -13,8 +13,6 @@ package com.gree.day02.Controller;
 
 
 import com.github.pagehelper.PageInfo;
-import com.gree.day02.dao.Approval;
-import com.gree.day02.dao.Course;
 import com.gree.day02.dao.Scrap;
 import com.gree.day02.service.IScrapService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +39,39 @@ public class ScrapController {
      @Autowired
      private IScrapService scrapService;
 
+
+
+    /**
+     * 菜单栏 打开页面跳转
+     * @param page
+     * @param size
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/findAll.do")
+    public  ModelAndView findAll(@RequestParam(name = "page",required = true,defaultValue = "1")int page, @RequestParam(name = "size",required = true,defaultValue = "15")int size,int count) throws Exception {
+        ModelAndView mv = new ModelAndView();
+        List<Scrap> scrapList = scrapService.findAll(page,size,count);
+        PageInfo pageInfo = new PageInfo(scrapList);
+        mv.addObject("pageInfo",pageInfo);
+        if(count==1){
+            mv.setViewName("audit_TSY_list"); //调机员
+        }else if(count==2){
+            mv.setViewName("audit_Zz_list"); //班长
+        }else if(count==3){
+            mv.setViewName("audit_JYy_list"); //检验员
+        }else if(count==4){
+            mv.setViewName("audit_JSY_list"); //接收员
+        }else if(count==5){
+            mv.setViewName("audit_ZLJS_list"); //质量科长
+        }else if(count==6){
+            mv.setViewName("audit_CZ_list");  //厂长
+        }else if(count==7){
+            mv.setViewName("audit_ProcessQuery"); //进程查询
+        }
+        return mv;
+    }
+
     /**
      * 查询报废单列表
      * @param page
@@ -48,10 +79,10 @@ public class ScrapController {
      * @return
      * @throws Exception
      */
-    @RequestMapping("/findAll.do")
-    public  ModelAndView findAll(@RequestParam(name = "page",required = true,defaultValue = "1")int page, @RequestParam(name = "size",required = true,defaultValue = "15")int size) throws Exception {
+    @RequestMapping("/findNewPage.do")
+    public  ModelAndView findTSY(@RequestParam(name = "page",required = true,defaultValue = "1")int page, @RequestParam(name = "size",required = true,defaultValue = "15")int size) throws Exception {
         ModelAndView mv = new ModelAndView();
-        List<Scrap> scrapList = scrapService.findAll(page,size);
+        List<Scrap> scrapList = scrapService.findTSY(page,size);
         PageInfo pageInfo = new PageInfo(scrapList);
         mv.addObject("pageInfo",pageInfo);
         mv.setViewName("scrap-list");
@@ -66,7 +97,7 @@ public class ScrapController {
     @RequestMapping("/save.do")
     public String scrapAdd(Scrap scrap){
         scrapService.scrapAdd(scrap);
-        return "redirect:findAll.do";
+        return "redirect:findNewPage.do";
     }
 
     /**
@@ -84,35 +115,14 @@ public class ScrapController {
         return mv;
     }
 
-    /**
-     * 查询调试员报废单列表
-     * @param page
-     * @param size
-     * @return
-     * @throws Exception
-     */
-    @RequestMapping("/findTSY.do")
-    public  ModelAndView findTSY(@RequestParam(name = "page",required = true,defaultValue = "1")int page, @RequestParam(name = "size",required = true,defaultValue = "15")int size) throws Exception {
-        ModelAndView mv = new ModelAndView();
-        List<Scrap> scrapList = scrapService.findTSY(page,size);
-        PageInfo pageInfo = new PageInfo(scrapList);
-        mv.addObject("pageInfo",pageInfo);
-        mv.setViewName("audit_TSY_list");
-        return mv;
-    }
 
 
     @RequestMapping("/updateTJY.do")
     public String scrapUpdate(@RequestParam(name = "id",required = true)int id,@RequestParam(name = "RoleName_TJY",required = true)String RoleName_TJY,@RequestParam(name = "RoleDescription_TJY",required = true)String RoleDescription_TJY)throws Exception
     {
-
-        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++"+id+"++++1++"+RoleName_TJY);
-        scrapService.insertTJY(id,RoleName_TJY,RoleDescription_TJY);
-        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++"+id+"++++2++"+RoleName_TJY);
-        //修改
+       scrapService.insertTJY(id,RoleName_TJY,RoleDescription_TJY);
        scrapService.ScarpUpdate(id);
-        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++"+id+"++++3++"+RoleName_TJY);
-        return "redirect:findAll.do";
+       return "redirect:findTSY.do";
     }
 
 

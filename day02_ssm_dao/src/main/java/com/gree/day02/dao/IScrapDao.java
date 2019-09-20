@@ -18,7 +18,7 @@ public interface IScrapDao {
             @Result(property = "JCBM",column = "JCBM"),
             @Result(property = "course",column = "course")
     })
-    public List<Scrap> findAll();
+    public List<Scrap> findTSY();
 
     /*
     录入报废单信息
@@ -36,7 +36,7 @@ public interface IScrapDao {
      * @return
      */
     @Select("SELECT s.\"id\",s.SCRQ,s.BZ,s.CPBM,s.GZBM,s.CLYS,s.JCBM,co.\"currentProcess\" course from \"scrap\" s\n" +
-            "            INNER JOIN \"course\" co ON s.\"courseId\"=co.\"id\" where s.\"courseId\"=1  order by s.\"scantime\" DESC")
+            "            INNER JOIN \"course\" co ON s.\"courseId\"=co.\"id\" where 1=1 or s.\"courseId\"=#{count}  order by s.\"scantime\" DESC")
     @Results({
             @Result(id = true,property = "id",column = "id"),
             @Result(property = "SCRQ",column = "SCRQ"),
@@ -47,7 +47,7 @@ public interface IScrapDao {
             @Result(property = "JCBM",column = "JCBM"),
             @Result(property = "course",column = "course")
     })
-    List<Scrap> findTSY();
+    List<Scrap> findAll(int count);
 
     /**
      * 修改状态（调试员审批后）
@@ -62,7 +62,7 @@ public interface IScrapDao {
      * @param
      */
     @Insert("insert into \"ZS_Approval\"(\"scrap_id\",\"RoleName_TJY\",\"RoleDescription_TJY\",\"scantime_TJY\")values(#{id},#{RoleName_TJY},#{RoleDescription_TJY},SYSDATE)")
-    void insertTJY(int id,String RoleName_TJY,String RoleDescription_TJY);
+    void insertTJY(@Param("id") int id,@Param("RoleName_TJY") String RoleName_TJY,@Param("RoleDescription_TJY") String RoleDescription_TJY);
 
 
 

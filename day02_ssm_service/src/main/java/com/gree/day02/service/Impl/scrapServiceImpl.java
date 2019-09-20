@@ -39,9 +39,9 @@ public class scrapServiceImpl implements IScrapService {
     private IScrapDao iScrapDao;
 
    @Override
-    public List<Scrap> findAll(int page, int size) throws Exception{
+    public List<Scrap> findTSY(int page, int size) throws Exception{
         PageHelper.startPage(page,size);
-        return iScrapDao.findAll();
+        return iScrapDao.findTSY();
     }
 
     @Override
@@ -55,9 +55,9 @@ public class scrapServiceImpl implements IScrapService {
     }
 
     @Override
-    public List<Scrap> findTSY(int page, int size) throws Exception {
+    public List<Scrap> findAll(int page, int size,int count) throws Exception {
         PageHelper.startPage(page,size);
-        return iScrapDao.findTSY();
+        return iScrapDao.findAll(count);
     }
 
 
@@ -69,6 +69,7 @@ public class scrapServiceImpl implements IScrapService {
 
     @Override
     public void insertTJY(int T_id,String RoleName_TJY,String RoleDescription_TJY) throws Exception {
+       System.out.println("======================="+T_id);
         iScrapDao.insertTJY(T_id,RoleName_TJY,RoleDescription_TJY);
     }
 }
