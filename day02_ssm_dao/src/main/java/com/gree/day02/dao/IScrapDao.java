@@ -36,7 +36,7 @@ public interface IScrapDao {
      * @return
      */
     @Select("SELECT s.\"id\",s.SCRQ,s.BZ,s.CPBM,s.GZBM,s.CLYS,s.JCBM,co.\"currentProcess\" course from \"scrap\" s\n" +
-            "            INNER JOIN \"course\" co ON s.\"courseId\"=co.\"id\" where 1=1 or s.\"courseId\"=#{count}  order by s.\"scantime\" DESC")
+            "            INNER JOIN \"course\" co ON s.\"courseId\"=co.\"id\" where s.\"courseId\"=#{count}  order by s.\"scantime\" DESC")
     @Results({
             @Result(id = true,property = "id",column = "id"),
             @Result(property = "SCRQ",column = "SCRQ"),

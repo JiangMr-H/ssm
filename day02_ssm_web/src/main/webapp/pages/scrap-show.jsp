@@ -191,7 +191,7 @@
 					<div class="modal-dialog modal-lg  with-border" style="width: 1700px"  role="document">
 							<div class="modal-content">
 
-								<form action="${pageContext.request.contextPath}/scrap/updateTJY.do?id=${TSYscrap.id}"
+								<form action="${pageContext.request.contextPath}/scrap/updateTJY.do?id=${TSYscrap.id}&count1=1"
 									  method="post">
 								<div class="modal-header">
 									<h4 class="modal-title " name="id" style="margin-left: 750px">
