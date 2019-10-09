@@ -234,7 +234,7 @@
 										<td class="text-center">${scrap.course }</td>
 										<td class="text-center">
 											<a type="button" class="btn bg-olive btn-xs" data-toggle="modal"
-											   data-target="#exampleModal" onclick="location.href='${pageContext.request.contextPath}/scrap/findById.do?id=${scrap.id }'">
+											   data-target="#exampleModal" onclick="location.href='${pageContext.request.contextPath}/scrap/findByTSYId.do?id=${scrap.id }'">
 												审批
 											</a>
 

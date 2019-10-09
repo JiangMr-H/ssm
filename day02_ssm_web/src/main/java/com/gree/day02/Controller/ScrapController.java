@@ -38,9 +38,6 @@ public class ScrapController {
 
      @Autowired
      private IScrapService scrapService;
-
-
-
     /**
      * 菜单栏 打开页面跳转
      * @param page
@@ -77,29 +74,10 @@ public class ScrapController {
         PageInfo pageInfo = new PageInfo(scrapList);
         mv.addObject("pageInfo",pageInfo);
         return mv;
-
-
-       /* ModelAndView mv = new ModelAndView();
-        List<Scrap> scrapList = scrapService.findAll(page,size,count);
-        PageInfo pageInfo = new PageInfo(scrapList);
-        mv.addObject("pageInfo",pageInfo);
-        if(count==1){
-            mv.setViewName("audit_TSY_list"); //调机员
-        }else if(count==2){
-            mv.setViewName("audit_Zz_list"); //班长
-        }else if(count==3){
-            mv.setViewName("audit_JYy_list"); //检验员
-        }else if(count==4){
-            mv.setViewName("audit_JSY_list"); //接收员
-        }else if(count==5){
-            mv.setViewName("audit_ZLJS_list"); //质量科长
-        }else if(count==6){
-            mv.setViewName("audit_CZ_list");  //厂长
-        }else if(count==7){
-            mv.setViewName("audit_ProcessQuery"); //进程查询
-        }
-        return mv;*/
     }
+
+
+
 
     /**
      * 查询报废单列表
@@ -118,6 +96,86 @@ public class ScrapController {
         return mv;
     }
 
+
+
+
+
+    /**
+     *
+     * @param scrapId
+     * @return
+     */
+    @RequestMapping("/findByTSYId.do")
+    public ModelAndView findscrapById(@RequestParam(name = "id",required = true)int scrapId)
+    {
+        ModelAndView mv=new ModelAndView();
+        Scrap TSYscrap =  scrapService.findscrapById(scrapId);
+        mv.addObject("TSYscrap",TSYscrap);
+        mv.setViewName("scrap-TSY-show");
+        return mv;
+    }
+    /*
+    audit_Zz_list
+     */
+    @RequestMapping("/findByZzId.do")
+    public ModelAndView findscrapByZzId(@RequestParam(name = "id",required = true)int scrapId)
+    {
+        ModelAndView mv=new ModelAndView();
+        Scrap TSYscrap =  scrapService.findscrapById(scrapId);
+        mv.addObject("TSYscrap",TSYscrap);
+        mv.setViewName("scrap-Zz-show");
+        return mv;
+    }
+    /*
+    audit_JYy_list
+     */
+    @RequestMapping("/findByJYyId.do")
+    public ModelAndView findscrapByJYyId(@RequestParam(name = "id",required = true)int scrapId)
+    {
+        ModelAndView mv=new ModelAndView();
+        Scrap TSYscrap =  scrapService.findscrapById(scrapId);
+        mv.addObject("TSYscrap",TSYscrap);
+        mv.setViewName("scrap-JYy-show");
+        return mv;
+    }
+    /*
+    audit_JSY_list
+     */
+    @RequestMapping("/findByJSYId.do")
+    public ModelAndView findscrapByJSYId(@RequestParam(name = "id",required = true)int scrapId)
+    {
+        ModelAndView mv=new ModelAndView();
+        Scrap TSYscrap =  scrapService.findscrapById(scrapId);
+        mv.addObject("TSYscrap",TSYscrap);
+        mv.setViewName("scrap-JSY-show");
+        return mv;
+    }
+    /*
+    audit_ZLJS_list
+     */
+    @RequestMapping("/findByZLJSId.do")
+    public ModelAndView findscrapByZLJSId(@RequestParam(name = "id",required = true)int scrapId)
+    {
+        ModelAndView mv=new ModelAndView();
+        Scrap TSYscrap =  scrapService.findscrapById(scrapId);
+        mv.addObject("TSYscrap",TSYscrap);
+        mv.setViewName("scrap-ZLJS-show");
+        return mv;
+    }
+    /*
+    audit_CZ_list
+     */
+    @RequestMapping("/findByCZId.do")
+    public ModelAndView findscrapByCZId(@RequestParam(name = "id",required = true)int scrapId) {
+        ModelAndView mv = new ModelAndView();
+        Scrap TSYscrap = scrapService.findscrapById(scrapId);
+        mv.addObject("TSYscrap", TSYscrap);
+        mv.setViewName("scrap-CZ-show");
+        return mv;
+    }
+
+
+
     /**
      * 录入报废单信息
      * @param scrap
@@ -129,33 +187,49 @@ public class ScrapController {
         return "redirect:findNewPage.do";
     }
 
-    /**
-     *
-     * @param scrapId
-     * @return
-     */
-    @RequestMapping("/findById.do")
-    public ModelAndView findscrapById(@RequestParam(name = "id",required = true)int scrapId)
-    {
-        ModelAndView mv=new ModelAndView();
-        Scrap TSYscrap =  scrapService.findscrapById(scrapId);
-        mv.addObject("TSYscrap",TSYscrap);
-        mv.setViewName("scrap-show");
-        return mv;
-    }
-
-
 
     @RequestMapping("/updateTJY.do")
-    public String scrapUpdate(@RequestParam(name = "id",required = true)int id,@RequestParam(name = "RoleName_TJY",required = true)String RoleName_TJY,@RequestParam(name = "RoleDescription_TJY",required = true)String RoleDescription_TJY,int count1)throws Exception
+    public String scrapUpdate(@RequestParam(name = "id",required = true)int id,@RequestParam(name = "RoleName_TJY",required = true)String RoleName_TJY,@RequestParam(name = "RoleDescription_TJY",required = true)String RoleDescription_TJY)throws Exception
     {
-       scrapService.insertTJY(id,RoleName_TJY,RoleDescription_TJY);
-       scrapService.ScarpUpdate(id);
-       return "redirect:findAll.do?count=count1";
+        scrapService.insertTJY(id,RoleName_TJY,RoleDescription_TJY);
+        scrapService.ScarpUpdate(id);
+        return "redirect:findAll.do?count=1";
     }
-
-
-
+    @RequestMapping("/updateZz.do")
+    public String scrapUpdateZz(@RequestParam(name = "id",required = true)int id,@RequestParam(name = "RoleName_Zz",required = true)String RoleName_Zz,@RequestParam(name = "RoleDescription_Zz",required = true)String RoleDescription_Zz)throws Exception
+    {
+        scrapService.UpdateZz(id,RoleName_Zz,RoleDescription_Zz);
+        scrapService.ScarpUpdateZz(id);
+        return "redirect:findAll.do?count=2";
+    }
+    @RequestMapping("/updateJYy.do")
+    public String scrapUpdateJYy(@RequestParam(name = "id",required = true)int id,@RequestParam(name = "RoleName_JYy",required = true)String RoleName_JYy,@RequestParam(name = "RoleDescription_JYy",required = true)String RoleDescription_JYy)throws Exception
+    {
+        scrapService.UpdateJYy(id,RoleName_JYy,RoleDescription_JYy);
+        scrapService.ScarpUpdateJYy(id);
+        return "redirect:findAll.do?count=3";
+    }
+    @RequestMapping("/updateJSY.do")
+    public String scrapUpdateJSY(@RequestParam(name = "id",required = true)int id,@RequestParam(name = "RoleName_JSY",required = true)String RoleName_JSY,@RequestParam(name = "RoleDescription_JSY",required = true)String RoleDescription_JSY)throws Exception
+    {
+        scrapService.UpdateJSY(id,RoleName_JSY,RoleDescription_JSY);
+        scrapService.ScarpUpdateJSY(id);
+        return "redirect:findAll.do?count=4";
+    }
+    @RequestMapping("/updateZLJS.do")
+    public String scrapUpdateZLJS(@RequestParam(name = "id",required = true)int id,@RequestParam(name = "RoleName_ZLJS",required = true)String RoleName_ZLJS,@RequestParam(name = "RoleDescription_ZLJS",required = true)String RoleDescription_ZLJS)throws Exception
+    {
+        scrapService.UpdateZLJS(id,RoleName_ZLJS,RoleDescription_ZLJS);
+        scrapService.ScarpUpdateZLJS(id);
+        return "redirect:findAll.do?count=5";
+    }
+    @RequestMapping("/updateCZ.do")
+    public String scrapUpdateCZ(@RequestParam(name = "id",required = true)int id,@RequestParam(name = "RoleName_CZ",required = true)String RoleName_CZ,@RequestParam(name = "RoleDescription_CZ",required = true)String RoleDescription_CZ)throws Exception
+    {
+        scrapService.insertCZ(id,RoleName_CZ,RoleDescription_CZ);
+        scrapService.ScarpUpdateCZ(id);
+        return "redirect:findAll.do?count=6";
+    }
 
 
 

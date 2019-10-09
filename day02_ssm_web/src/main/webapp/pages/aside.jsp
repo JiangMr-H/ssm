@@ -51,42 +51,6 @@
 					</a></li>
 				</ul>
 			</li>
-
-			<li class="treeview"><a href="#"> <i class="fa fa-bathtub"></i>
-				<span>无纸化点检</span> <span class="pull-right-container"> <i
-						class="fa fa-angle-left pull-right"></i>
-				</span>
-			</a>
-				<ul class="treeview-menu">
-					<li>
-						<a
-							href="${pageContext.request.contextPath}/pages/paperless-list.jsp"> <i
-							class="fa fa-circle-o"></i> 工艺参数表
-						</a>
-					</li>
-					<li ><a
-							href="${pageContext.request.contextPath}/pages/paperless-JYy-list.jsp"> <i
-							class="fa fa-circle-o"></i> 检验员审核
-					</a></li>
-					<li ><a
-							href="${pageContext.request.contextPath}/pages/paperless-TJY-list.jsp">
-						<i class="fa fa-circle-o"></i> 调机员、班组
-					</a></li>
-					<li ><a
-							href="${pageContext.request.contextPath}/pages/paperless-ZK-list.jsp"> <i
-							class="fa fa-circle-o"></i> 质控确认
-					</a></li>
-					<li ><a
-							href="${pageContext.request.contextPath}/pages/paperless-GY-list.jsp">
-						<i class="fa fa-circle-o"></i> 工艺确认
-					</a></li>
-					<li ><a
-							href="${pageContext.request.contextPath}/pages/Paperless_ProcessQuery.jsp"> <i
-							class="fa fa-circle-o"></i> 进程查询
-					</a></li>
-				</ul>
-			</li>
-
 			<li class="treeview"><a href="#"> <i class="fa fa-wordpress"></i>
 				<span>报废管理</span> <span class="pull-right-container"> <i
 						class="fa fa-angle-left pull-right"></i>
@@ -95,8 +59,8 @@
 				<ul class="treeview-menu">
 					<li >
 						<a
-							href="${pageContext.request.contextPath}/scrap/findNewPage.do"> <i
-							class="fa fa-circle-o"></i> 填写报废单
+								href="${pageContext.request.contextPath}/scrap/findNewPage.do"> <i
+								class="fa fa-circle-o"></i> 填写报废单
 						</a>
 					</li>
 					<li ><a
@@ -123,29 +87,60 @@
 							href="${pageContext.request.contextPath}/scrap/findAll.do?count=4">
 						<i class="fa fa-circle-o"></i> 接收员核实
 					</a></li>
-					<li ><a
+					<%--<li ><a
 							href="${pageContext.request.contextPath}/scrap/findNewPage.do"> <i
 							class="fa fa-circle-o"></i> 进程查询
-					</a></li>
+					</a></li>--%>
 				</ul>
 			</li>
-			<li class="treeview"><a href="#"> <i class="fa fa-gear"></i>
-				<span>工艺参数检查记录</span> <span class="pull-right-container"> <i
+			<li class="treeview"><a href="#"> <i class="fa fa-bathtub"></i>
+				<span>无纸化点检</span> <span class="pull-right-container"> <i
 						class="fa fa-angle-left pull-right"></i>
 				</span>
 			</a>
 				<ul class="treeview-menu">
-
+					<li>
+						<a
+							href="${pageContext.request.contextPath}/GYCS/findGycs.do"> <i
+							class="fa fa-circle-o"></i> 工艺参数表
+						</a>
+					</li>
 					<li ><a
-							href="${pageContext.request.contextPath}/pages/Charting_Query_list.jsp">
-						<i class="fa fa-circle-o"></i> 工艺参数记录
+							href="${pageContext.request.contextPath}/GYCS/findGycs2.do?count=1"> <i
+							class="fa fa-circle-o"></i> 检验员审核
 					</a></li>
 					<li ><a
-					<%--表示分页时 默认它为第一页 每页显示4条--%>
-							href="${pageContext.request.contextPath}/pages/Charting_list.jsp"> <i
-							class="fa fa-circle-o"></i> 记录表查询
+							href="${pageContext.request.contextPath}/GYCS/findGycs2.do?count=2">
+						<i class="fa fa-circle-o"></i> 调机员、班组
 					</a></li>
+					<li ><a
+							href="${pageContext.request.contextPath}/GYCS/findGycs2.do?count=3"> <i
+							class="fa fa-circle-o"></i> 质控确认
+					</a></li>
+					<li ><a
+							href="${pageContext.request.contextPath}/GYCS/findGycs2.do?count=4">
+						<i class="fa fa-circle-o"></i> 工艺确认
+					</a></li>
+					<%--<li ><a
+							href="${pageContext.request.contextPath}/pages/paperless-TJY-show.jsp"> <i
+							class="fa fa-circle-o"></i> 进程查询
+					</a></li>--%>
+				</ul>
+			</li>
 
+
+			<li class="treeview"><a href="#"> <i class="fa fa-gear"></i>
+				<span>零件首检</span> <span class="pull-right-container"> <i
+						class="fa fa-angle-left pull-right"></i>
+				</span>
+			</a>
+				<ul class="treeview-menu">
+					<li >
+						<a
+								href="${pageContext.request.contextPath}/ljsjb/findljsjb.do"> <i
+								class="fa fa-circle-o"></i> 填写零件首检表
+						</a>
+					</li>
 				</ul>
 			</li>
 

@@ -191,32 +191,149 @@
 						<div class="table-box">
 
 							<!--工具栏-->
-							<div class="pull-left">
+						<%--	<div class="pull-left">
 								<div class="form-group form-inline">
 									<div class="btn-group">
-										<button type="button" class="btn btn-default" title="新建"
-											onclick="location.href='audit-TSY.jsp'">
+
+										<button type="button" class="btn btn-primary" title="新建"
+												data-toggle="modal"
+												data-target="#exampleModal" data-whatever="@mdo">
+											&lt;%&ndash;<a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#customerEditDialog" onclick="editCustomer()">新建</a>&ndash;%&gt;
 											<i class="fa fa-file-o"></i> 新建
-										</button>
-										<button type="button" class="btn btn-default" title="删除">
-											<i class="fa fa-trash-o"></i> 删除
-										</button>
-										<button type="button" class="btn btn-default" title="开启">
-											<i class="fa fa-check"></i> 开启
-										</button>
-										<button type="button" class="btn btn-default" title="屏蔽">
-											<i class="fa fa-ban"></i> 屏蔽
 										</button>
 										<button type="button" class="btn btn-default" title="刷新">
 											<i class="fa fa-refresh"></i> 刷新
 										</button>
 									</div>
 								</div>
+							</div>--%>
+
+							<!-- 报废单  -->
+							<!-- 客户编辑对话框 -->
+							<div class="modal fade bs-example-modal-lg" id="customerEditDialog" tabindex="-1" role="dialog"
+								 aria-labelledby="myModalLabel">
+								<div class="modal-dialog modal-lg"  role="document"  style="width: 950px">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+											<h4 class="modal-title " id="gridSystemModalLabel" >
+												工艺参数记录表</h4>
+										</div>
+										<div class="modal-body modal-lg"  style="width: 950px">
+											<form class="form-horizontal" id="edit_customer_form"
+												  action="${pageContext.request.contextPath}/GYCS/save.do"
+												  method="post" onsubmit="return check(this)">
+												<table class="table table-bordered modal-lg" >
+													<tr>
+														<td class="text-center"><i style="color: red">* </i>
+															产品名称：</td>
+														<td colspan="4"><input type="text"  name="CPMC" placeholder="产品名称"></td>
+														<td class="text-center" ><i style="color: red">* </i>检验员：</td>
+														<td colspan="3"><input type="text" style="width: 150px" name="JYY"
+																			   placeholder="检验员"></td>
+														<td colspan="4" rowspan="2" style="padding-top:27px ">参数变化情况</td>
+
+													</tr>
+													<tr>
+														<td class="text-center"><i style="color: red">* </i>
+															机床编码：</td>
+														<td colspan="2"><input type="text"  name="JCBM" placeholder="机床编码"></td>
+														<td class="text-center"><i style="color: red">* </i>
+															班次：</td>
+														<td ><input type="text" style="width: 80px" name="BC" placeholder="班次"></td>
+														<td class="text-center"><i style="color: red">* </i>
+															检查日期：</td>
+														<td colspan="3"><input type="date"  name="JCRQ" placeholder="检查日期"></td>
+
+													</tr>
+													<tr>
+														<td class="text-center" rowspan="5"style="padding-top: 60px">注塑</br>工艺参数</td>
+														<td class="text-center">压力</td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="YL1"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="YL2"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="YL3"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="YL4"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="YL5"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="YL6"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="YL7"></td>
+
+														<td><input type="text"  style="width: 80px"></td>
+													</tr>
+													<tr>
+														<td class="text-center">速度</td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="SD1"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="SD2"></td>
+														<td class="text-center"><input type="text"  style="width: 50px"name="SD3"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="SD4"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="SD5"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="SD6"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="SD7"></td>
+
+														<td><input type="text"  style="width: 80px"></td>
+													</tr>
+													<tr>
+														<td class="text-center">位置</td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="WZ1"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="WZ2"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="WZ3"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="WZ4"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="WZ5"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="WZ6"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="WZ7"></td>
+
+														<td><input type="text"  style="width: 80px"></td>
+													</tr>
+													<tr>
+														<td class="text-center">温度</td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="WD1"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="WD2"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="WD3"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="WD4"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="WD5"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="WD6"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="WD7"></td>
+
+														<td><input type="text"  style="width: 80px"></td>
+													</tr>
+													<tr>
+														<td class="text-center">射胶</td>
+														<td class="text-right"><input type="text"  style="width: 50px;margin-right: 10px" name="SJ"><i>秒</i></td>
+														<td class="text-center">冷却</td>
+														<td class="text-right"><input type="text"  style="width: 50px" NAME="LQ"><i>秒</i></td>
+														<td class="text-center">保压</td>
+														<td class="text-right"><input type="text"  style="width: 50px;margin-left: 5px" NAME="BYA"><i>秒</i></td>
+														<td class="text-center">检查时间点</td>
+														<td class="text-right"><input type="datetime" placeholder="00:00" style="width: 50px" NAME="JCSJ"></td>
+
+														<td><input type="text"  style="width: 80px"></td>
+													</tr>
+													<tr>
+														<td rowspan="2" class="text-left">备注</td>
+														<td colspan="8"><input type="text" cols="40" rows="5" style="width: 600px;height: 30px" name="BZ" placeholder="备注"></td>
+													</tr>
+
+												</table>
+
+
+												<span style="color: red;font-size: 14px">注：*为必填项</span>
+
+
+												<div class="modal-footer">
+													<button type="submit" class="btn btn-primary">保存</button>
+													<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
 							</div>
+							<!--报废单/-->
 							<div class="box-tools pull-right">
 								<div class="has-feedback">
 									<input type="text" class="form-control input-sm"
-										placeholder="搜索"> <span
+										   placeholder="生产日期\班组\产品编码"> <span
 										class="glyphicon glyphicon-search form-control-feedback"></span>
 								</div>
 							</div>
@@ -224,45 +341,55 @@
 
 							<!--数据列表-->
 							<table id="dataList"
-								class="table table-bordered table-striped table-hover dataTable">
+								   class="table table-bordered table-striped table-hover dataTable">
 								<thead>
-									<tr>
-										<th class="" style="padding-right: 0px;"><input
+								<tr>
+									<th class="" style="padding-right: 0px;"><input
 											id="selall" type="checkbox" class="icheckbox_square-blue">
-										</th>
-										<th class="sorting_asc">ID</th>
-										<th class="sorting_desc">零件名称</th>
-										<th class="sorting_desc sorting_desc_disabled">零件图号</th>
-										<th class="text-center sorting">物料编码</th>
-										<th class="sorting">工装编号</th>
-										<th class="sorting_asc sorting_asc_disabled">日期</th>
-										<th class="sorting">机床</th>
-										<th class="text-center sorting">状态</th>
-										<th class="text-center">操作</th>
-									</tr>
+									</th>
+									<th class="sorting_asc">ID</th>
+									<th class="sorting_desc">产品名称</th>
+									<th class="sorting_asc sorting_asc_disabled">检验员</th>
+									<th class="sorting_desc sorting_desc_disabled">机床编码</th>
+									<th class="sorting">班次</th>
+									<th class="text-center sorting">检查日期</th>
+									<th class="sorting">当前进程</th>
+									<th class="sorting">录入时间</th>
+									<th class="text-center sorting">操作</th>
+									<%--<th class="text-center">详细</th>--%>
+								</tr>
 								</thead>
 								<tbody>
 
 
-									<c:forEach items="${productList}" var="product">
+								<c:forEach items="${pageInfo.list}" var="gycs">
 
-										<tr>
-											<td><input name="ids" type="checkbox"></td>
-											<td>${product.id }</td>
-											<td>${product.productNum }</td>
-											<td>${product.productName }</td>
-											<td>${product.cityName }</td>
-											<td>${product.departureTimeStr }</td>
-											<td class="text-center">${product.productPrice }</td>
-											<td>${product.productDesc }</td>
-											<td class="text-center">${product.productStatusStr }</td>
-											<td class="text-center">
-												<button type="button" class="btn bg-olive btn-xs">详情</button>
-												<button type="button" class="btn bg-olive btn-xs">编辑</button>
-											</td>
-										</tr>
-									</c:forEach>
+									<tr>
+										<td><input name="ids" type="checkbox"></td>
+										<td>${gycs.id }</td>
+										<td>${gycs.CPMC }</td>
+										<td>${gycs.JYY }</td>
+										<td>${gycs.JCBM }</td>
+										<td>${gycs.BC }</td>
+										<td class="text-center">${gycs.JCRQ }</td>
+										<td class="text-center">${gycs.JC }</td>
+										<td>${gycs.scantime }</td>
+										<td class="text-center">
+												<%--<button type="button" class="btn bg-olive btn-xs">订单</button>--%>
+												<%--  <button type="button" class="btn bg-olive btn-xs"
+                                                          onclick="location.href='${pageContext.request.contextPath}/scrap/findById.do?id=${scrap.id}'">
+                                                      详情
+                                                  </button>--%>
+													<a type="button" class="btn bg-olive btn-xs" data-toggle="modal"
+													   data-target="#exampleModal" onclick="location.href='${pageContext.request.contextPath}/GYCS/findByTJYId.do?id=${gycs.id }'">
+														审批
+													</a>
+												<%--<button type="button" class="btn bg-olive btn-xs">编辑</button>--%>
+										</td>
+									</tr>
+								</c:forEach>
 								</tbody>
+
 							</table>
 							<!--数据列表/-->
 
@@ -277,27 +404,36 @@
 					<div class="box-footer">
 						<div class="pull-left">
 							<div class="form-group form-inline">
-								总共2 页，共14 条数据。 每页 <select class="form-control">
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
+								总共${pageInfo.pages} 页，共${pageInfo.total}条数据。 每页
+								<select class="form-control" id="changePageSize" onchange="changePageSize()">
+									<option>15</option>
+									<option>20</option>
+									<option>25</option>
+									<option>30</option>
+									<option>35</option>
 								</select> 条
 							</div>
 						</div>
 
 						<div class="box-tools pull-right">
 							<ul class="pagination">
-								<li><a href="#" aria-label="Previous">首页</a></li>
-								<li><a href="#">上一页</a></li>
-								<li><a href="#">1</a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-								<li><a href="#">下一页</a></li>
-								<li><a href="#" aria-label="Next">尾页</a></li>
+								<li>
+									<a href="${pageContext.request.contextPath}/GYCS/findGycs.do?page=1&size=${pageInfo.pageSize}"
+									   aria-label="Previous">首页</a></li>
+								<li>
+									<a href="${pageContext.request.contextPath}/GYCS/findGycs.do?page=${pageInfo.pageNum-1}&size=${pageInfo.pageSize}">上一页</a>
+								</li>
+								<c:forEach begin="${pageInfo.pageNum}" end="${pageInfo.pageNum}" var="pageNum">
+									<li>
+										<a href="${pageContext.request.contextPath}/GYCS/findGycs.do?page=${pageNum}&size=${pageInfo.pageSize}">${pageNum}</a>
+									</li>
+								</c:forEach>
+								<li>
+									<a href="${pageContext.request.contextPath}/GYCS/findGycs.do?page=${pageInfo.pageNum+1}&size=${pageInfo.pageSize}">下一页</a>
+								</li>
+								<li>
+									<a href="${pageContext.request.contextPath}/GYCS/findGycs.do?page=${pageInfo.pages}&size=${pageInfo.pageSize}"
+									   aria-label="Next">尾页</a></li>
 							</ul>
 						</div>
 
@@ -305,13 +441,12 @@
 					<!-- /.box-footer-->
 
 
-
 				</div>
 
 			</section>
 
 			<!-- 正文区域 /-->
-			<form action="#"
+			<%--<form action="#"
 				  method="post">
 				<!-- 正文区域 -->
 				<section class="content"> <!--产品信息-->
@@ -342,7 +477,7 @@
 					</div>
 					<!--工具栏/--> </section>
 				<!-- 正文区域 /-->
-			</form>
+			</form>--%>
 		</div>
 		<!-- @@close -->
 		<!-- 内容区域 /-->

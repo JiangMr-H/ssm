@@ -158,20 +158,18 @@
 		<!-- 导航侧栏 /-->
 
 		<!-- 内容区域 -->
-		<!-- @@master = admin-layout.html-->
-		<!-- @@block = content -->
 
 		<div class="content-wrapper">
 
 			<!-- 内容头部 -->
 			<section class="content-header">
 				<h1>
-					数据列表<small>厂长审核</small>
+					数据记录 <small>零件首检表</small>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
-					<li><a href="#">报废管理</a></li>
-					<li class="active">厂长审核</li>
+					<li><a href="#">数据管理</a></li>
+					<li class="active">零件首检列表</li>
 				</ol>
 			</section>
 			<!-- 内容头部 /-->
@@ -189,10 +187,336 @@
 
 						<!-- 数据表格 -->
 						<div class="table-box">
+
+							<!--工具栏-->
+							<div class="pull-left">
+								<div class="form-group form-inline">
+									<div class="btn-group">
+
+										<button type="button" class="btn btn-primary" title="新建"
+												data-toggle="modal"
+												data-target="#exampleModal" data-whatever="@mdo">
+											<%--<a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#customerEditDialog" onclick="editCustomer()">新建</a>--%>
+											<i class="fa fa-file-o"></i> 新建
+										</button>
+										<button type="button" class="btn btn-default" title="刷新">
+											<i class="fa fa-refresh"></i> 刷新
+										</button>
+									</div>
+								</div>
+							</div>
+
+							<!-- 报废单  -->
+							<!-- 客户编辑对话框 -->
+							<div class="modal fade bs-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog"
+								 aria-labelledby="myModalLabel">
+								<div class="modal-dialog modal-lg"  role="document"  style="width: 950px">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+											<h4 class="modal-title " id="gridSystemModalLabel" >
+												零件首检表</h4>
+										</div>
+										<div class="modal-body modal-lg"  style="width: 950px">
+											<form class="form-horizontal" id="edit_customer_form"
+												  action="${pageContext.request.contextPath}/GYCS/save.do"
+												  method="post" onsubmit="return check(this)">
+												<table class="table table-bordered modal-lg" >
+														<tr>
+															<td>零件名称</td>
+															<td></td>
+															<td>工装编号</td>
+															<td></td>
+															<td>包装</td>
+															<td></td>
+														</tr>
+														<tr>
+															<td>零件图号</td>
+															<td></td>
+															<td>整形周期</td>
+															<td></td>
+															<td>机床</td>
+															<td></td>
+
+														</tr>
+														<tr>
+															<td>物料编码</td>
+															<td></td>
+															<td>冷却时间</td>
+															<td></td>
+															<td>日期</td>
+															<td></td>
+
+														</tr>
+														<tr>
+															<td>检验项目</td>
+															<td>检验要求</td>
+															<td>检验结果</td>
+															<td>结论</td>
+
+														</tr>
+														<tr>
+															<td>材料</td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+														</tr>
+														<tr>
+															<td>颜色</td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+														</tr>
+														<tr>
+															<td>色差值</td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+														</tr>
+														<tr>
+															<td>ROHS</td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+														</tr>
+														<tr>
+															<td>尺寸</td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+														</tr>
+														<tr>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+														</tr>
+														<tr>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+														</tr>
+														<tr>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+														</tr>
+														<tr>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+														</tr>
+														<tr>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+														</tr>
+														<tr>
+															<td>结构外观强度</td>
+															<td>各个部位无毛刺、缺料、多料、刀伤、拉裂、偏位、烧焦等</td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+														</tr>
+														<tr>
+															<td></td>
+															<td>表面无不可接受的锈斑、缩水、顶白、熔接痕、拉伤、拉白、划伤、气纹、水花、油纹、波纹、黑点、油污、色纹等缺陷</td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+														</tr>
+														<tr>
+															<td></td>
+															<td>有回收及材料标识和型腔标识</td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+														</tr>
+														<tr>
+															<td></td>
+															<td>各边或网格、按钮无不可接受或超出工艺要求的变形</td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+														</tr>
+														<tr>
+															<td></td>
+															<td>螺钉孔无不可接受的堵孔、偏位、错位、螺钉孔壁料薄等</td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+														</tr>
+														<tr>
+															<td></td>
+															<td>扣位、齿位、网格及转角处等薄弱位置不容易断、易裂，是否需要用增加R角或加筋</td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+														</tr>
+														<tr>
+															<td></td>
+															<td>风叶高速运转、跌落、摆动、动平衡、重量合格，平台无明显缩水、叶片无裂痕、变形，包装符合特殊要求</td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+														</tr>
+														<tr>
+															<td></td>
+															<td>关键部位（如底壳出水口、底壳风道、接水盘排水口、导风板转轴和轴孔、接水盘轴孔、控制盖板按钮等）不存在毛刺；关键部位（如底壳和接水盘的水槽、水箱）无料薄或穿孔现象</td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+														</tr>
+														<tr>
+															<td></td>
+															<td>与相邻或相关联的注塑件进行组装，配合是否异常（如配合错位、缝隙过大、面板扣不紧或打不开等现象）</td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+														</tr>
+														<tr>
+															<td></td>
+															<td>无异物危害现象</td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+														</tr>
+														<tr>
+															<td>操作工</td>
+															<td></td>
+															<td>领班</td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+														</tr>
+														<tr>
+															<td>检验员</td>
+															<td></td>
+															<td>巡检</td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+														</tr>
+														<tr>
+															<td>测量仪器</td>
+															<td></td>
+															<td>检验单位</td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+														</tr>
+														<tr>
+															<td>备注</td>
+															<td></td>
+															<td>首检结论</td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+															<td></td>
+														</tr>
+													</table>
+
+
+												<span style="color: red;font-size: 14px">注：*为必填项</span>
+
+
+												<div class="modal-footer">
+													<button type="submit" class="btn btn-primary">保存</button>
+													<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--报废单/-->
 							<div class="box-tools pull-right">
 								<div class="has-feedback">
 									<input type="text" class="form-control input-sm"
-										   placeholder="搜索"> <span
+										   placeholder="生产日期\班组\产品编码"> <span
 										class="glyphicon glyphicon-search form-control-feedback"></span>
 								</div>
 							</div>
@@ -207,203 +531,62 @@
 											id="selall" type="checkbox" class="icheckbox_square-blue">
 									</th>
 									<th class="sorting_asc">ID</th>
-									<th class="sorting_desc">生产日期</th>
-									<th class="sorting_asc sorting_asc_disabled">班组</th>
-									<th class="sorting_desc sorting_desc_disabled">产品编码</th>
-									<th class="sorting">工装编号</th>
-									<th class="text-center sorting">材料及颜色</th>
-									<th class="sorting">机床编号</th>
-									<th class="text-center sorting">状态</th>
-									<th class="text-center">操作</th>
+									<th class="sorting_desc">零件名称</th>
+									<th class="sorting_asc sorting_asc_disabled">工装编号</th>
+									<th class="sorting_desc sorting_desc_disabled">包装</th>
+									<th class="sorting">零件图号</th>
+									<th class="text-center sorting">整形周期</th>
+									<th class="sorting">机床</th>
+									<th class="text-center sorting">物料编码</th>
+									<th class="sorting">冷却时间</th>
+									<th class="text-center sorting">日期</th>
+									<th class="sorting">操作</th>
+									<%--<th class="text-center">详细</th>--%>
 								</tr>
 								</thead>
 								<tbody>
 
 
-								<c:forEach items="${pageInfo.list}" var="scrap">
+								<c:forEach items="${pageInfo.list}" var="ljsjb">
 
 									<tr>
 										<td><input name="ids" type="checkbox"></td>
-										<td>${scrap.id }</td>
-										<td>${scrap.SCRQ }</td>
-										<td>${scrap.BZ }</td>
-										<td>${scrap.CPBM }</td>
-										<td>${scrap.GZBM }</td>
-										<td class="text-center">${scrap.CLYS }</td>
-										<td>${scrap.JCBM }</td>
-										<td class="text-center">${scrap.course }</td>
+										<td>${ljsjb.id }</td>
+										<td>${ljsjb.LJMC }</td>
+										<td>${ljsjb.GZBM }</td>
+										<td>${ljsjb.BZ }</td>
+										<td>${ljsjb.LJTH }</td>
+										<td class="text-center">${ljsjb.ZXZQ }</td>
+										<td>${ljsjb.JC }</td>
+										<td>${ljsjb.WLBM }</td>
+										<td>${ljsjb.LQSJ }</td>
+										<td>${ljsjb.scantime }</td>
 										<td class="text-center">
+												<%--<button type="button" class="btn bg-olive btn-xs">订单</button>--%>
+												<%--  <button type="button" class="btn bg-olive btn-xs"
+                                                          onclick="location.href='${pageContext.request.contextPath}/scrap/findById.do?id=${scrap.id}'">
+                                                      详情
+                                                  </button>--%>
 											<a type="button" class="btn bg-olive btn-xs" data-toggle="modal"
-											   data-target="#exampleModal" onclick="location.href='${pageContext.request.contextPath}/scrap/findByCZId.do?id=${scrap.id }'">
-												审批
+											   data-target="#customerEditDialog" onclick="editCustomer(${ljsjb.id })">
+												详情
 											</a>
-
+												<%--<button type="button" class="btn bg-olive btn-xs">编辑</button>--%>
 										</td>
 									</tr>
 								</c:forEach>
 								</tbody>
+
 							</table>
 							<!--数据列表/-->
 
 						</div>
 						<!-- 数据表格 /-->
 
+
 					</div>
 					<!-- /.box-body -->
-					<!-- 报废单  -->
-					<!-- 客户编辑对话框 -->
-					<div class="modal fade bs-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog"
-						 aria-labelledby="myModalLabel">
-						<div class="modal-dialog modal-lg" style="width: 1700px" role="document">
-							<div class="modal-content">
-								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">&times;</span>
-									</button>
-									<h4 class="modal-title " id="gridSystemModalLabel" style="margin-left: 750px">
-										注塑件报废确认单</h4>
-								</div>
-								<div class="modal-body modal-lg" style="width: 1700px">
-									<form class="form-horizontal" id="edit_customer_form"
-										  action="${pageContext.request.contextPath}/scrap/save.do"
-										  method="post" onsubmit="return check(this)">
 
-										<table class="table table-bordered modal-lg" style="width: 1680px">
-											<tr>
-												<td class="text-center" colspan="3"><i style="color: red">* </i>
-													生产日期：
-												</td>
-												<td colspan="2"><input type="date" style="width: 150px" name="SCRQ"
-																	   placeholder="生产日期"></td>
-												<td class="text-center" colspan="2"><i style="color: red">* </i>班组：
-												</td>
-												<td colspan="1"><input type="text" style="width: 50px" name="BZ"
-																	   placeholder="班组"></td>
-												<td class="text-center" colspan="2"><i style="color: red">* </i>产品编码：
-												</td>
-												<td colspan="3"><input type="text" style="width: 150px" name="CPBM"
-																	   placeholder="产品编码"></td>
-												<td class="text-center" colspan="2"><i style="color: red">* </i>工装编码：
-												</td>
-												<td colspan="2"><input type="text" style="width: 150px" name="GZBM"
-																	   placeholder="工装编码"></td>
-												<td class="text-center" colspan="3"><i style="color: red">* </i>材料及颜色：
-												</td>
-												<td colspan="2"><input type="text" style="width: 100px" name="CLYS"
-																	   placeholder="材料及颜色"></td>
-												<td class="text-center" colspan="3"><i style="color: red">* </i>机床编码：
-												</td>
-												<td colspan="2"><input type="text" style="width: 150px" name="JCBM"
-																	   placeholder="机床编码"></td>
-											</tr>
-											<tr class="text-center">
-												<td colspan="2">报废项目</td>
-												<td>工艺调试</td>
-												<td>缺料</td>
-												<td>黑斑点</td>
-												<td>黑纹</td>
-												<td>气纹</td>
-												<td>银丝</td>
-												<td>水波纹</td>
-												<td>缩水</td>
-												<td>拉伤/裂</td>
-												<td>冷斑痕</td>
-												<td>烧焦</td>
-												<td>变形</td>
-												<td>水印</td>
-												<td>堵孔/多料</td>
-												<td>油污斑</td>
-												<td>色差</td>
-												<td>刀伤</td>
-												<td>划伤</td>
-												<td>粘模</td>
-												<td>毛刺</td>
-												<td>烫金不良</td>
-												<td>丝印不良</td>
-												<td>试模</td>
-												<td><i style="color: red">* </i>数量合计</td>
-												<td>胶块（KG）</td>
-
-											</tr>
-											<tr class="text-center">
-												<td colspan="2">数量小计</td>
-												<td><input type="text" style="width: 40px" name="GYTS"></td>
-												<td><input type="text" style="width: 40px" name="QL"></td>
-												<td><input type="text" style="width: 40px" name="HBD"></td>
-												<td><input type="text" style="width: 40px" name="HW"></td>
-												<td><input type="text" style="width: 40px" name="QW"></td>
-												<td><input type="text" style="width: 40px" name="YS"></td>
-												<td><input type="text" style="width: 40px" name="SBW"></td>
-												<td><input type="text" style="width: 40px" name="SS"></td>
-												<td><input type="text" style="width: 40px" name="LSL"></td>
-												<td><input type="text" style="width: 40px" name="LBH"></td>
-												<td><input type="text" style="width: 40px" name="SJ"></td>
-												<td><input type="text" style="width: 40px" name="BX"></td>
-												<td><input type="text" style="width: 40px" name="SY"></td>
-												<td><input type="text" style="width: 40px" name="DKDL"></td>
-												<td><input type="text" style="width: 40px" name="YWB"></td>
-												<td><input type="text" style="width: 40px" name="SC"></td>
-												<td><input type="text" style="width: 40px" name="DS"></td>
-												<td><input type="text" style="width: 40px" name="HS"></td>
-												<td><input type="text" style="width: 40px" name="NM"></td>
-												<td><input type="text" style="width: 40px" name="MC"></td>
-												<td><input type="text" style="width: 40px" name="TJBL"></td>
-												<td><input type="text" style="width: 40px" name="SYBL"></td>
-												<td><input type="text" style="width: 40px" name="SM"></td>
-												<td><input type="text" style="width: 40px" name="SLHJ"></td>
-												<td><input type="text" style="width: 40px" name="JK"></td>
-											</tr>
-											<tr>
-												<td colspan="3" class="text-center"><i style="color: red">* </i>操作工</td>
-												<td colspan="3"><input type="text" style="width: 150px" name="CZG"
-																	   placeholder="操作工"></td>
-												<td colspan="2" class="text-center">调机员</td>
-												<td colspan="3"><input type="text" style="width: 150px" name="TJY"
-																	   placeholder="调机员" disabled></td>
-												<td colspan="2" class="text-center">班长</td>
-												<td colspan="3"><input type="text" style="width: 150px" name="BaZ"
-																	   placeholder="班长" disabled></td>
-												<td colspan="2" class="text-center">检验员</td>
-												<td colspan="3"><input type="text" style="width: 150px" name="JYY"
-																	   placeholder="检验员" disabled></td>
-												<td colspan="2" class="text-center">接收人</td>
-												<td colspan="4"><input type="text" style="width: 150px" name="JSY"
-																	   placeholder="接收人" disabled></td>
-											</tr>
-											<tr>
-												<td colspan="4" class="text-center">质量技术领导意见:</td>
-												<td colspan="9"><input type="text" style="width: 520px" name="ZLYJ"
-																	   placeholder="质量技术领导意见" disabled></td>
-												<td colspan="3" class="text-center">厂长意见:</td>
-												<td colspan="11"><input type="text" style="width: 520px" name="CZYJ"
-																		placeholder="厂长意见" disabled></td>
-											</tr>
-											<tr>
-												<td colspan="3" class="text-center">备注：</td>
-												<td colspan="24"><input type="text" style="width: 640px"
-																		name="remake" placeholder="备注"></td>
-											</tr>
-											<tr>
-												<td colspan="27">说明：<br/>
-													1、当生产机床型号≥530时报废30件-50件由质量技术员及以上领导签字确认，大于50件必须由厂长及以上领导签字确认；<br/>
-													2、当生产机床型号＜530和≥240时，报废50-100件由质量技术员及以上领导签字确认，大于100件必须由厂长及以上领导签字确认；<br/>
-													3、当生产机床型号＜240时，报废100件-200件由质量技术员及以上领导签字确认，大于200件必须由厂长及以上领导签字确认。
-												</td>
-
-											</tr>
-										</table>
-										<span style="color: red;font-size: 14px">注：*为必填项</span>
-
-
-										<div class="modal-footer">
-											<button type="submit" class="btn btn-primary">保存</button>
-											<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-										</div>
-									</form>
-								</div>
-							</div>
-						</div>
-					</div>
 					<!-- .box-footer-->
 					<div class="box-footer">
 						<div class="pull-left">
@@ -422,21 +605,21 @@
 						<div class="box-tools pull-right">
 							<ul class="pagination">
 								<li>
-									<a href="${pageContext.request.contextPath}/scrap/findTSY.do?page=1&size=${pageInfo.pageSize}"
+									<a href="${pageContext.request.contextPath}/ljsjb/findljsjb.do?page=1&size=${pageInfo.pageSize}"
 									   aria-label="Previous">首页</a></li>
 								<li>
-									<a href="${pageContext.request.contextPath}/scrap/findTSY.do?page=${pageInfo.pageNum-1}&size=${pageInfo.pageSize}">上一页</a>
+									<a href="${pageContext.request.contextPath}/ljsjb/findljsjb.do?page=${pageInfo.pageNum-1}&size=${pageInfo.pageSize}">上一页</a>
 								</li>
 								<c:forEach begin="${pageInfo.pageNum}" end="${pageInfo.pageNum}" var="pageNum">
 									<li>
-										<a href="${pageContext.request.contextPath}/scrap/findTSY.do?page=${pageNum}&size=${pageInfo.pageSize}">${pageNum}</a>
+										<a href="${pageContext.request.contextPath}/ljsjb/findljsjb.do?page=${pageNum}&size=${pageInfo.pageSize}">${pageNum}</a>
 									</li>
 								</c:forEach>
 								<li>
-									<a href="${pageContext.request.contextPath}/scrap/findTSY.do?page=${pageInfo.pageNum+1}&size=${pageInfo.pageSize}">下一页</a>
+									<a href="${pageContext.request.contextPath}/ljsjb/findljsjb.do?page=${pageInfo.pageNum+1}&size=${pageInfo.pageSize}">下一页</a>
 								</li>
 								<li>
-									<a href="${pageContext.request.contextPath}/scrap/findTSY.do?page=${pageInfo.pages}&size=${pageInfo.pageSize}"
+									<a href="${pageContext.request.contextPath}/ljsjb/findljsjb.do?page=${pageInfo.pages}&size=${pageInfo.pageSize}"
 									   aria-label="Next">尾页</a></li>
 							</ul>
 						</div>
@@ -445,49 +628,14 @@
 					<!-- /.box-footer-->
 
 
-
 				</div>
 
 			</section>
 			<!-- 正文区域 /-->
-		<%--	<form action="#"
-				  method="post">
-				<!-- 正文区域 -->
-				<section class="content"> <!--产品信息-->
 
-					<div class="panel panel-default">
-						<div class="panel-heading">厂长审核</div>
-						<div class="row data-type">
-
-							<div class="col-md-2 title">角色名称</div>
-							<div class="col-md-4 data">
-								<input type="text" class="form-control" name="roleName"
-									   placeholder="角色名称" value="">
-							</div>
-							<div class="col-md-2 title">角色描述</div>
-							<div class="col-md-4 data">
-								<input type="text" class="form-control" name="roleDesc"
-									   placeholder="角色描述" value="">
-							</div>
-
-
-						</div>
-					</div>
-					<!--订单信息/--> <!--工具栏-->
-					<div class="box-tools text-center">
-						<button type="submit" class="btn bg-maroon">保存</button>
-						<button type="button" class="btn bg-default"
-								onclick="history.back(-1);">返回</button>
-					</div>
-					<!--工具栏/--> </section>
-				<!-- 正文区域 /-->
-			</form>--%>
 		</div>
 		<!-- @@close -->
 		<!-- 内容区域 /-->
-
-
-
 
 		<!-- 底部侧栏 -->
 		<jsp:include page="foot.jsp"></jsp:include>

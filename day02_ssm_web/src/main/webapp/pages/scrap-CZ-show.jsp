@@ -166,12 +166,12 @@
 			<!-- 内容头部 -->
 			<section class="content-header">
 				<h1>
-					数据列表<small>调试员审核</small>
+					数据列表<small>厂长审核</small>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
 					<li><a href="#">报废管理</a></li>
-					<li class="active">调试员审核</li>
+					<li class="active">厂长审核</li>
 				</ol>
 			</section>
 			<!-- 内容头部 /-->
@@ -191,7 +191,7 @@
 					<div class="modal-dialog modal-lg  with-border" style="width: 1700px"  role="document">
 							<div class="modal-content">
 
-								<form action="${pageContext.request.contextPath}/scrap/updateTJY.do?id=${TSYscrap.id}&count1=1"
+								<form action="${pageContext.request.contextPath}/scrap/updateCZ.do?id=${TSYscrap.id}"
 									  method="post">
 								<div class="modal-header">
 									<h4 class="modal-title " name="id" style="margin-left: 750px">
@@ -333,17 +333,17 @@
 									<section class="content"> <!--产品信息-->
 
 										<div class="panel panel-default">
-											<div class="panel-heading">调试员审核</div>
+											<div class="panel-heading">厂长审核</div>
 											<div class="row data-type">
 
 												<div class="col-md-2 title">角色名称</div>
 												<div class="col-md-4 data">
-													<input type="text" class="form-control" name="RoleName_TJY"
+													<input type="text" class="form-control" name="RoleName_CZ"
 														   placeholder="角色名称" value="">
 												</div>
 												<div class="col-md-2 title">角色描述</div>
 												<div class="col-md-4 data">
-													<input type="text" class="form-control" name="RoleDescription_TJY"
+													<input type="text" class="form-control" name="RoleDescription_CZ"
 														   placeholder="角色描述" value="">
 												</div>
 											</div>

@@ -166,12 +166,12 @@
 			<!-- 内容头部 -->
 			<section class="content-header">
 				<h1>
-					数据列表<small>调试员审核</small>
+					数据列表<small>质量科长审核</small>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
 					<li><a href="#">报废管理</a></li>
-					<li class="active">调机员审核</li>
+					<li class="active">质量科长审核</li>
 				</ol>
 			</section>
 			<!-- 内容头部 /-->
@@ -192,7 +192,7 @@
 							<div class="box-tools pull-right">
 								<div class="has-feedback">
 									<input type="text" class="form-control input-sm"
-										placeholder="搜索"> <span
+										   placeholder="搜索"> <span
 										class="glyphicon glyphicon-search form-control-feedback"></span>
 								</div>
 							</div>
@@ -200,22 +200,22 @@
 
 							<!--数据列表-->
 							<table id="dataList"
-								class="table table-bordered table-striped table-hover dataTable">
+								   class="table table-bordered table-striped table-hover dataTable">
 								<thead>
-									<tr>
-										<th class="" style="padding-right: 0px;"><input
+								<tr>
+									<th class="" style="padding-right: 0px;"><input
 											id="selall" type="checkbox" class="icheckbox_square-blue">
-										</th>
-										<th class="sorting_asc">ID</th>
-										<th class="sorting_desc">生产日期</th>
-										<th class="sorting_asc sorting_asc_disabled">班组</th>
-										<th class="sorting_desc sorting_desc_disabled">产品编码</th>
-										<th class="sorting">工装编号</th>
-										<th class="text-center sorting">材料及颜色</th>
-										<th class="sorting">机床编号</th>
-										<th class="text-center sorting">状态</th>
-										<th class="text-center">操作</th>
-									</tr>
+									</th>
+									<th class="sorting_asc">ID</th>
+									<th class="sorting_desc">生产日期</th>
+									<th class="sorting_asc sorting_asc_disabled">班组</th>
+									<th class="sorting_desc sorting_desc_disabled">产品编码</th>
+									<th class="sorting">工装编号</th>
+									<th class="text-center sorting">材料及颜色</th>
+									<th class="sorting">机床编号</th>
+									<th class="text-center sorting">状态</th>
+									<th class="text-center">操作</th>
+								</tr>
 								</thead>
 								<tbody>
 
@@ -234,7 +234,7 @@
 										<td class="text-center">${scrap.course }</td>
 										<td class="text-center">
 											<a type="button" class="btn bg-olive btn-xs" data-toggle="modal"
-											   data-target="#exampleModal" onclick="location.href='${pageContext.request.contextPath}/scrap/findById.do?id=${scrap.id }'">
+											   data-target="#exampleModal" onclick="location.href='${pageContext.request.contextPath}/scrap/findByZLJSId.do?id=${scrap.id }'">
 												审批
 											</a>
 

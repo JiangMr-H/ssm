@@ -198,18 +198,6 @@
 											onclick="location.href='#'">
 											<i class="fa fa-file-o"></i> 新建
 										</button>
-										<button type="button" class="btn btn-default" title="删除">
-											<i class="fa fa-trash-o"></i> 删除
-										</button>
-										<button type="button" class="btn btn-default" title="开启">
-											<i class="fa fa-check"></i> 开启
-										</button>
-										<button type="button" class="btn btn-default" title="屏蔽">
-											<i class="fa fa-ban"></i> 屏蔽
-										</button>
-										<button type="button" class="btn btn-default" title="刷新">
-											<i class="fa fa-refresh"></i> 刷新
-										</button>
 									</div>
 								</div>
 							</div>
@@ -237,8 +225,8 @@
 										<th class="sorting">班次</th>
 										<th class="text-center sorting">检查日期</th>
 										<th class="sorting">录入时间</th>
-										<th class="text-center sorting">状态</th>
-										<th class="text-center">操作</th>
+										<th class="text-center sorting">操作</th>
+										<%--<th class="text-center">详细</th>--%>
 									</tr>
 								</thead>
 								<tbody>
@@ -257,56 +245,15 @@
 											<td>${product.productDesc }</td>
 											<td class="text-center">${product.productStatusStr }</td>
 											<td class="text-center">
-												<button type="button" class="btn bg-olive btn-xs">订单</button>
-												<button type="button" class="btn bg-olive btn-xs">详情</button>
+												<%--<button type="button" class="btn bg-olive btn-xs">详情</button>--%>
 												<button type="button" class="btn bg-olive btn-xs">编辑</button>
 											</td>
 										</tr>
 									</c:forEach>
 								</tbody>
-								<!--
-                            <tfoot>
-                            <tr>
-                            <th>Rendering engine</th>
-                            <th>Browser</th>
-                            <th>Platform(s)</th>
-                            <th>Engine version</th>
-                            <th>CSS grade</th>
-                            </tr>
-                            </tfoot>-->
+
 							</table>
 							<!--数据列表/-->
-
-							<!--工具栏-->
-							<div class="pull-left">
-								<div class="form-group form-inline">
-									<div class="btn-group">
-										<button type="button" class="btn btn-default" title="新建">
-											<i class="fa fa-file-o"></i> 新建
-										</button>
-										<button type="button" class="btn btn-default" title="删除">
-											<i class="fa fa-trash-o"></i> 删除
-										</button>
-										<button type="button" class="btn btn-default" title="开启">
-											<i class="fa fa-check"></i> 开启
-										</button>
-										<button type="button" class="btn btn-default" title="屏蔽">
-											<i class="fa fa-ban"></i> 屏蔽
-										</button>
-										<button type="button" class="btn btn-default" title="刷新">
-											<i class="fa fa-refresh"></i> 刷新
-										</button>
-									</div>
-								</div>
-							</div>
-							<div class="box-tools pull-right">
-								<div class="has-feedback">
-									<input type="text" class="form-control input-sm"
-										placeholder="搜索"> <span
-										class="glyphicon glyphicon-search form-control-feedback"></span>
-								</div>
-							</div>
-							<!--工具栏/-->
 
 						</div>
 						<!-- 数据表格 /-->

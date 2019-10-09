@@ -21,4 +21,23 @@ public interface IScrapService {
 
    void insertTJY(int T_id,String RoleName_TJY,String RoleDescription_TJY)throws Exception;
 
+    void UpdateZz(int id, String roleName_zz, String roleDescription_zz);
+
+    void UpdateJYy(int id, String roleName_jYy, String roleDescription_jYy);
+
+    void UpdateJSY(int id, String roleName_jsy, String roleDescription_jsy);
+
+    void UpdateZLJS(int id, String roleName_zljs, String roleDescription_zljs);
+
+    void insertCZ(int id, String roleName_cz, String roleDescription_cz);
+
+    void ScarpUpdateZz(int id);
+
+    void ScarpUpdateJYy(int id);
+
+    void ScarpUpdateJSY(int id);
+
+    void ScarpUpdateZLJS(int id);
+
+    void ScarpUpdateCZ(int id);
 }
