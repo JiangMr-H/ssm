@@ -10,7 +10,15 @@ import java.util.List;
 public interface ILsjbService {
 
 
-  /*  List<Lsjb> findLsjb(int page, int size);
+   List<Lsjb> findAllljsj(int page, int size)throws Exception ;
 
-    void lsjbAdd(Lsjb lsjb);*/
+   List<Lsjb> findljsjbById(int id)throws Exception ;
+
+    void saveLjsj(Lsjb lsjb)throws Exception ;
+
+    List<Lsjb> findZKSK(int page, int size)throws Exception ;
+
+    void updateZKSK(int id)throws Exception ;
+
+    /*  void lsjbAdd(Lsjb lsjb);*/
 }

@@ -41,7 +41,7 @@ public class GYCSController {
 
 
    /**
-    * 查询工艺参数表
+    * 查询工艺参数表(打开界面)
     * @param page
     * @param size
     * @return
@@ -58,13 +58,10 @@ public class GYCSController {
    }
 
    @RequestMapping("/findGycs2.do")
-    public  ModelAndView findAll2(@RequestParam(name = "page",required = true,defaultValue = "1")int page, @RequestParam(name = "size",required = true,defaultValue = "15")int size,int count) throws Exception {
+    public  ModelAndView findAll2(@RequestParam(name = "page",required = true,defaultValue = "1")int page, @RequestParam(name = "size",required = true,defaultValue = "5")int size,int count) throws Exception {
         ModelAndView mv = new ModelAndView();
         List<GYCS> scrapList=null;
-       if(count==1){
-            scrapList = iGycsService.findGycs2(page,size,count);
-            mv.setViewName("paperless-JYy-list");
-        }else if(count==2){
+        if(count==2){
             scrapList = iGycsService.findGycs2(page,size,count);
             mv.setViewName("paperless-TJY-list");
         }else if(count==3){
@@ -73,12 +70,14 @@ public class GYCSController {
         }else if(count==4){
           scrapList = iGycsService.findGycs2(page,size,count);
           mv.setViewName("paperless-GY-list");
-       }
+        }else if(count==6){
+            scrapList = iGycsService.findGycs2(page,size,count);
+            mv.setViewName("ZK-list");
+        }
         PageInfo pageInfo = new PageInfo(scrapList);
         mv.addObject("pageInfo",pageInfo);
         return mv;
     }
-
 
    /**
     * 录入工艺参数表
@@ -87,10 +86,98 @@ public class GYCSController {
     */
    @RequestMapping("/save.do")
    public String gycsAdd(GYCS gycs){
-      System.out.println("gycs===================="+gycs);
+       System.out.println("gycs===================="+gycs);
       iGycsService.gycsAdd(gycs);
       return "redirect:findGycs.do";
    }
+
+    /**
+     * 录入审核信息和修改进程状态（第一条）
+     * @param id
+     * @param roleName
+     * @param roleDesc
+     * @param count
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/updateTJY.do")
+    public String scrapUpdate(int id,@RequestParam(name = "roleName",required = true)String roleName,@RequestParam(name = "roleDesc",required = true)String roleDesc,int count)throws Exception
+    {
+        iGycsService.insertTJY(id,roleName,roleDesc);
+        iGycsService.ScarpUpdate(id,count);
+        return "redirect:findGycs2.do?count="+(count-1);
+    }
+
+    /**
+     * 录入审核信息和修改进程状态（第二条）
+     * @param id
+     * @param roleName
+     * @param roleDesc
+     * @param count
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/updateByJL.do")
+    public String updateByJL(int id,@RequestParam(name = "roleName",required = true)String roleName,@RequestParam(name = "roleDesc",required = true)String roleDesc,int count)throws Exception
+    {
+        if(count==4){
+            iGycsService.updateByJC_ZK(id,roleName,roleDesc);
+        }else if(count==5){
+            iGycsService.updateByJC_GY(id,roleName,roleDesc);
+        }
+        iGycsService.ScarpUpdate(id,count);
+        return "redirect:findGycs2.do?count="+(count-1);
+    }
+
+    @RequestMapping("/saveGycsById.do")
+    public String saveGycsById(@RequestParam(name = "id",required = true)int id,@RequestParam(name = "ZKname",required = true)String ZKname,@RequestParam(name = "ZKdesc",required = true)String ZKdesc){
+
+        iGycsService.saveGycsById(id,ZKname,ZKdesc);
+        return "redirect:findGycs2.do?count=6";
+    }
+
+
+    /**
+     * 详情界面
+     */
+    @RequestMapping("/findGycsByGyId.do")
+    public ModelAndView findGycsByGyId(@RequestParam(name = "id",required = true)int gyId)
+    {
+        ModelAndView mv=new ModelAndView();
+        GYCS TSYscrap =  iGycsService.findGycsByGyId(gyId);
+        mv.addObject("TSYscrap",TSYscrap);
+        mv.setViewName("Query_Gycs");
+        return mv;
+    }
+
+    /**
+     * 修改工艺参数
+     * @param gyId
+     * @return
+     */
+    @RequestMapping("/updateGycsById")
+    public String updateGycsById(@RequestParam(name = "id",required =true)int gyId,@RequestParam(name = "YL1",required = true)String YL1,@RequestParam(name = "YL2",required = true)String YL2,@RequestParam(name = "YL3",required = true)String YL3,@RequestParam(name = "YL4",required = true)String YL4,@RequestParam(name = "YL5",required = true)String YL5,@RequestParam(name = "YL6",required = true)String YL6,
+                                 @RequestParam(name = "YL7",required = true)String YL7,@RequestParam(name = "SD1",required = true)String SD1,@RequestParam(name = "SD2",required = true)String SD2,@RequestParam(name = "SD3",required = true)String SD3,@RequestParam(name = "SD4",required = true)String SD4,@RequestParam(name = "SD5",required = true)String SD5,
+                                 @RequestParam(name = "SD6",required = true)String SD6,@RequestParam(name = "SD7",required = true)String SD7,@RequestParam(name = "WZ1",required = true)String WZ1,@RequestParam(name = "WZ2",required = true)String WZ2,@RequestParam(name = "WZ3",required = true)String WZ3,@RequestParam(name = "WZ4",required = true)String WZ4,
+                                 @RequestParam(name = "WZ5",required = true)String WZ5,@RequestParam(name = "WZ6",required = true)String WZ6,@RequestParam(name = "WZ7",required = true)String WZ7,@RequestParam(name = "WD1",required = true)String WD1,@RequestParam(name = "WD2",required = true)String WD2,@RequestParam(name = "WD3",required = true)String WD3,
+                                 @RequestParam(name = "WD4",required = true)String WD4,@RequestParam(name = "WD5",required = true)String WD5,@RequestParam(name = "WD6",required = true)String WD6,@RequestParam(name = "WD7",required = true)String WD7,@RequestParam(name = "CPMC",required = true)String CPMC,@RequestParam(name = "JYY",required = true)String JYY,
+                                 @RequestParam(name = "JCBM",required = true)String JCBM,@RequestParam(name = "BC",required = true)String BC,@RequestParam(name = "JCRQ",required = true)String JCRQ,@RequestParam(name = "SJ",required = true)String SJ,@RequestParam(name = "LQ",required = true)String LQ,
+                                 @RequestParam(name = "BYA",required = true)String BYA,@RequestParam(name = "JCSJ",required = true)String JCSJ,@RequestParam(name = "BZ",required = true)String BZ)throws Exception{
+              iGycsService.updateGycsById(gyId,YL1,YL2,YL3,YL4,YL5,YL6,YL7,SD1,SD2,SD3,SD4,SD5,SD6,SD7,WZ1,WZ2,WZ3,WZ4,WZ5,WZ6,WZ7,WD1,WD2,WD3,WD4,WD5,WD6,WD7,CPMC,JYY,JCBM,BC,JCRQ,SJ,LQ,BYA,JCSJ,BZ);
+              return "redirect:findGycs.do";
+    }
+
+    @RequestMapping("/findByGycsId.do")
+    public ModelAndView findByGycsId(@RequestParam(name = "id",required = true)int scrapId)
+    {
+        ModelAndView mv=new ModelAndView();
+        GYCS TSYscrap =  iGycsService.findGycsByGyId(scrapId);
+        mv.addObject("TSYscrap",TSYscrap);
+        mv.setViewName("ZK_Gycs");
+        return mv;
+    }
+
+
 
 
     /**
@@ -108,15 +195,6 @@ public class GYCSController {
         return mv;
     }
 
-    @RequestMapping("/findByJYYId.do")
-    public ModelAndView findByJYYId(@RequestParam(name = "id",required = true)int scrapId)
-    {
-        ModelAndView mv=new ModelAndView();
-        GYCS TSYscrap =  iGycsService.findByTJYId(scrapId);
-        mv.addObject("TSYscrap",TSYscrap);
-        mv.setViewName("paperless-JYY-show");
-        return mv;
-    }
 
     @RequestMapping("/findByZKId.do")
     public ModelAndView findByZKId(@RequestParam(name = "id",required = true)int scrapId)
@@ -128,6 +206,7 @@ public class GYCSController {
         return mv;
     }
 
+
     @RequestMapping("/findByGYId.do")
     public ModelAndView findByGYId(@RequestParam(name = "id",required = true)int scrapId)
     {
@@ -137,6 +216,8 @@ public class GYCSController {
         mv.setViewName("paperless-GY-show");
         return mv;
     }
+
+
 
 
 

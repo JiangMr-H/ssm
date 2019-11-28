@@ -1,12 +1,12 @@
 /**
- * Copyright (C), 2015-2019, XXX”–œﬁπ´Àæ
+ * Copyright (C), 2015-2019, XXXÊúâÈôêÂÖ¨Âè∏
  * FileName: GYCS
  * Author:   891649
  * Date:     2019/10/8 9:26
  * Description:
  * History:
  * <author>          <time>          <version>          <desc>
- * ◊˜’ﬂ–’√˚           –ﬁ∏ƒ ±º‰           ∞Ê±æ∫≈              √Ë ˆ
+ * ‰ΩúËÄÖÂßìÂêç           ‰øÆÊîπÊó∂Èó¥           ÁâàÊú¨Âè∑              ÊèèËø∞
  */
 
 package com.gree.day02.dao;
@@ -14,8 +14,8 @@ package com.gree.day02.dao;
 import java.util.Date;
 
 /**
- * °¥“ªæ‰ª∞π¶ƒ‹ºÚ ˆ°µ<br> 
- * °¥°µ
+ * „Äà‰∏ÄÂè•ËØùÂäüËÉΩÁÆÄËø∞„Äâ<br> 
+ * „Äà„Äâ
  *
  * @author 891649
  * @create 2019/10/8
@@ -28,32 +28,29 @@ public class GYCS {
     private String JCBM;
     private String BC;
     private String JCRQ;
-    private Date scantime;
-
-    private String GYCS_id;
+    private String LB_Id;
     private String YL1;
-    private String SD1;
-    private String WZ1;
-    private String WD1;
     private String YL2;
     private String YL3;
-
     private String YL4;
     private String YL5;
     private String YL6;
     private String YL7;
+    private String SD1;
     private String SD2;
     private String SD3;
     private String SD4;
     private String SD5;
     private String SD6;
     private String SD7;
+    private String WZ1;
     private String WZ2;
     private String WZ3;
     private String WZ4;
     private String WZ5;
     private String WZ6;
     private String WZ7;
+    private String WD1;
     private String WD2;
     private String WD3;
     private String WD4;
@@ -68,6 +65,107 @@ public class GYCS {
     private String BZ;
 
     private  String JC;
+    private Date scantime;
+
+    private String roleName_TJY;
+    private String roleDesc_TJY;
+    private Date scantime_TJY;
+    private String roleName_ZK;
+    private String roleDesc_ZK;
+    private Date scantime_ZK;
+    private String roleName_GY;
+    private String roleDesc_GY;
+    private Date scantime_GY;
+    private String ZKname;
+    private String ZKdesc;
+
+    public String getZKname() {
+        return ZKname;
+    }
+
+    public void setZKname(String ZKname) {
+        this.ZKname = ZKname;
+    }
+
+    public String getZKdesc() {
+        return ZKdesc;
+    }
+
+    public void setZKdesc(String ZKdesc) {
+        this.ZKdesc = ZKdesc;
+    }
+
+    public String getRoleName_TJY() {
+        return roleName_TJY;
+    }
+
+    public void setRoleName_TJY(String roleName_TJY) {
+        this.roleName_TJY = roleName_TJY;
+    }
+
+    public String getRoleDesc_TJY() {
+        return roleDesc_TJY;
+    }
+
+    public void setRoleDesc_TJY(String roleDesc_TJY) {
+        this.roleDesc_TJY = roleDesc_TJY;
+    }
+
+    public Date getScantime_TJY() {
+        return scantime_TJY;
+    }
+
+    public void setScantime_TJY(Date scantime_TJY) {
+        this.scantime_TJY = scantime_TJY;
+    }
+
+    public String getRoleName_ZK() {
+        return roleName_ZK;
+    }
+
+    public void setRoleName_ZK(String roleName_ZK) {
+        this.roleName_ZK = roleName_ZK;
+    }
+
+    public String getRoleDesc_ZK() {
+        return roleDesc_ZK;
+    }
+
+    public void setRoleDesc_ZK(String roleDesc_ZK) {
+        this.roleDesc_ZK = roleDesc_ZK;
+    }
+
+    public Date getScantime_ZK() {
+        return scantime_ZK;
+    }
+
+    public void setScantime_ZK(Date scantime_ZK) {
+        this.scantime_ZK = scantime_ZK;
+    }
+
+    public String getRoleName_GY() {
+        return roleName_GY;
+    }
+
+    public void setRoleName_GY(String roleName_GY) {
+        this.roleName_GY = roleName_GY;
+    }
+
+    public String getRoleDesc_GY() {
+        return roleDesc_GY;
+    }
+
+    public void setRoleDesc_GY(String roleDesc_GY) {
+        this.roleDesc_GY = roleDesc_GY;
+    }
+
+    public Date getScantime_GY() {
+        return scantime_GY;
+    }
+
+    public void setScantime_GY(Date scantime_GY) {
+        this.scantime_GY = scantime_GY;
+    }
 
     public String getJC() {
         return JC;
@@ -149,12 +247,12 @@ public class GYCS {
         this.scantime = scantime;
     }
 
-    public String getGYCS_id() {
-        return GYCS_id;
+    public String getLB_Id() {
+        return LB_Id;
     }
 
-    public void setGYCS_id(String GYCS_id) {
-        this.GYCS_id = GYCS_id;
+    public void setLB_Id(String LB_Id) {
+        this.LB_Id = LB_Id;
     }
 
     public String getYL1() {

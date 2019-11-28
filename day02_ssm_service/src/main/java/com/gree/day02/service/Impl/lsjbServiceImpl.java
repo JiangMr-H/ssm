@@ -1,50 +1,58 @@
 /**
- * Copyright (C), 2015-2019, XXX有限公司
+ * Copyright (C), 2015-2019, XXX锟斤拷锟睫癸拷司
  * FileName: lsjbService
  * Author:   891649
  * Date:     2019/10/9 3:56
  * Description:
  * History:
  * <author>          <time>          <version>          <desc>
- * 作者姓名           修改时间           版本号              描述
  */
 
 package com.gree.day02.service.Impl;
 
-import com.github.pagehelper.PageHelper;
-import com.gree.day02.dao.ILsjbDao;
-import com.gree.day02.dao.Lsjb;
-import com.gree.day02.service.ILsjbService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
 /**
- * 〈一句话功能简述〉<br> 
- * 〈〉
- *
  * @author 891649
  * @create 2019/10/9
  * @since 1.0.0
  */
 @Service
 @Transactional
-public class lsjbServiceImpl implements ILsjbService {
+public class lsjbServiceImpl{
 
     /*@Autowired
+    private ILsjbDao1 iLsjbDao1;*/
+
+/*    @Autowired
     private ILsjbDao iLsjbDao;
 
     @Override
-    public List<Lsjb> findLsjb(int page, int size) {
+    public List<Lsjb> findAllljsj(int page, int size)throws Exception {
         PageHelper.startPage(page,size);
         return iLsjbDao.findLsjb();
-
     }
 
     @Override
-    public void lsjbAdd(Lsjb lsjb) {
-      iLsjbDao.addLsjb(lsjb);
+    public List<Lsjb> findljsjbById(int id) {
+        return iLsjbDao.findljsjbById(id);
+    }
+
+    @Override
+    public void saveLjsj(Lsjb lsjb) throws Exception {
+        iLsjbDao.saveLjsj(lsjb);
+    }
+
+    @Override
+    public List<Lsjb> findZKSK(int page, int size) throws Exception {
+        PageHelper.startPage(page,size);
+        return iLsjbDao.findZKSK();
+    }
+
+    @Override
+    public void updateZKSK(int id) {
+
     }*/
+
 }

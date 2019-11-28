@@ -161,17 +161,17 @@
 	<!-- @@master = admin-layout.html-->
 	<!-- @@block = content -->
 
-	<div class="content-wrapper">
+	<div class="content-wrapper" style="height: 1080px">
 
 		<!-- 内容头部 -->
-		<section class="content-header">
+		<section class="content-header" >
 			<h1>
-				数据列表<small>工艺审核</small>
+				数据列表<small>工艺参数查询</small>
 			</h1>
 			<ol class="breadcrumb">
 				<li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
 				<li><a href="#">无纸化点检</a></li>
-				<li class="active">工艺审核</li>
+				<li class="active">质控审核</li>
 			</ol>
 		</section>
 		<!-- 内容头部 /-->
@@ -192,12 +192,13 @@
 						<!-- 客户编辑对话框 -->
 						<div class="modal fade bs-example-modal-lg" id="customerEditDialog" tabindex="-1" role="dialog"
 							 aria-labelledby="myModalLabel">--%>
-							<div class="modal-dialog modal-lg"  role="document"  style="width: 950px">
+							<div class="modal-dialog modal-lg"  role="document"  style="width: 950px;margin-top: 50px">
 								<div class="modal-content">
-									<form action="${pageContext.request.contextPath}/GYCS/updateByJL.do?id=${TSYscrap.id}&count=5"
-											method="post">
+
+									<form action="${pageContext.request.contextPath}/GYCS/saveGycsById.do?id=${TSYscrap.id}"
+										  method="post">
 										<div class="modal-header">
-											<h4 class="modal-title " name="id" id="gridSystemModalLabel" >
+											<h4 class="modal-title text-center" name="id" id="gridSystemModalLabel" >
 												工艺参数记录表</h4>
 										</div>
 										<div class="modal-body modal-lg"  style="width: 950px">
@@ -291,27 +292,97 @@
 
 											</table>
 
+
 											<span style="color: red;font-size: 14px">注：*为必填项</span>
 
 										</div>
 										<section class="content"> <!--产品信息-->
 
 											<div class="panel panel-default">
-												<div class="panel-heading" name="count">质控审核</div>
+												<div class="panel-heading" name="count">调机员审核</div>
 												<div class="row data-type">
 
-													<div class="col-md-2 title">角色名称</div>
-													<div class="col-md-4 data">
-														<input type="text" class="form-control" name="roleName"
-															   placeholder="角色名称" value="">
+													<div class="col-md-1 title">角色名称</div>
+													<div class="col-md-3 data">
+														<input type="text" class="form-control" name="roleName_TJY"
+															   placeholder="角色名称" disabled value="${TSYscrap.roleName_TJY}">
 													</div>
-													<div class="col-md-2 title">角色描述</div>
-													<div class="col-md-4 data">
-														<input type="text" class="form-control" name="roleDesc"
-															   placeholder="角色描述" value="">
+													<div class="col-md-1 title">角色描述</div>
+													<div class="col-md-3 data">
+														<input type="text" class="form-control" name="roleDesc_TJY"
+															   placeholder="角色描述" disabled value="${TSYscrap.roleDesc_TJY}">
+													</div>
+													<div class="col-md-1 title">录入时间</div>
+													<div class="col-md-3 data">
+														<input type="text" class="form-control" name="scantime_TJY"
+															   placeholder="角色描述" disabled value="${TSYscrap.scantime_TJY}">
 													</div>
 												</div>
 											</div>
+
+											<div class="panel panel-default">
+												<div class="panel-heading" name="count">质控审核</div>
+												<div class="row data-type">
+
+													<div class="col-md-1 title">角色名称</div>
+													<div class="col-md-3 data">
+														<input type="text" class="form-control" name="roleName_ZK"
+															   placeholder="角色名称" disabled value="${TSYscrap.roleName_ZK}">
+													</div>
+													<div class="col-md-1 title">角色描述</div>
+													<div class="col-md-3 data">
+														<input type="text" class="form-control" name="roleDesc_ZK"
+															   placeholder="角色描述" disabled value="${TSYscrap.roleDesc_ZK}">
+													</div>
+													<div class="col-md-1 title">录入时间</div>
+													<div class="col-md-3 data">
+														<input type="text" class="form-control" name="scantime_ZK"
+															   placeholder="角色描述" disabled value="${TSYscrap.scantime_ZK}">
+													</div>
+												</div>
+											</div>
+
+											<div class="panel panel-default">
+												<div class="panel-heading" name="count">工艺审核</div>
+												<div class="row data-type">
+
+													<div class="col-md-1 title">角色名称</div>
+													<div class="col-md-3 data">
+														<input type="text" class="form-control" name="roleName_GY"
+															   placeholder="角色名称" disabled value="${TSYscrap.roleName_GY}">
+													</div>
+													<div class="col-md-1 title">角色描述</div>
+													<div class="col-md-3 data">
+														<input type="text" class="form-control" name="roleDesc_GY"
+															   placeholder="角色描述" disabled value="${TSYscrap.roleDesc_GY}">
+													</div>
+													<div class="col-md-1 title">录入时间</div>
+													<div class="col-md-3 data">
+														<input type="text" class="form-control" name="scantime_GY"
+															   placeholder="角色描述" disabled value="${TSYscrap.scantime_GY}">
+													</div>
+												</div>
+											</div>
+											<div class="panel panel-default">
+												<div class="panel-heading" name="count">参数审核</div>
+												<div class="row data-type">
+
+													<div class="col-md-1 title">角色名称</div>
+													<div class="col-md-3 data">
+														<input type="text" class="form-control" name="ZKname"
+															   placeholder="角色名称" value="${TSYscrap.ZKname}">
+													</div>
+													<div class="col-md-1 title">角色描述</div>
+													<div class="col-md-3 data">
+														<input type="text" class="form-control" name="ZKdesc"
+															   placeholder="角色描述" value="${TSYscrap.ZKdesc}">
+													</div>
+
+												</div>
+											</div>
+
+
+
 											<!--订单信息/--> <!--工具栏-->
 											<div class="box-tools text-center">
 												<button type="submit" class="btn bg-maroon">保存</button>
@@ -319,17 +390,9 @@
 														onclick="history.back(-1);">返回</button>
 											</div>
 											<!--工具栏/--> </section>
-								</form>
+									</form>
 								</div>
-
 							</div>
-
-
-
-
-
-
-
 						</div>
 	</div>
 	<!-- @@close -->

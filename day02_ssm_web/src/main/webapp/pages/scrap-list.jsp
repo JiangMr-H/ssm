@@ -218,30 +218,30 @@
                                                 </tr>
                                                 <tr class="text-center">
                                                     <td colspan="2">数量小计</td>
-                                                    <td><input type="text" style="width: 40px" name="GYTS"></td>
-                                                    <td><input type="text" style="width: 40px" name="QL"></td>
-                                                    <td><input type="text" style="width: 40px" name="HBD"></td>
-                                                    <td><input type="text" style="width: 40px" name="HW"></td>
-                                                    <td><input type="text" style="width: 40px" name="QW"></td>
-                                                    <td><input type="text" style="width: 40px" name="YS"></td>
-                                                    <td><input type="text" style="width: 40px" name="SBW"></td>
-                                                    <td><input type="text" style="width: 40px" name="SS"></td>
-                                                    <td><input type="text" style="width: 40px" name="LSL"></td>
-                                                    <td><input type="text" style="width: 40px" name="LBH"></td>
-                                                    <td><input type="text" style="width: 40px" name="SJ"></td>
-                                                    <td><input type="text" style="width: 40px" name="BX"></td>
-                                                    <td><input type="text" style="width: 40px" name="SY"></td>
-                                                    <td><input type="text" style="width: 40px" name="DKDL"></td>
-                                                    <td><input type="text" style="width: 40px" name="YWB"></td>
-                                                    <td><input type="text" style="width: 40px" name="SC"></td>
-                                                    <td><input type="text" style="width: 40px" name="DS"></td>
-                                                    <td><input type="text" style="width: 40px" name="HS"></td>
-                                                    <td><input type="text" style="width: 40px" name="NM"></td>
-                                                    <td><input type="text" style="width: 40px" name="MC"></td>
-                                                    <td><input type="text" style="width: 40px" name="TJBL"></td>
-                                                    <td><input type="text" style="width: 40px" name="SYBL"></td>
-                                                    <td><input type="text" style="width: 40px" name="SM"></td>
-                                                    <td><input type="text" style="width: 40px" name="SLHJ"></td>
+                                                    <td><input id="GYTS" type="" style="width: 40px" onkeyup="sumAdd(this)" name="GYTS"></td>
+                                                    <td><input id="QL" type="text" style="width: 40px" onkeyup="sumAdd(this)" name="QL"></td>
+                                                    <td><input id="HBD" type="text" style="width: 40px" onkeyup="sumAdd(this)" name="HBD"></td>
+                                                    <td><input id="HW" type="text" style="width: 40px" onkeyup="sumAdd(this)" name="HW"></td>
+                                                    <td><input id="QW" type="text" style="width: 40px" onkeyup="sumAdd(this)" name="QW"></td>
+                                                    <td><input id="YS" type="text" style="width: 40px" onkeyup="sumAdd(this)"name="YS"></td>
+                                                    <td><input id="SBW" type="text" style="width: 40px" onkeyup="sumAdd(this)"name="SBW"></td>
+                                                    <td><input id="SS" type="text" style="width: 40px"onkeyup="sumAdd(this)" name="SS"></td>
+                                                    <td><input id="LSL" type="text" style="width: 40px" onkeyup="sumAdd(this)"name="LSL"></td>
+                                                    <td><input id="LBH" type="text" style="width: 40px" onkeyup="sumAdd(this)"name="LBH"></td>
+                                                    <td><input id="SJ" type="text" style="width: 40px" onkeyup="sumAdd(this)" name="SJ"></td>
+                                                    <td><input id="BX" type="text" style="width: 40px" onkeyup="sumAdd(this)"name="BX"></td>
+                                                    <td><input id="SY" type="text" style="width: 40px" onkeyup="sumAdd(this)"name="SY"></td>
+                                                    <td><input id="DKDL" type="text" style="width: 40px" onkeyup="sumAdd(this)"name="DKDL"></td>
+                                                    <td><input id="YWB" type="text" style="width: 40px" onkeyup="sumAdd(this)"name="YWB"></td>
+                                                    <td><input id="SC" type="text" style="width: 40px" onkeyup="sumAdd(this)"name="SC"></td>
+                                                    <td><input id="DS" type="text" style="width: 40px" onkeyup="sumAdd(this)"name="DS"></td>
+                                                    <td><input id="HS" type="text" style="width: 40px" onkeyup="sumAdd(this)"name="HS"></td>
+                                                    <td><input id="NM" type="text" style="width: 40px" onkeyup="sumAdd(this)"name="NM"></td>
+                                                    <td><input id="MC" type="text" style="width: 40px" onkeyup="sumAdd(this)"name="MC"></td>
+                                                    <td><input id="TJBL" type="text" style="width: 40px" onkeyup="sumAdd(this)"name="TJBL"></td>
+                                                    <td><input id="SYBL" type="text" style="width: 40px" onkeyup="sumAdd(this)"name="SYBL"></td>
+                                                    <td><input id="SM" type="text" style="width: 40px" onkeyup="sumAdd(this)"name="SM"></td>
+                                                    <td><input id="SLHJ" type="text" style="width: 40px" name="SLHJ" onkeyup="sumAdd(this)"></td>
                                                     <td><input type="text" style="width: 40px" name="JK"></td>
                                                 </tr>
                                                 <tr>
@@ -548,8 +548,43 @@
         return true;
     }
 
+   var sumAdd =function ()
+   {
+       var num1 = document.getElementById("GYTS").value || 0;
+       var num2 = document.getElementById("QL").value || 0;
+       var num3 = document.getElementById("HBD").value || 0;
+       var num4 = document.getElementById("HW").value || 0;
+       var num5 = document.getElementById("QW").value || 0;
+       var num6 = document.getElementById("YS").value || 0;
+       var num7 = document.getElementById("SBW").value || 0;
+       var num8 = document.getElementById("SS").value || 0;
+       var num9 = document.getElementById("LSL").value || 0;
+       var num10 = document.getElementById("LBH").value || 0;
+       var num11 = document.getElementById("SJ").value || 0;
+       var num12 = document.getElementById("BX").value || 0;
+       var num13 = document.getElementById("SY").value || 0;
+       var num14 = document.getElementById("DKDL").value || 0;
+       var num15 = document.getElementById("YWB").value || 0;
+       var num16 = document.getElementById("SC").value || 0;
+       var num17 = document.getElementById("DS").value || 0;
+       var num18 = document.getElementById("HS").value || 0;
+       var num19 = document.getElementById("NM").value || 0;
+       var num20 = document.getElementById("MC").value || 0;
+       var num21 = document.getElementById("TJBL").value || 0;
+       var num22 = document.getElementById("SYBL").value || 0;
+       var num23 = document.getElementById("SM").value || 0;
+       var SLHJ = document.getElementById("SLHJ").value || 0;
 
-
+       var result = parseFloat(num1)+parseFloat(num2)+parseFloat(num3)+
+           parseFloat(num4)+parseFloat(num5)+parseFloat(num6)+
+           parseFloat(num7)+parseFloat(num8)+parseFloat(num9)+
+           parseFloat(num10)+parseFloat(num11)+parseFloat(num12)+
+           parseFloat(num13)+parseFloat(num14)+parseFloat(num15)+
+           parseFloat(num16)+parseFloat(num17)+parseFloat(num18)+
+           parseFloat(num19)+parseFloat(num20)+parseFloat(num21)+
+           parseFloat(num22)+parseFloat(num23);
+       document.getElementById("SLHJ").value = result;
+   }
 
     function editCustomer(id) {
         $.ajax({

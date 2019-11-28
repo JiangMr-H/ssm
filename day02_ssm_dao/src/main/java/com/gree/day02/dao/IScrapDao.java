@@ -55,6 +55,9 @@ public interface IScrapDao {
     @Update("update \"scrap\" SET \"courseId\"=2 where \"id\"=#{scarpid}")
     void ScarpUpdate(int scarpid);
 
+
+
+
     /**
      * 修改状态（调试员审批后）
      */

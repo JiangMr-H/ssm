@@ -1,12 +1,12 @@
 /**
- * Copyright (C), 2015-2019, XXXÓÐÏÞ¹«Ë¾
+ * Copyright (C), 2015-2019, XXXï¿½ï¿½ï¿½Þ¹ï¿½Ë¾
  * FileName: Approval
  * Author:   891649
  * Date:     2019/9/16 10:54
  * Description:
  * History:
  * <author>          <time>          <version>          <desc>
- * ×÷ÕßÐÕÃû           ÐÞ¸ÄÊ±¼ä           °æ±¾ºÅ              ÃèÊö
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½           ï¿½Þ¸ï¿½Ê±ï¿½ï¿½           ï¿½æ±¾ï¿½ï¿½              ï¿½ï¿½ï¿½ï¿½
  */
 
 package com.gree.day02.dao;
@@ -14,9 +14,6 @@ package com.gree.day02.dao;
 import java.util.Date;
 
 /**
- * ¡´Ò»¾ä»°¹¦ÄÜ¼òÊö¡µ<br> 
- * ¡´¡µ
- *
  * @author 891649
  * @create 2019/9/16
  * @since 1.0.0

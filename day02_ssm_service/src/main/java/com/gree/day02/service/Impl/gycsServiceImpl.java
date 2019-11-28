@@ -1,12 +1,12 @@
 /**
- * Copyright (C), 2015-2019, XXXÓÐÏÞ¹«Ë¾
+ * Copyright (C), 2015-2019, XXXï¿½ï¿½ï¿½Þ¹ï¿½Ë¾
  * FileName: gycsServiceImpl
  * Author:   891649
  * Date:     2019/10/8 9:33
  * Description:
  * History:
  * <author>          <time>          <version>          <desc>
- * ×÷ÕßÐÕÃû           ÐÞ¸ÄÊ±¼ä           °æ±¾ºÅ              ÃèÊö
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½           ï¿½Þ¸ï¿½Ê±ï¿½ï¿½           ï¿½æ±¾ï¿½ï¿½              ï¿½ï¿½ï¿½ï¿½
  */
 
 package com.gree.day02.service.Impl;
@@ -14,7 +14,6 @@ package com.gree.day02.service.Impl;
 import com.github.pagehelper.PageHelper;
 import com.gree.day02.dao.GYCS;
 import com.gree.day02.dao.IGycsDao;
-import com.gree.day02.dao.Scrap;
 import com.gree.day02.service.IGycsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,9 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * ¡´Ò»¾ä»°¹¦ÄÜ¼òÊö¡µ<br> 
- * ¡´¡µ
- *
+ * ï¿½ï¿½Ò»ï¿½ä»°ï¿½ï¿½ï¿½Ü¼ï¿½ï¿½ï¿½ï¿½ï¿½<br>
  * @author 891649
  * @create 2019/10/8
  * @since 1.0.0
@@ -57,14 +54,62 @@ public class gycsServiceImpl implements IGycsService {
     }
 
 
-
-
     @Override
     public GYCS findByTJYId(int scrapId) {
-
-
-
         return iGycsDao.findByTJYId(scrapId);
     }
+
+    /**
+     *
+     * @param id
+     * @param roleName
+     * @param roleDesc
+     */
+    @Override
+    public void insertTJY(int id, String roleName, String roleDesc) {
+               iGycsDao.insertTJY(id,roleName,roleDesc);
+    }
+
+    /**
+     * ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½×´Ì¬
+     * @param id
+     * @param count
+     */
+    @Override
+    public void ScarpUpdate(int id, int count) {
+        iGycsDao.ScarpUpdate(id,count);
+    }
+
+    /**
+     * Â¼ï¿½ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+     * @param id
+     * @param roleName
+     * @param roleDesc
+     */
+    @Override
+    public void updateByJC_ZK(int id, String roleName, String roleDesc) throws Exception{
+        iGycsDao.updateByJC_ZK(id,roleName,roleDesc);
+    }
+
+    @Override
+    public void updateByJC_GY(int id, String roleName, String roleDesc) throws Exception{
+        iGycsDao.updateByJC_GY(id,roleName,roleDesc);
+    }
+
+    @Override
+    public GYCS findGycsByGyId(int gyId) {
+        return iGycsDao.findGycsByGyId(gyId);
+    }
+
+    @Override
+    public void updateGycsById(int gyId, String yl1, String yl2, String yl3, String yl4, String yl5, String yl6, String yl7, String sd1, String sd2, String sd3, String sd4, String sd5, String sd6, String sd7, String wz1, String wz2, String wz3, String wz4, String wz5, String wz6, String wz7, String wd1, String wd2, String wd3, String wd4, String wd5, String wd6, String wd7, String cpmc, String jyy, String jcbm, String bc, String jcrq, String sj, String lq, String bya, String jcsj, String bz) {
+          iGycsDao.updateGycsById(gyId,yl1,yl2,yl3,yl4,yl5,yl6,yl7,sd1,sd2,sd3,sd4,sd5,sd6,sd7,wz1,wz2,wz3,wz4,wz5,wz6,wz7,wd1,wd2,wd3,wd4,wd5,wd6,wd7,cpmc,jyy,jcbm,bc,jcrq,sj,lq,bya,jcsj,bz);
+    }
+
+    @Override
+    public void saveGycsById(int id, String zKname, String zKdesc) {
+        iGycsDao.saveGycsById(id,zKname,zKdesc);
+    }
+
 
 }

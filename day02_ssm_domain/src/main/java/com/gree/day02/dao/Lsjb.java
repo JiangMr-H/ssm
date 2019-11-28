@@ -1,20 +1,17 @@
 /**
- * Copyright (C), 2015-2019, XXXÓÐÏÞ¹«Ë¾
+ * Copyright (C), 2015-2019, XXXï¿½ï¿½ï¿½Þ¹ï¿½Ë¾
  * FileName: Lsjb
  * Author:   891649
  * Date:     2019/10/9 3:58
  * Description:
  * History:
  * <author>          <time>          <version>          <desc>
- * ×÷ÕßÐÕÃû           ÐÞ¸ÄÊ±¼ä           °æ±¾ºÅ              ÃèÊö
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½           ï¿½Þ¸ï¿½Ê±ï¿½ï¿½           ï¿½æ±¾ï¿½ï¿½              ï¿½ï¿½ï¿½ï¿½
  */
 
 package com.gree.day02.dao;
 
 /**
- * ¡´Ò»¾ä»°¹¦ÄÜ¼òÊö¡µ<br> 
- * ¡´¡µ
- *
  * @author 891649
  * @create 2019/10/9
  * @since 1.0.0
@@ -30,6 +27,8 @@ public class Lsjb {
     private String WLBM;
     private String LQSJ;
     private String RQ;
+    private String LJSB_JC;
+
     private String CL_YQ;
     private String CL_JG;
     private String CL_JL;
@@ -81,9 +80,7 @@ public class Lsjb {
     private String JG10;
     private String JL10;
     private String CZG;
-    private String LB;
     private String JYY;
-    private String XJ;
     private String CLYQ;
     private String JYDW;
     private String BAZ;
@@ -168,6 +165,14 @@ public class Lsjb {
 
     public void setRQ(String RQ) {
         this.RQ = RQ;
+    }
+
+    public String getLJSB_JC() {
+        return LJSB_JC;
+    }
+
+    public void setLJSB_JC(String LJSB_JC) {
+        this.LJSB_JC = LJSB_JC;
     }
 
     public String getCL_YQ() {
@@ -578,28 +583,12 @@ public class Lsjb {
         this.CZG = CZG;
     }
 
-    public String getLB() {
-        return LB;
-    }
-
-    public void setLB(String LB) {
-        this.LB = LB;
-    }
-
     public String getJYY() {
         return JYY;
     }
 
     public void setJYY(String JYY) {
         this.JYY = JYY;
-    }
-
-    public String getXJ() {
-        return XJ;
-    }
-
-    public void setXJ(String XJ) {
-        this.XJ = XJ;
     }
 
     public String getCLYQ() {

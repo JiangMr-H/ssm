@@ -146,16 +146,6 @@
 	href="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
 </head>
 
-<style>
-	td{
-		text-align:center;
-	}
-	.tds{
-        font-weight: bold;
-	}
-
-</style>
-
 <body class="hold-transition skin-purple sidebar-mini">
 
 	<div class="wrapper">
@@ -168,18 +158,20 @@
 		<!-- 导航侧栏 /-->
 
 		<!-- 内容区域 -->
+		<!-- @@master = admin-layout.html-->
+		<!-- @@block = content -->
 
 		<div class="content-wrapper">
 
 			<!-- 内容头部 -->
 			<section class="content-header">
 				<h1>
-					数据记录 <small>零件首检表</small>
+					数据列表<small>质控确认</small>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
-					<li><a href="#">数据管理</a></li>
-					<li class="active">零件首检列表</li>
+					<li><a href="#">无纸化点检</a></li>
+					<li class="active">质控确认</li>
 				</ol>
 			</section>
 			<!-- 内容头部 /-->
@@ -199,14 +191,14 @@
 						<div class="table-box">
 
 							<!--工具栏-->
-							<div class="pull-left">
+							<%--<div class="pull-left">
 								<div class="form-group form-inline">
 									<div class="btn-group">
 
 										<button type="button" class="btn btn-primary" title="新建"
 												data-toggle="modal"
 												data-target="#exampleModal" data-whatever="@mdo">
-											<%--<a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#customerEditDialog" onclick="editCustomer()">新建</a>--%>
+											&lt;%&ndash;<a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#customerEditDialog" onclick="editCustomer()">新建</a>&ndash;%&gt;
 											<i class="fa fa-file-o"></i> 新建
 										</button>
 										<button type="button" class="btn btn-default" title="刷新">
@@ -214,11 +206,11 @@
 										</button>
 									</div>
 								</div>
-							</div>
+							</div>--%>
 
 							<!-- 报废单  -->
 							<!-- 客户编辑对话框 -->
-							<div class="modal fade bs-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog"
+							<div class="modal fade bs-example-modal-lg" id="customerEditDialog" tabindex="-1" role="dialog"
 								 aria-labelledby="myModalLabel">
 								<div class="modal-dialog modal-lg"  role="document"  style="width: 950px">
 									<div class="modal-content">
@@ -226,269 +218,105 @@
 											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 												<span aria-hidden="true">&times;</span>
 											</button>
-											<h3 class="modal-title " id="gridSystemModalLabel" style="margin-left: 400px">
-												<b>零件首检表</b></h3>
+											<h4 class="modal-title " id="gridSystemModalLabel" >
+												工艺参数记录表</h4>
 										</div>
 										<div class="modal-body modal-lg"  style="width: 950px">
 											<form class="form-horizontal" id="edit_customer_form"
-												  action="${pageContext.request.contextPath}/ljsjb/saveLjsj.do"
+												  action="${pageContext.request.contextPath}/GYCS/save.do"
 												  method="post" onsubmit="return check(this)">
 												<table class="table table-bordered modal-lg" >
 													<tr>
-														<td style='width:85px;text-align: center;'><b>零件名称</b></td>
-														<td colspan="2" style='width:250px'><input type="text" style="width: 250px" name="LJMC"
-																								   placeholder=""></td>
-														<td style='width:85px'><b>工装编号</b></td>
-														<td colspan="2" style='width:130px'><input type="text" style="width: 150px" name="GZBM"
-																								   placeholder=""></td>
-														<td style='width:85px'><b>包装</b></td>
-														<td style='width:130px'><input type="text" style="width: 100px" name="BZ"
-																					   placeholder=""></td>
+														<td class="text-center"><i style="color: red">* </i>
+															产品名称：</td>
+														<td colspan="4"><input type="text"  name="CPMC" placeholder="产品名称"></td>
+														<td class="text-center" ><i style="color: red">* </i>检验员：</td>
+														<td colspan="3"><input type="text" style="width: 150px" name="JYY"
+																			   placeholder="检验员"></td>
+														<td colspan="4" rowspan="2" style="padding-top:27px ">参数变化情况</td>
 													</tr>
 													<tr>
-														<td style='width:85px' class="tds">零件图号</td>
-														<td colspan="2" style='width:250px'><input type="text" style="width: 250px" name="LJTH"
-																								   placeholder=""></td>
-														<td style='width:85px'class="tds">整形周期</td>
-														<td colspan="2" style='width:130px'><input type="text" style="width: 150px" name="ZXZQ"
-																								   placeholder=""></td>
-														<td style='width:85px'class="tds">机床</td>
-														<td style='width:130px'><input type="text" style="width: 100px" name="JC"
-																					   placeholder=""></td>
-													</tr>
-													<tr>
-														<td style='width:85px'class="tds">物料编码</td>
-														<td colspan="2" style='width:250px'><input type="text" style="width: 250px" name="WLBM"
-																								   placeholder=""></td>
-														<td style='width:85px'class="tds">冷却时间</td>
-														<td colspan="2" style='width:130px'><input type="text" style="width: 150px" name="LQSJ"
-																								   placeholder=""></td>
-														<td style='width:85px'class="tds">日期</td>
-														<td style='width:130px'><input type="text" style="width: 100px" name="RQ"
-																					   placeholder=""></td>
-													</tr>
-													<tr>
-														<td class="tds">检验项目</td>
-														<td colspan="2" class="tds">检验要求</td>
-														<td colspan="3" class="tds">检验结果</td>
-														<td colspan="2" class="tds">结论</td>
-													</tr>
-													<tr>
-
-														<td class="tds">材料</td>
-														<td colspan="2"><input type="text" style="width: 250px" name="CL_YQ"
-																			   placeholder=""></td>
-														<td colspan="3"><input type="text" style="width: 250px" name="CL_JG"
-																			   placeholder=""></td>
-														<td colspan="2"><input type="text" style="width: 200px" name="CL_JL"
-																			   placeholder=""></td>
-													</tr>
-													<tr>
-
-														<td class="tds">颜色</td>
-														<td colspan="2"><input type="text" style="width: 250px" name="YS_YQ"
-																			   placeholder=""></td>
-														<td colspan="3"><input type="text" style="width: 250px" name="YS_JG"
-																			   placeholder=""></td>
-														<td colspan="2"><input type="text" style="width: 200px" name="YS_JL"
-																			   placeholder=""></td>
+														<td class="text-center"><i style="color: red">* </i>
+															机床编码：</td>
+														<td colspan="2"><input type="text"  name="JCBM" placeholder="机床编码"></td>
+														<td class="text-center"><i style="color: red">* </i>
+															班次：</td>
+														<td ><input type="text" style="width: 80px" name="BC" placeholder="班次"></td>
+														<td class="text-center"><i style="color: red">* </i>
+															检查日期：</td>
+														<td colspan="3"><input type="date"  name="JCRQ" placeholder="检查日期"></td>
 
 													</tr>
 													<tr>
+														<td class="text-center" rowspan="5"style="padding-top: 60px">注塑</br>工艺参数</td>
+														<td class="text-center">压力</td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="YL1"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="YL2"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="YL3"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="YL4"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="YL5"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="YL6"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="YL7"></td>
 
-														<td class="tds">色差值</td>
-														<td colspan="2"><input type="text" style="width: 250px" name="SCZ_YQ"
-																			   placeholder=""></td>
-														<td colspan="3"><input type="text" style="width: 250px" name="SCZ_JG"
-																			   placeholder=""></td>
-														<td colspan="2"><input type="text" style="width: 200px" name="SCZ_JL"
-																			   placeholder=""></td>
+														<td><input type="text"  style="width: 80px"></td>
+													</tr>
+													<tr>
+														<td class="text-center">速度</td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="SD1"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="SD2"></td>
+														<td class="text-center"><input type="text"  style="width: 50px"name="SD3"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="SD4"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="SD5"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="SD6"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="SD7"></td>
 
+														<td><input type="text"  style="width: 80px"></td>
 													</tr>
 													<tr>
-														<td class="tds">ROHS</td>
-														<td colspan="2"><input type="text" style="width: 250px" name="ROHS_YQ"
-																			   placeholder=""></td>
-														<td colspan="3"><input type="text" style="width: 250px" name="ROHS_JG"
-																			   placeholder=""></td>
-														<td colspan="2"><input type="text" style="width: 200px" name="ROHS_JL"
-																			   placeholder=""></td>
-													</tr>
-													<tr>
+														<td class="text-center">位置</td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="WZ1"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="WZ2"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="WZ3"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="WZ4"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="WZ5"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="WZ6"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="WZ7"></td>
 
-														<td class="tds">尺寸</td>
-														<td colspan="2"><input type="text" style="width: 250px" name="CC_YQ1"
-																			   placeholder=""></td>
-														<td colspan="3"><input type="text" style="width: 250px" name="CC_JG1"
-																			   placeholder=""></td>
-														<td colspan="2"><input type="text" style="width: 200px" name="CC_JL1"
-																			   placeholder=""></td>
+														<td><input type="text"  style="width: 80px"></td>
 													</tr>
 													<tr>
-														<td></td>
-														<td colspan="2"><input type="text" style="width: 250px" name="CC_YQ2"
-																			   placeholder=""></td>
-														<td colspan="3"><input type="text" style="width: 250px" name="CC_YQ3"
-																			   placeholder=""></td>
-														<td colspan="2"><input type="text" style="width: 200px" name="CC_YQ4"
-																			   placeholder=""></td>
-													</tr>
-													<tr>
+														<td class="text-center">温度</td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="WD1"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="WD2"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="WD3"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="WD4"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="WD5"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="WD6"></td>
+														<td class="text-center"><input type="text"  style="width: 50px" name="WD7"></td>
 
-														<td></td>
-														<td colspan="2"><input type="text" style="width: 250px" name="CC_YQ5"
-																			   placeholder=""></td>
-														<td colspan="3"><input type="text" style="width: 250px" name="CC_YQ6"
-																			   placeholder=""></td>
-														<td colspan="2"><input type="text" style="width: 200px" name="CC_JG2"
-																			   placeholder=""></td>
+														<td><input type="text"  style="width: 80px"></td>
+													</tr>
+													<tr>
+														<td class="text-center">射胶</td>
+														<td class="text-right"><input type="text"  style="width: 50px;margin-right: 10px" name="SJ"><i>秒</i></td>
+														<td class="text-center">冷却</td>
+														<td class="text-right"><input type="text"  style="width: 50px" NAME="LQ"><i>秒</i></td>
+														<td class="text-center">保压</td>
+														<td class="text-right"><input type="text"  style="width: 50px;margin-left: 5px" NAME="BYA"><i>秒</i></td>
+														<td class="text-center">检查时间点</td>
+														<td class="text-right"><input type="datetime" placeholder="00:00" style="width: 50px" NAME="JCSJ"></td>
 
+														<td><input type="text"  style="width: 80px"></td>
 													</tr>
 													<tr>
-														<td></td>
-														<td colspan="2"><input type="text" style="width: 250px" name="CC_JG3"
-																			   placeholder=""></td>
-														<td colspan="3"><input type="text" style="width: 250px" name="CC_JG4"
-																			   placeholder=""></td>
-														<td colspan="2"><input type="text" style="width: 200px" name="CC_JG5"
-																			   placeholder=""></td>
+														<td rowspan="2" class="text-left">备注</td>
+														<td colspan="8"><input type="text" cols="40" rows="5" style="width: 600px;height: 30px" name="BZ" placeholder="备注"></td>
+													</tr>
 
-
-													</tr>
-													<tr>
-														<td></td>
-														<td colspan="2"><input type="text" style="width: 250px" name="CC_JG6"
-																			   placeholder=""></td>
-														<td colspan="3"><input type="text" style="width: 250px" name="CC_JL2"
-																			   placeholder=""></td>
-														<td colspan="2"><input type="text" style="width: 200px" name="CC_JL3"
-																			   placeholder=""></td>
-													</tr>
-													<tr>
-														<td></td>
-														<td colspan="2"><input type="text" style="width: 250px" name="CC_JL4"
-																			   placeholder=""></td>
-														<td colspan="3"><input type="text" style="width: 250px" name="CC_JL5"
-																			   placeholder=""></td>
-														<td colspan="2"><input type="text" style="width: 200px" name="CC_JL6"
-																			   placeholder=""></td>
-													</tr>
-													<tr>
-														<td style="text-align: center;" class="tds">结构外观强度</td>
-														<td colspan="3" style='word-wrap: break-word ;width:25px;word-break:break-all'>各个部位无毛刺、缺料、多料、刀伤、拉裂、偏位、烧焦等</td>
-														<td colspan="2"><input type="text" style="width: 150px" name="JG1"
-																			   placeholder=""></td>
-														<td colspan="2"><input type="text" style="width: 150px" name="JL1"
-																			   placeholder=""></td>
-													</tr>
-													<tr>
-														<td></td>
-														<td colspan="3" style='word-wrap: break-word ;width:25px;word-break:break-all'>表面无不可接受的锈斑、缩水、顶白、熔接痕、拉伤、拉白、划伤、气纹、水花、油纹、波纹、黑点、油污、色纹等缺陷</td>
-
-														<td colspan="2"><input type="text" style="width: 150px;margin-top: 15px" name="JG2"
-																			   placeholder=""></td>
-														<td colspan="2"><input type="text" style="width: 150px;margin-top: 15px" name="JL2"
-																			   placeholder=""></td>
-													</tr>
-													<tr>
-														<td></td>
-														<td colspan="3">有回收及材料标识和型腔标识</td>
-
-														<td colspan="2"><input type="text" style="width: 150px" name="JG3"
-																			   placeholder=""></td>
-														<td colspan="2"><input type="text" style="width: 150px" name="JL3"
-																			   placeholder=""></td>
-													</tr>
-													<tr>
-														<td></td>
-														<td colspan="3" style='word-wrap: break-word ;width:25px;word-break:break-all'>各边或网格、按钮无不可接受或超出工艺要求的变形</td>
-
-														<td colspan="2"><input type="text" style="width: 150px" name="JG4"
-																			   placeholder=""></td>
-														<td colspan="2"><input type="text" style="width: 150px" name="JL4"
-																			   placeholder=""></td>
-													</tr>
-													<tr>
-														<td></td>
-														<td colspan="3" style='word-wrap: break-word ;width:25px;word-break:break-all'>螺钉孔无不可接受的堵孔、偏位、错位、螺钉孔壁料薄等</td>
-
-														<td colspan="2"><input type="text" style="width: 150px" name="JG5"
-																			   placeholder=""></td>
-														<td colspan="2"><input type="text" style="width: 150px" name="JL5"
-																			   placeholder=""></td>
-													</tr>
-													<tr>
-														<td></td>
-														<td colspan="3" style='word-wrap: break-word ;width:25px;word-break:break-all'>扣位、齿位、网格及转角处等薄弱位置不容易断、易裂，是否需要用增加R角或加筋</td>
-
-														<td colspan="2"><input type="text" style="width: 150px" name="JG6"
-																			   placeholder=""></td>
-														<td colspan="2"><input type="text" style="width: 150px" name="JL6"
-																			   placeholder=""></td>
-													</tr>
-													<tr>
-														<td></td>
-														<td colspan="3" style='word-wrap: break-word ;width:25px;word-break:break-all'>风叶高速运转、跌落、摆动、动平衡、重量合格，平台无明显缩水、叶片无裂痕、变形，包装符合特殊要求</td>
-														<td colspan="2"><input type="text" style="width: 150px" name="JG7"
-																			   placeholder=""></td>
-														<td colspan="2"><input type="text" style="width: 150px" name="JL7"
-																			   placeholder=""></td>
-													</tr>
-													<tr>
-														<td></td>
-														<td colspan="3" style='word-wrap: break-word ;width:25px;word-break:break-all'>关键部位（如底壳出水口、底壳风道、接水盘排水口、导风板转轴和轴孔、接水盘轴孔、控制盖板按钮等）不存在毛刺；关键部位（如底壳和接水盘的水槽、水箱）无料薄或穿孔现象</td>
-														<td colspan="2"><input type="text" style="width: 150px;margin-top: 25px" name="JG8"
-																			   placeholder=""></td>
-														<td colspan="2"><input type="text" style="width: 150px;margin-top: 25px" name="JL8"
-																			   placeholder=""></td>
-													</tr>
-													<tr>
-														<td></td>
-														<td colspan="3" style='word-wrap: break-word ;width:25px;word-break:break-all'>与相邻或相关联的注塑件进行组装，配合是否异常（如配合错位、缝隙过大、面板扣不紧或打不开等现象）</td>
-														<td colspan="2"><input type="text" style="width: 150px" name="JG9"
-																			   placeholder=""></td>
-														<td colspan="2"><input type="text" style="width: 150px" name="JL9"
-																			   placeholder=""></td>
-													</tr>
-													<tr>
-														<td></td>
-														<td colspan="3">无异物危害现象</td>
-														<td colspan="2"><input type="text" style="width: 150px" name="JG10"
-																			   placeholder=""></td>
-														<td colspan="2"><input type="text" style="width: 150px" name="JL10"
-																			   placeholder=""></td>
-													</tr>
-													<tr>
-														<td class="tds">操作工</td>
-														<td colspan="2"><input type="text" style="width: 200px" name="CZG"
-																			   placeholder=""></td>
-														<td class="tds">首检人</td>
-														<td colspan="4"><input type="text" style="width: 250px" name="JYY"
-																			   placeholder=""></td>
-
-													</tr>
-													<tr>
-														<td class="tds">测量仪器</td>
-														<td colspan="2"><input type="text" style="width: 200px" name="CLYQ"
-																			   placeholder=""></td>
-														<td class="tds">首检班组</td>
-														<td colspan="4"><input type="text" style="width: 250px" name="JYDW"
-																			   placeholder=""></td>
-
-													</tr>
-													<tr>
-														<td class="tds">备注</td>
-														<td colspan="2"><input type="text" style="width: 200px" name="BAZ"
-																			   placeholder=""></td>
-														<td class="tds">首检结论</td>
-														<td colspan="4"><input type="text" style="width: 250px" name="SJJL"
-																			   placeholder="" disabled></td>
-
-													</tr>
 												</table>
 
 
-												<span style="color: red;font-size: 14px" class="tds">注：*为必填项</span>
+												<span style="color: red;font-size: 14px">注：*为必填项</span>
 
 
 												<div class="modal-footer">
@@ -519,42 +347,43 @@
 											id="selall" type="checkbox" class="icheckbox_square-blue">
 									</th>
 									<th class="sorting_asc">ID</th>
-									<th class="sorting_desc">零件名称</th>
-									<th class="sorting_asc sorting_asc_disabled">工装编号</th>
-									<th class="sorting_desc sorting_desc_disabled">包装</th>
-									<th class="sorting">零件图号</th>
-									<th class="text-center sorting">整形周期</th>
-									<th class="sorting">机床</th>
-									<th class="text-center sorting">物料编码</th>
-									<th class="sorting">冷却时间</th>
-									<th class="sorting">进程</th>
-									<th class="text-center sorting">日期</th>
-									<th class="sorting">操作</th>
+									<th class="sorting_desc">产品名称</th>
+									<th class="sorting_asc sorting_asc_disabled">检验员</th>
+									<th class="sorting_desc sorting_desc_disabled">机床编码</th>
+									<th class="sorting">班次</th>
+									<th class="text-center sorting">检查日期</th>
+									<th class="sorting">当前进程</th>
+									<th class="sorting">录入时间</th>
+									<th class="text-center sorting">操作</th>
 									<%--<th class="text-center">详细</th>--%>
 								</tr>
 								</thead>
 								<tbody>
 
 
-								<c:forEach items="${pageInfo.list}" var="ljsjb">
+								<c:forEach items="${pageInfo.list}" var="gycs">
+
 									<tr>
 										<td><input name="ids" type="checkbox"></td>
-										<td>${ljsjb.id }</td>
-										<td>${ljsjb.LJMC }</td>
-										<td>${ljsjb.GZBM }</td>
-										<td>${ljsjb.BZ }</td>
-										<td>${ljsjb.LJTH }</td>
-										<td class="text-center">${ljsjb.ZXZQ }</td>
-										<td>${ljsjb.JC }</td>
-										<td>${ljsjb.WLBM }</td>
-										<td>${ljsjb.LQSJ }</td>
-										<td>${ljsjb.LJSB_JC }</td>
-										<td>${ljsjb.scantime }</td>
+										<td>${gycs.id }</td>
+										<td>${gycs.CPMC }</td>
+										<td>${gycs.JYY }</td>
+										<td>${gycs.JCBM }</td>
+										<td>${gycs.BC }</td>
+										<td class="text-center">${gycs.JCRQ }</td>
+										<td class="text-center">${gycs.JC }</td>
+										<td>${gycs.scantime }</td>
 										<td class="text-center">
-											<a type="button" class="btn bg-olive btn-xs" data-toggle="modal"
-											   data-target="#exampleModal" onclick="location.href='${pageContext.request.contextPath}/ljsjb/findById.do?id=${ljsjb.id }'">
-												详情
-											</a>
+												<%--<button type="button" class="btn bg-olive btn-xs">订单</button>--%>
+												<%--  <button type="button" class="btn bg-olive btn-xs"
+                                                          onclick="location.href='${pageContext.request.contextPath}/scrap/findById.do?id=${scrap.id}'">
+                                                      详情
+                                                  </button>--%>
+													<a type="button" class="btn bg-olive btn-xs" data-toggle="modal"
+													   data-target="#exampleModal" onclick="location.href='${pageContext.request.contextPath}/GYCS/findByGycsId.do?id=${gycs.id }'">
+														审批
+													</a>
+												<%--<button type="button" class="btn bg-olive btn-xs">编辑</button>--%>
 										</td>
 									</tr>
 								</c:forEach>
@@ -588,21 +417,21 @@
 						<div class="box-tools pull-right">
 							<ul class="pagination">
 								<li>
-									<a href="${pageContext.request.contextPath}/ljsjb/findAllljsj.do?page=1&size=${pageInfo.pageSize}"
+									<a href="${pageContext.request.contextPath}/GYCS/findGycs.do?page=1&size=${pageInfo.pageSize}"
 									   aria-label="Previous">首页</a></li>
 								<li>
-									<a href="${pageContext.request.contextPath}/ljsjb/findAllljsj.do?page=${pageInfo.pageNum-1}&size=${pageInfo.pageSize}">上一页</a>
+									<a href="${pageContext.request.contextPath}/GYCS/findGycs.do?page=${pageInfo.pageNum-1}&size=${pageInfo.pageSize}">上一页</a>
 								</li>
 								<c:forEach begin="${pageInfo.pageNum}" end="${pageInfo.pageNum}" var="pageNum">
 									<li>
-										<a href="${pageContext.request.contextPath}/ljsjb/findAllljsj.do?page=${pageNum}&size=${pageInfo.pageSize}">${pageNum}</a>
+										<a href="${pageContext.request.contextPath}/GYCS/findGycs.do?page=${pageNum}&size=${pageInfo.pageSize}">${pageNum}</a>
 									</li>
 								</c:forEach>
 								<li>
-									<a href="${pageContext.request.contextPath}/ljsjb/findAllljsj.do?page=${pageInfo.pageNum+1}&size=${pageInfo.pageSize}">下一页</a>
+									<a href="${pageContext.request.contextPath}/GYCS/findGycs.do?page=${pageInfo.pageNum+1}&size=${pageInfo.pageSize}">下一页</a>
 								</li>
 								<li>
-									<a href="${pageContext.request.contextPath}/ljsjb/findAllljsj.do?page=${pageInfo.pages}&size=${pageInfo.pageSize}"
+									<a href="${pageContext.request.contextPath}/GYCS/findGycs.do?page=${pageInfo.pages}&size=${pageInfo.pageSize}"
 									   aria-label="Next">尾页</a></li>
 							</ul>
 						</div>
@@ -614,8 +443,40 @@
 				</div>
 
 			</section>
-			<!-- 正文区域 /-->
 
+			<!-- 正文区域 /-->
+		<%--	<form action="#"
+				  method="post">
+				<!-- 正文区域 -->
+				<section class="content"> <!--产品信息-->
+
+					<div class="panel panel-default">
+						<div class="panel-heading">质控确认</div>
+						<div class="row data-type">
+
+							<div class="col-md-2 title">角色名称</div>
+							<div class="col-md-4 data">
+								<input type="text" class="form-control" name="roleName"
+									   placeholder="角色名称" value="">
+							</div>
+							<div class="col-md-2 title">角色描述</div>
+							<div class="col-md-4 data">
+								<input type="text" class="form-control" name="roleDesc"
+									   placeholder="角色描述" value="">
+							</div>
+
+
+						</div>
+					</div>
+					<!--订单信息/--> <!--工具栏-->
+					<div class="box-tools text-center">
+						<button type="submit" class="btn bg-maroon">保存</button>
+						<button type="button" class="btn bg-default"
+								onclick="history.back(-1);">返回</button>
+					</div>
+					<!--工具栏/--> </section>
+				<!-- 正文区域 /-->
+			</form>--%>
 		</div>
 		<!-- @@close -->
 		<!-- 内容区域 /-->

@@ -105,10 +105,10 @@
 							class="fa fa-circle-o"></i> 工艺参数表
 						</a>
 					</li>
-					<li ><a
+				<%--	<li ><a
 							href="${pageContext.request.contextPath}/GYCS/findGycs2.do?count=1"> <i
 							class="fa fa-circle-o"></i> 检验员审核
-					</a></li>
+					</a></li>--%>
 					<li ><a
 							href="${pageContext.request.contextPath}/GYCS/findGycs2.do?count=2">
 						<i class="fa fa-circle-o"></i> 调机员、班组
@@ -120,6 +120,11 @@
 					<li ><a
 							href="${pageContext.request.contextPath}/GYCS/findGycs2.do?count=4">
 						<i class="fa fa-circle-o"></i> 工艺确认
+					</a></li>
+
+					<li ><a
+							href="${pageContext.request.contextPath}/GYCS/findGycs2.do?count=6">
+						<i class="fa fa-circle-o"></i> 参数修改确认
 					</a></li>
 					<%--<li ><a
 							href="${pageContext.request.contextPath}/pages/paperless-TJY-show.jsp"> <i
@@ -137,8 +142,14 @@
 				<ul class="treeview-menu">
 					<li >
 						<a
-								href="${pageContext.request.contextPath}/ljsjb/findljsjb.do"> <i
+								href="${pageContext.request.contextPath}/ljsjb/findAllljsj.do"> <i
 								class="fa fa-circle-o"></i> 填写零件首检表
+						</a>
+					</li>
+					<li >
+						<a
+								href="${pageContext.request.contextPath}/ljsjb/findZKSK.do"> <i
+								class="fa fa-circle-o"></i> 质控审批
 						</a>
 					</li>
 				</ul>

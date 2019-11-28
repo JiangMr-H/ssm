@@ -195,7 +195,7 @@
 							<div class="modal-dialog modal-lg"  role="document"  style="width: 950px">
 								<div class="modal-content">
 
-									<form action="${pageContext.request.contextPath}/scrap/updateTJY.do?id=${TSYscrap.id}"
+									<form action="${pageContext.request.contextPath}/GYCS/updateTJY.do?id=${TSYscrap.id}"
 											method="post">
 
 									<div class="modal-header">

@@ -1,24 +1,16 @@
 package com.gree.day02.dao;
 
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
-
-import java.util.List;
 
 public interface ILsjbDao {
 
-   /* @Select("SELECT \"id\",\n" +
-            "LJMC, \n" +
-            "GZBM, \n" +
-            "BZ, \n" +
-            "LJTH, \n" +
-            "ZXZQ, \n" +
-            "JC, \n" +
-            "WLBM, \n" +
-            "LQSJ, \n" +
-            "RQ,\"scantime\"  FROM \"ZS_LJSJB\" order by \"scantime\" desc")
+/*
+    @Select("SELECT \"id\",\"LJMC\", \"GZBM\",\"BZ\",\"LJTH\",\"ZXZQ\",\"JC\",\"WLBM\",\"LQSJ\",\"RQ\",\n" +
+            "        CASE LJSB_JC\n" +
+            "\tWHEN 1 THEN\n" +
+            "\t\t'待质控审核'\n" +
+            "\tELSE\n" +
+            "\t\t'已结单' END AS LJSB_JC\n" +
+            "  FROM \"ZS_LJSJB\" order by \"scantime\" desc")
     @Results({
             @Result(id = true,property = "id",column = "id"),
             @Result(property = "LJMC",column = "LJMC"),
@@ -28,15 +20,17 @@ public interface ILsjbDao {
             @Result(property = "ZXZQ",column = "ZXZQ"),
             @Result(property = "JC",column = "JC"),
             @Result(property = "WLBM",column = "WLBM"),
-            @Result(property = "JC",column = "LQSJ"),
-            @Result(property = "WLBM",column = "RQ"),
-            @Result(property = "scantime",column = "scantime"),
+            @Result(property = "LQSJ",column = "LQSJ"),
+            @Result(property = "RQ",column = "RQ"),
+            @Result(property = "LJSB_JC",column = "LJSB_JC"),
     })
-    public List<Lsjb> findLsjb();*/
+    List<Lsjb> findLsjb()throws Exception;
 
 
+    @Select("select * form \"ZS_LJSJB\" where \"id\"=#{id}")
+    List<Lsjb> findljsjbById(@Param("id")int id);
 
-  /*  @Insert("insert INTO \"ZS_LJSJB\" (\"id\",\n" +
+     @Insert("insert INTO \"ZS_LJSJB\" (\n" +
             "LJMC, \n" +
             "GZBM, \n" +
             "BZ, \n" +
@@ -102,10 +96,40 @@ public interface ILsjbDao {
             "XJ, \n" +
             "CLYQ, \n" +
             "JYDW, \n" +
-            "BAZ,SJJL,\"scantime\"\n" +
-            ")values('3',#{LJMC},#{GZBM},#{BZ},#{LJTH},#{ZXZQ},#{JC},#{WLBM},#{LQSJ},#{RQ},#{CL_YQ},#{CL_JG},#{CL_JL},#{YS_YQ},#{YS_JG},#{YS_JL},#{SCZ_YQ},#{SCZ_JG},#{SCZ_JL},#{ROHS_YQ},#{ROHS_JG},#{ROHS_JL},#{CC_YQ1},#{CC_JG1},#{CC_JL1},#{CC_YQ2},#{CC_YQ3},#{CC_YQ4}," +
-            "#{CC_YQ5},#{CC_YQ6},#{CC_JG2},#{CC_JG3},#{CC_JG4},#{CC_JG5},#{CC_JG6},#{CC_JL2},#{CC_JL3},#{CC_JL4},#{CC_JL5},#{CC_JL6},#{JG1},#{JL1},#{JG2},#{JL2},#{JG3},#{JL3},#{JG4},#{JL4},#{JG5},#{JL5},#{JG6},#{JL6},#{JG7},#{JL7},#{JG8},#{JL8},#{JG9},#{JL9},#{JG10},#{JL10},#{CZG},#{LB},#{JYY},#{XJ},#{CLYQ},#{JYDW},#{BAZ},#{SJJL},SYSDATE")
-    public void addLsjb(Lsjb lsjb);*/
+            "BAZ,SJJL,LJSB_JC\"scantime\"\n" +
+            ")values(#{LJMC},#{GZBM},#{BZ},#{LJTH},#{ZXZQ},#{JC},#{WLBM},#{LQSJ},#{RQ},#{CL_YQ},#{CL_JG},#{CL_JL},#{YS_YQ},#{YS_JG},#{YS_JL},#{SCZ_YQ},#{SCZ_JG},#{SCZ_JL},#{ROHS_YQ},#{ROHS_JG},#{ROHS_JL},#{CC_YQ1},#{CC_JG1},#{CC_JL1},#{CC_YQ2},#{CC_YQ3},#{CC_YQ4}," +
+            "#{CC_YQ5},#{CC_YQ6},#{CC_JG2},#{CC_JG3},#{CC_JG4},#{CC_JG5},#{CC_JG6},#{CC_JL2},#{CC_JL3},#{CC_JL4},#{CC_JL5},#{CC_JL6},#{JG1},#{JL1},#{JG2},#{JL2},#{JG3},#{JL3},#{JG4},#{JL4},#{JG5},#{JL5},#{JG6},#{JL6},#{JG7},#{JL7},#{JG8},#{JL8},#{JG9},#{JL9},#{JG10},#{JL10},#{CZG},#{LB},#{JYY},#{XJ},#{CLYQ},#{JYDW},#{BAZ},#{SJJL},#{LJSB_JC},SYSDATE")
+     void saveLjsj(Lsjb lsjb)throws Exception;
+
+
+
+    @Select("SELECT \"id\",\"LJMC\", \"GZBM\",\"BZ\",\"LJTH\",\"ZXZQ\",\"JC\",\"WLBM\",\"LQSJ\",\"RQ\",\n" +
+            "        CASE \"LJSB_JC\"\n" +
+            "\tWHEN 1 THEN\n" +
+            "\t\t'待质控审核'\n" +
+            "\tELSE\n" +
+            "\t\t'已结单' END AS LJSB_JC\n" +
+            "  FROM \"ZS_LJSJB\" where \"LJSB_JC\"=1 order by \"scantime\" desc\n")
+    @Results({
+            @Result(id = true,property = "id",column = "id"),
+            @Result(property = "LJMC",column = "LJMC"),
+            @Result(property = "GZBM",column = "GZBM"),
+            @Result(property = "BZ,",column = "BZ,"),
+            @Result(property = "LJTH",column = "LJTH"),
+            @Result(property = "ZXZQ",column = "ZXZQ"),
+            @Result(property = "JC",column = "JC"),
+            @Result(property = "WLBM",column = "WLBM"),
+            @Result(property = "LQSJ",column = "LQSJ"),
+            @Result(property = "RQ",column = "RQ"),
+            @Result(property = "LJSB_JC",column = "LJSB_JC"),
+    })
+    List<Lsjb> findZKSK()throws Exception;
+
+
+
+*/
+
+
 
 
 }

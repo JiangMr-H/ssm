@@ -195,11 +195,11 @@
 							<div class="modal-dialog modal-lg"  role="document"  style="width: 950px">
 								<div class="modal-content">
 
-									<form action="${pageContext.request.contextPath}/scrap/updateTJY.do?id=${TSYscrap.id}"
+									<form action="${pageContext.request.contextPath}/GYCS/updateTJY.do?id=${TSYscrap.id}&count=3"
 											method="post">
 
 									<div class="modal-header">
-										<h4 class="modal-title " id="gridSystemModalLabel" >
+										<h4 class="modal-title " name="id" id="gridSystemModalLabel" >
 											工艺参数记录表</h4>
 									</div>
 									<div class="modal-body modal-lg"  style="width: 950px">
@@ -207,89 +207,89 @@
 												<tr>
 													<td class="text-center"><i style="color: red">* </i>
 														产品名称：</td>
-													<td colspan="4"><input type="text"  name="CPMC" placeholder="产品名称"></td>
+													<td colspan="4"><input type="text"  name="CPMC" placeholder="" value="${TSYscrap.CPMC}"></td>
 													<td class="text-center" ><i style="color: red">* </i>检验员：</td>
 													<td colspan="3"><input type="text" style="width: 150px" name="JYY"
-																		   placeholder="检验员"></td>
+																		   placeholder="" value="${TSYscrap.JYY}"></td>
 													<td colspan="4" rowspan="2" style="padding-top:27px ">参数变化情况</td>
 
 												</tr>
 												<tr>
 													<td class="text-center"><i style="color: red">* </i>
 														机床编码：</td>
-													<td colspan="2"><input type="text"  name="JCBM" placeholder="机床编码"></td>
+													<td colspan="2"><input type="text"  name="JCBM" placeholder="" value="${TSYscrap.JCBM}"></td>
 													<td class="text-center"><i style="color: red">* </i>
 														班次：</td>
-													<td ><input type="text" style="width: 80px" name="BC" placeholder="班次"></td>
+													<td ><input type="text" style="width: 80px" name="BC" placeholder="" value="${TSYscrap.BC}"></td>
 													<td class="text-center"><i style="color: red">* </i>
 														检查日期：</td>
-													<td colspan="3"><input type="date"  name="JCRQ" placeholder="检查日期"></td>
+													<td colspan="3"><input type="date"  name="JCRQ" placeholder="" value="${TSYscrap.JCRQ}"></td>
 
 												</tr>
 												<tr>
 													<td class="text-center" rowspan="5"style="padding-top: 60px">注塑</br>工艺参数</td>
 													<td class="text-center">压力</td>
-													<td class="text-center"><input type="text"  style="width: 50px" name="YL1"></td>
-													<td class="text-center"><input type="text"  style="width: 50px" name="YL2"></td>
-													<td class="text-center"><input type="text"  style="width: 50px" name="YL3"></td>
-													<td class="text-center"><input type="text"  style="width: 50px" name="YL4"></td>
-													<td class="text-center"><input type="text"  style="width: 50px" name="YL5"></td>
-													<td class="text-center"><input type="text"  style="width: 50px" name="YL6"></td>
-													<td class="text-center"><input type="text"  style="width: 50px" name="YL7"></td>
+													<td class="text-center"><input type="text"  style="width: 50px" name="YL1" value="${TSYscrap.YL1}"></td>
+													<td class="text-center"><input type="text"  style="width: 50px" name="YL2" value="${TSYscrap.YL2}"></td>
+													<td class="text-center"><input type="text"  style="width: 50px" name="YL3" value="${TSYscrap.YL3}"></td>
+													<td class="text-center"><input type="text"  style="width: 50px" name="YL4" value="${TSYscrap.YL4}"></td>
+													<td class="text-center"><input type="text"  style="width: 50px" name="YL5" value="${TSYscrap.YL5}"></td>
+													<td class="text-center"><input type="text"  style="width: 50px" name="YL6" value="${TSYscrap.YL6}"></td>
+													<td class="text-center"><input type="text"  style="width: 50px" name="YL7" value="${TSYscrap.YL7}"></td>
 
 													<td><input type="text"  style="width: 80px"></td>
 												</tr>
 												<tr>
 													<td class="text-center">速度</td>
-													<td class="text-center"><input type="text"  style="width: 50px" name="SD1"></td>
-													<td class="text-center"><input type="text"  style="width: 50px" name="SD2"></td>
-													<td class="text-center"><input type="text"  style="width: 50px"name="SD3"></td>
-													<td class="text-center"><input type="text"  style="width: 50px" name="SD4"></td>
-													<td class="text-center"><input type="text"  style="width: 50px" name="SD5"></td>
-													<td class="text-center"><input type="text"  style="width: 50px" name="SD6"></td>
-													<td class="text-center"><input type="text"  style="width: 50px" name="SD7"></td>
+													<td class="text-center"><input type="text"  style="width: 50px" name="SD1" value="${TSYscrap.SD1}"></td>
+													<td class="text-center"><input type="text"  style="width: 50px" name="SD2" value="${TSYscrap.SD2}"></td>
+													<td class="text-center"><input type="text"  style="width: 50px"name="SD3" value="${TSYscrap.SD3}"></td>
+													<td class="text-center"><input type="text"  style="width: 50px" name="SD4" value="${TSYscrap.SD4}"></td>
+													<td class="text-center"><input type="text"  style="width: 50px" name="SD5" value="${TSYscrap.SD5}"></td>
+													<td class="text-center"><input type="text"  style="width: 50px" name="SD6" value="${TSYscrap.SD6}"></td>
+													<td class="text-center"><input type="text"  style="width: 50px" name="SD7" value="${TSYscrap.SD7}"></td>
 
 													<td><input type="text"  style="width: 80px"></td>
 												</tr>
 												<tr>
 													<td class="text-center">位置</td>
-													<td class="text-center"><input type="text"  style="width: 50px" name="WZ1"></td>
-													<td class="text-center"><input type="text"  style="width: 50px" name="WZ2"></td>
-													<td class="text-center"><input type="text"  style="width: 50px" name="WZ3"></td>
-													<td class="text-center"><input type="text"  style="width: 50px" name="WZ4"></td>
-													<td class="text-center"><input type="text"  style="width: 50px" name="WZ5"></td>
-													<td class="text-center"><input type="text"  style="width: 50px" name="WZ6"></td>
-													<td class="text-center"><input type="text"  style="width: 50px" name="WZ7"></td>
+													<td class="text-center"><input type="text"  style="width: 50px" name="WZ1" value="${TSYscrap.WZ1}"></td>
+													<td class="text-center"><input type="text"  style="width: 50px" name="WZ2" value="${TSYscrap.WZ2}"></td>
+													<td class="text-center"><input type="text"  style="width: 50px" name="WZ3" value="${TSYscrap.WZ3}"></td>
+													<td class="text-center"><input type="text"  style="width: 50px" name="WZ4" value="${TSYscrap.WZ4}"></td>
+													<td class="text-center"><input type="text"  style="width: 50px" name="WZ5" value="${TSYscrap.WZ5}"></td>
+													<td class="text-center"><input type="text"  style="width: 50px" name="WZ6" value="${TSYscrap.WZ6}"></td>
+													<td class="text-center"><input type="text"  style="width: 50px" name="WZ7" value="${TSYscrap.WZ7}"></td>
 
 													<td><input type="text"  style="width: 80px"></td>
 												</tr>
 												<tr>
 													<td class="text-center">温度</td>
-													<td class="text-center"><input type="text"  style="width: 50px" name="WD1"></td>
-													<td class="text-center"><input type="text"  style="width: 50px" name="WD2"></td>
-													<td class="text-center"><input type="text"  style="width: 50px" name="WD3"></td>
-													<td class="text-center"><input type="text"  style="width: 50px" name="WD4"></td>
-													<td class="text-center"><input type="text"  style="width: 50px" name="WD5"></td>
-													<td class="text-center"><input type="text"  style="width: 50px" name="WD6"></td>
-													<td class="text-center"><input type="text"  style="width: 50px" name="WD7"></td>
+													<td class="text-center"><input type="text"  style="width: 50px" name="WD1" value="${TSYscrap.WD1}"></td>
+													<td class="text-center"><input type="text"  style="width: 50px" name="WD2" value="${TSYscrap.WD2}"></td>
+													<td class="text-center"><input type="text"  style="width: 50px" name="WD3" value="${TSYscrap.WD3}"></td>
+													<td class="text-center"><input type="text"  style="width: 50px" name="WD4" value="${TSYscrap.WD4}"></td>
+													<td class="text-center"><input type="text"  style="width: 50px" name="WD5" value="${TSYscrap.WD5}"></td>
+													<td class="text-center"><input type="text"  style="width: 50px" name="WD6" value="${TSYscrap.WD6}"></td>
+													<td class="text-center"><input type="text"  style="width: 50px" name="WD7" value="${TSYscrap.WD7}"></td>
 
 													<td><input type="text"  style="width: 80px"></td>
 												</tr>
 												<tr>
 													<td class="text-center">射胶</td>
-													<td class="text-right"><input type="text"  style="width: 50px;margin-right: 10px" name="SJ"><i>秒</i></td>
+													<td class="text-right"><input type="text"  style="width: 50px;margin-right: 10px" name="SJ" value="${TSYscrap.SJ}"><i>秒</i></td>
 													<td class="text-center">冷却</td>
-													<td class="text-right"><input type="text"  style="width: 50px" NAME="LQ"><i>秒</i></td>
+													<td class="text-right"><input type="text"  style="width: 50px" NAME="LQ" value="${TSYscrap.LQ}"><i>秒</i></td>
 													<td class="text-center">保压</td>
-													<td class="text-right"><input type="text"  style="width: 50px;margin-left: 5px" NAME="BYA"><i>秒</i></td>
+													<td class="text-right"><input type="text"  style="width: 50px;margin-left: 5px" NAME="BYA" value="${TSYscrap.BYA}"><i>秒</i></td>
 													<td class="text-center">检查时间点</td>
-													<td class="text-right"><input type="datetime" placeholder="00:00" style="width: 50px" NAME="JCSJ"></td>
+													<td class="text-right"><input type="datetime" placeholder="00:00" style="width: 50px" NAME="JCSJ" value="${TSYscrap.JCSJ}"></td>
 
 													<td><input type="text"  style="width: 80px"></td>
 												</tr>
 												<tr>
 													<td rowspan="2" class="text-left">备注</td>
-													<td colspan="8"><input type="text" cols="40" rows="5" style="width: 600px;height: 30px" name="BZ" placeholder="备注"></td>
+													<td colspan="8"><input type="text" cols="40" rows="5" style="width: 600px;height: 30px" name="BZ" placeholder="" value="${TSYscrap.BZ}"></td>
 												</tr>
 
 											</table>
@@ -301,7 +301,7 @@
 									<section class="content"> <!--产品信息-->
 
 										<div class="panel panel-default">
-											<div class="panel-heading">调机员审核</div>
+											<div class="panel-heading" name="count">调机员审核</div>
 											<div class="row data-type">
 
 												<div class="col-md-2 title">角色名称</div>

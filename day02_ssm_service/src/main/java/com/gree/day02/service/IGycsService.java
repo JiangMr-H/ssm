@@ -1,12 +1,12 @@
 /**
- * Copyright (C), 2015-2019, XXXÓÐÏÞ¹«Ë¾
+ * Copyright (C), 2015-2019, XXXï¿½ï¿½ï¿½Þ¹ï¿½Ë¾
  * FileName: IGycsService
  * Author:   891649
  * Date:     2019/10/8 9:33
  * Description:
  * History:
  * <author>          <time>          <version>          <desc>
- * ×÷ÕßÐÕÃû           ÐÞ¸ÄÊ±¼ä           °æ±¾ºÅ              ÃèÊö
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½           ï¿½Þ¸ï¿½Ê±ï¿½ï¿½           ï¿½æ±¾ï¿½ï¿½              ï¿½ï¿½ï¿½ï¿½
  */
 
 package com.gree.day02.service;
@@ -19,9 +19,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * ¡´Ò»¾ä»°¹¦ÄÜ¼òÊö¡µ<br> 
- * ¡´¡µ
- *
  * @author 891649
  * @create 2019/10/8
  * @since 1.0.0
@@ -37,4 +34,18 @@ public interface IGycsService {
 
     GYCS findByTJYId(int scrapId);
 
+    void insertTJY(int id, String roleName, String roleDesc);
+
+    void ScarpUpdate(int id, int count);
+
+    void updateByJC_ZK(int id, String roleName, String roleDesc)throws Exception;
+
+    void updateByJC_GY(int id, String roleName, String roleDesc)throws Exception;
+
+    GYCS findGycsByGyId(int gyId);
+
+
+    void updateGycsById(int gyId, String yl1, String yl2, String yl3, String yl4, String yl5, String yl6, String yl7, String sd1, String sd2, String sd3, String sd4, String sd5, String sd6, String sd7, String wz1, String wz2, String wz3, String wz4, String wz5, String wz6, String wz7, String wd1, String wd2, String wd3, String wd4, String wd5, String wd6, String wd7, String cpmc, String jyy, String jcbm, String bc, String jcrq, String sj, String lq, String bya, String jcsj, String bz);
+
+    void saveGycsById(int id, String zKname, String zKdesc);
 }

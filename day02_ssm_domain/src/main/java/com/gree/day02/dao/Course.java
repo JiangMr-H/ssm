@@ -1,20 +1,17 @@
 /**
- * Copyright (C), 2015-2019, XXXÓÐÏÞ¹«Ë¾
+ * Copyright (C), 2015-2019, XXXï¿½ï¿½ï¿½Þ¹ï¿½Ë¾
  * FileName: Course
  * Author:   891649
  * Date:     2019/8/16 11:05
  * Description:
  * History:
  * <author>          <time>          <version>          <desc>
- * ×÷ÕßÐÕÃû           ÐÞ¸ÄÊ±¼ä           °æ±¾ºÅ              ÃèÊö
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½           ï¿½Þ¸ï¿½Ê±ï¿½ï¿½           ï¿½æ±¾ï¿½ï¿½              ï¿½ï¿½ï¿½ï¿½
  */
 
 package com.gree.day02.dao;
 
 /**
- * ¡´Ò»¾ä»°¹¦ÄÜ¼òÊö¡µ<br> 
- * ¡´¡µ
- *
  * @author 891649
  * @create 2019/8/16
  * @since 1.0.0

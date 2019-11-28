@@ -169,7 +169,7 @@
 
 		<!-- 内容区域 -->
 
-		<div class="content-wrapper">
+		<div class="content-wrapper" style="height: 1650px">
 
 			<!-- 内容头部 -->
 			<section class="content-header">
@@ -185,7 +185,7 @@
 			<!-- 内容头部 /-->
 
 			<!-- 正文区域 -->
-			<section class="content">
+			<section class="content" >
 
 				<!-- .box-body -->
 				<div class="box box-primary">
@@ -193,79 +193,51 @@
 						<h3 class="box-title">列表</h3>
 					</div>
 
-					<div class="box-body">
+					<div class="box-body"  >
 
 						<!-- 数据表格 -->
 						<div class="table-box">
-
-							<!--工具栏-->
-							<div class="pull-left">
-								<div class="form-group form-inline">
-									<div class="btn-group">
-
-										<button type="button" class="btn btn-primary" title="新建"
-												data-toggle="modal"
-												data-target="#exampleModal" data-whatever="@mdo">
-											<%--<a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#customerEditDialog" onclick="editCustomer()">新建</a>--%>
-											<i class="fa fa-file-o"></i> 新建
-										</button>
-										<button type="button" class="btn btn-default" title="刷新">
-											<i class="fa fa-refresh"></i> 刷新
-										</button>
-									</div>
-								</div>
-							</div>
-
 							<!-- 报废单  -->
 							<!-- 客户编辑对话框 -->
-							<div class="modal fade bs-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog"
-								 aria-labelledby="myModalLabel">
-								<div class="modal-dialog modal-lg"  role="document"  style="width: 950px">
-									<div class="modal-content">
+									<div class="modal-content" style="width: 950px;margin-top: 25px;margin-left: 400px">
 										<div class="modal-header">
-											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-												<span aria-hidden="true">&times;</span>
-											</button>
 											<h3 class="modal-title " id="gridSystemModalLabel" style="margin-left: 400px">
 												<b>零件首检表</b></h3>
 										</div>
 										<div class="modal-body modal-lg"  style="width: 950px">
-											<form class="form-horizontal" id="edit_customer_form"
-												  action="${pageContext.request.contextPath}/ljsjb/saveLjsj.do"
-												  method="post" onsubmit="return check(this)">
 												<table class="table table-bordered modal-lg" >
 													<tr>
 														<td style='width:85px;text-align: center;'><b>零件名称</b></td>
 														<td colspan="2" style='width:250px'><input type="text" style="width: 250px" name="LJMC"
-																								   placeholder=""></td>
+																								   placeholder="" value="${LsjbList.LJMC}"></td>
 														<td style='width:85px'><b>工装编号</b></td>
 														<td colspan="2" style='width:130px'><input type="text" style="width: 150px" name="GZBM"
-																								   placeholder=""></td>
+																								   placeholder="" value="${LsjbList.GZBM}"></td>
 														<td style='width:85px'><b>包装</b></td>
 														<td style='width:130px'><input type="text" style="width: 100px" name="BZ"
-																					   placeholder=""></td>
+																					   placeholder="" value="${LsjbList.BZ}"> </td>
 													</tr>
 													<tr>
 														<td style='width:85px' class="tds">零件图号</td>
 														<td colspan="2" style='width:250px'><input type="text" style="width: 250px" name="LJTH"
-																								   placeholder=""></td>
+																								   placeholder="" value="${LsjbList.LJTH}"></td>
 														<td style='width:85px'class="tds">整形周期</td>
 														<td colspan="2" style='width:130px'><input type="text" style="width: 150px" name="ZXZQ"
-																								   placeholder=""></td>
+																								   placeholder="" value="${LsjbList.ZXZQ}"></td>
 														<td style='width:85px'class="tds">机床</td>
 														<td style='width:130px'><input type="text" style="width: 100px" name="JC"
-																					   placeholder=""></td>
+																					   placeholder="" value="${LsjbList.JC}"></td>
 													</tr>
 													<tr>
 														<td style='width:85px'class="tds">物料编码</td>
 														<td colspan="2" style='width:250px'><input type="text" style="width: 250px" name="WLBM"
-																								   placeholder=""></td>
+																								   placeholder="" value="${LsjbList.WLBM}"></td>
 														<td style='width:85px'class="tds">冷却时间</td>
 														<td colspan="2" style='width:130px'><input type="text" style="width: 150px" name="LQSJ"
-																								   placeholder=""></td>
+																								   placeholder="" value="${LsjbList.LQSJ}"></td>
 														<td style='width:85px'class="tds">日期</td>
 														<td style='width:130px'><input type="text" style="width: 100px" name="RQ"
-																					   placeholder=""></td>
+																					   placeholder="" value="${LsjbList.RQ}"></td>
 													</tr>
 													<tr>
 														<td class="tds">检验项目</td>
@@ -277,338 +249,232 @@
 
 														<td class="tds">材料</td>
 														<td colspan="2"><input type="text" style="width: 250px" name="CL_YQ"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.CL_YQ}"></td>
 														<td colspan="3"><input type="text" style="width: 250px" name="CL_JG"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.CL_JG}"></td>
 														<td colspan="2"><input type="text" style="width: 200px" name="CL_JL"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.CL_JL}"></td>
 													</tr>
 													<tr>
 
 														<td class="tds">颜色</td>
 														<td colspan="2"><input type="text" style="width: 250px" name="YS_YQ"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.YS_YQ}"></td>
 														<td colspan="3"><input type="text" style="width: 250px" name="YS_JG"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.YS_JG}"></td>
 														<td colspan="2"><input type="text" style="width: 200px" name="YS_JL"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.YS_JL}"></td>
 
 													</tr>
 													<tr>
 
 														<td class="tds">色差值</td>
 														<td colspan="2"><input type="text" style="width: 250px" name="SCZ_YQ"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.SCZ_YQ}"></td>
 														<td colspan="3"><input type="text" style="width: 250px" name="SCZ_JG"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.SCZ_JG}"></td>
 														<td colspan="2"><input type="text" style="width: 200px" name="SCZ_JL"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.SCZ_JL}"></td>
 
 													</tr>
 													<tr>
 														<td class="tds">ROHS</td>
 														<td colspan="2"><input type="text" style="width: 250px" name="ROHS_YQ"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.ROHS_YQ}"></td>
 														<td colspan="3"><input type="text" style="width: 250px" name="ROHS_JG"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.ROHS_JG}"></td>
 														<td colspan="2"><input type="text" style="width: 200px" name="ROHS_JL"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.ROHS_JL}"></td>
 													</tr>
 													<tr>
 
 														<td class="tds">尺寸</td>
 														<td colspan="2"><input type="text" style="width: 250px" name="CC_YQ1"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.CC_YQ1}"></td>
 														<td colspan="3"><input type="text" style="width: 250px" name="CC_JG1"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.CC_JG1}"></td>
 														<td colspan="2"><input type="text" style="width: 200px" name="CC_JL1"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.CC_JL1}"></td>
 													</tr>
 													<tr>
 														<td></td>
 														<td colspan="2"><input type="text" style="width: 250px" name="CC_YQ2"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.CC_YQ2}"></td>
 														<td colspan="3"><input type="text" style="width: 250px" name="CC_YQ3"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.CC_YQ3}"></td>
 														<td colspan="2"><input type="text" style="width: 200px" name="CC_YQ4"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.CC_YQ4}"></td>
 													</tr>
 													<tr>
 
 														<td></td>
 														<td colspan="2"><input type="text" style="width: 250px" name="CC_YQ5"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.CC_YQ5}"></td>
 														<td colspan="3"><input type="text" style="width: 250px" name="CC_YQ6"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.CC_YQ6}"></td>
 														<td colspan="2"><input type="text" style="width: 200px" name="CC_JG2"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.CC_JG2}"></td>
 
 													</tr>
 													<tr>
 														<td></td>
 														<td colspan="2"><input type="text" style="width: 250px" name="CC_JG3"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.CC_JG3}"></td>
 														<td colspan="3"><input type="text" style="width: 250px" name="CC_JG4"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.CC_JG4}"></td>
 														<td colspan="2"><input type="text" style="width: 200px" name="CC_JG5"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.CC_JG5}"></td>
 
 
 													</tr>
 													<tr>
 														<td></td>
 														<td colspan="2"><input type="text" style="width: 250px" name="CC_JG6"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.CC_JG6}"></td>
 														<td colspan="3"><input type="text" style="width: 250px" name="CC_JL2"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.CC_JL2}"></td>
 														<td colspan="2"><input type="text" style="width: 200px" name="CC_JL3"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.CC_JL3}"></td>
 													</tr>
 													<tr>
 														<td></td>
 														<td colspan="2"><input type="text" style="width: 250px" name="CC_JL4"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.CC_JL4}"></td>
 														<td colspan="3"><input type="text" style="width: 250px" name="CC_JL5"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.CC_JL5}"></td>
 														<td colspan="2"><input type="text" style="width: 200px" name="CC_JL6"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.CC_JL6}"></td>
 													</tr>
 													<tr>
 														<td style="text-align: center;" class="tds">结构外观强度</td>
 														<td colspan="3" style='word-wrap: break-word ;width:25px;word-break:break-all'>各个部位无毛刺、缺料、多料、刀伤、拉裂、偏位、烧焦等</td>
 														<td colspan="2"><input type="text" style="width: 150px" name="JG1"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.JG1}"></td>
 														<td colspan="2"><input type="text" style="width: 150px" name="JL1"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.JL1}"></td>
 													</tr>
 													<tr>
 														<td></td>
 														<td colspan="3" style='word-wrap: break-word ;width:25px;word-break:break-all'>表面无不可接受的锈斑、缩水、顶白、熔接痕、拉伤、拉白、划伤、气纹、水花、油纹、波纹、黑点、油污、色纹等缺陷</td>
 
 														<td colspan="2"><input type="text" style="width: 150px;margin-top: 15px" name="JG2"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.JG2}"></td>
 														<td colspan="2"><input type="text" style="width: 150px;margin-top: 15px" name="JL2"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.JL2}"></td>
 													</tr>
 													<tr>
 														<td></td>
 														<td colspan="3">有回收及材料标识和型腔标识</td>
 
 														<td colspan="2"><input type="text" style="width: 150px" name="JG3"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.JG3}"></td>
 														<td colspan="2"><input type="text" style="width: 150px" name="JL3"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.JL3}"></td>
 													</tr>
 													<tr>
 														<td></td>
 														<td colspan="3" style='word-wrap: break-word ;width:25px;word-break:break-all'>各边或网格、按钮无不可接受或超出工艺要求的变形</td>
 
 														<td colspan="2"><input type="text" style="width: 150px" name="JG4"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.JG4}"></td>
 														<td colspan="2"><input type="text" style="width: 150px" name="JL4"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.JL4}"></td>
 													</tr>
 													<tr>
 														<td></td>
 														<td colspan="3" style='word-wrap: break-word ;width:25px;word-break:break-all'>螺钉孔无不可接受的堵孔、偏位、错位、螺钉孔壁料薄等</td>
 
 														<td colspan="2"><input type="text" style="width: 150px" name="JG5"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.JG5}"></td>
 														<td colspan="2"><input type="text" style="width: 150px" name="JL5"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.JL5}"></td>
 													</tr>
 													<tr>
 														<td></td>
 														<td colspan="3" style='word-wrap: break-word ;width:25px;word-break:break-all'>扣位、齿位、网格及转角处等薄弱位置不容易断、易裂，是否需要用增加R角或加筋</td>
 
 														<td colspan="2"><input type="text" style="width: 150px" name="JG6"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.JG6}"></td>
 														<td colspan="2"><input type="text" style="width: 150px" name="JL6"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.JL6}"></td>
 													</tr>
 													<tr>
 														<td></td>
 														<td colspan="3" style='word-wrap: break-word ;width:25px;word-break:break-all'>风叶高速运转、跌落、摆动、动平衡、重量合格，平台无明显缩水、叶片无裂痕、变形，包装符合特殊要求</td>
 														<td colspan="2"><input type="text" style="width: 150px" name="JG7"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.JG7}"></td>
 														<td colspan="2"><input type="text" style="width: 150px" name="JL7"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.JL7}"></td>
 													</tr>
 													<tr>
 														<td></td>
 														<td colspan="3" style='word-wrap: break-word ;width:25px;word-break:break-all'>关键部位（如底壳出水口、底壳风道、接水盘排水口、导风板转轴和轴孔、接水盘轴孔、控制盖板按钮等）不存在毛刺；关键部位（如底壳和接水盘的水槽、水箱）无料薄或穿孔现象</td>
 														<td colspan="2"><input type="text" style="width: 150px;margin-top: 25px" name="JG8"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.JG8}"></td>
 														<td colspan="2"><input type="text" style="width: 150px;margin-top: 25px" name="JL8"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.JL8}"></td>
 													</tr>
 													<tr>
 														<td></td>
 														<td colspan="3" style='word-wrap: break-word ;width:25px;word-break:break-all'>与相邻或相关联的注塑件进行组装，配合是否异常（如配合错位、缝隙过大、面板扣不紧或打不开等现象）</td>
 														<td colspan="2"><input type="text" style="width: 150px" name="JG9"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.JG9}"></td>
 														<td colspan="2"><input type="text" style="width: 150px" name="JL9"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.JL9}"></td>
 													</tr>
 													<tr>
 														<td></td>
 														<td colspan="3">无异物危害现象</td>
 														<td colspan="2"><input type="text" style="width: 150px" name="JG10"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.JG10}"></td>
 														<td colspan="2"><input type="text" style="width: 150px" name="JL10"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.JL10}"></td>
 													</tr>
 													<tr>
 														<td class="tds">操作工</td>
 														<td colspan="2"><input type="text" style="width: 200px" name="CZG"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.CZG}"></td>
 														<td class="tds">首检人</td>
 														<td colspan="4"><input type="text" style="width: 250px" name="JYY"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.JYY}"></td>
 
 													</tr>
 													<tr>
 														<td class="tds">测量仪器</td>
 														<td colspan="2"><input type="text" style="width: 200px" name="CLYQ"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.CLYQ}"></td>
 														<td class="tds">首检班组</td>
 														<td colspan="4"><input type="text" style="width: 250px" name="JYDW"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.JYDW}"></td>
 
 													</tr>
 													<tr>
 														<td class="tds">备注</td>
 														<td colspan="2"><input type="text" style="width: 200px" name="BAZ"
-																			   placeholder=""></td>
+																			   placeholder="" value="${LsjbList.BAZ}"></td>
 														<td class="tds">首检结论</td>
 														<td colspan="4"><input type="text" style="width: 250px" name="SJJL"
-																			   placeholder="" disabled></td>
-
+																			   placeholder="" value="${LsjbList.SJJL}"></td>
 													</tr>
 												</table>
 
 
 												<span style="color: red;font-size: 14px" class="tds">注：*为必填项</span>
 
-
 												<div class="modal-footer">
-													<button type="submit" class="btn btn-primary">保存</button>
-													<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+													<button type="button" class="btn bg-default"
+															onclick="history.back(-1);">返回</button>
 												</div>
-											</form>
+
 										</div>
-									</div>
+
 								</div>
-							</div>
-							<!--报废单/-->
-							<div class="box-tools pull-right">
-								<div class="has-feedback">
-									<input type="text" class="form-control input-sm"
-										   placeholder="生产日期\班组\产品编码"> <span
-										class="glyphicon glyphicon-search form-control-feedback"></span>
-								</div>
-							</div>
-							<!--工具栏/-->
-
-							<!--数据列表-->
-							<table id="dataList"
-								   class="table table-bordered table-striped table-hover dataTable">
-								<thead>
-								<tr>
-									<th class="" style="padding-right: 0px;"><input
-											id="selall" type="checkbox" class="icheckbox_square-blue">
-									</th>
-									<th class="sorting_asc">ID</th>
-									<th class="sorting_desc">零件名称</th>
-									<th class="sorting_asc sorting_asc_disabled">工装编号</th>
-									<th class="sorting_desc sorting_desc_disabled">包装</th>
-									<th class="sorting">零件图号</th>
-									<th class="text-center sorting">整形周期</th>
-									<th class="sorting">机床</th>
-									<th class="text-center sorting">物料编码</th>
-									<th class="sorting">冷却时间</th>
-									<th class="sorting">进程</th>
-									<th class="text-center sorting">日期</th>
-									<th class="sorting">操作</th>
-									<%--<th class="text-center">详细</th>--%>
-								</tr>
-								</thead>
-								<tbody>
-
-
-								<c:forEach items="${pageInfo.list}" var="ljsjb">
-									<tr>
-										<td><input name="ids" type="checkbox"></td>
-										<td>${ljsjb.id }</td>
-										<td>${ljsjb.LJMC }</td>
-										<td>${ljsjb.GZBM }</td>
-										<td>${ljsjb.BZ }</td>
-										<td>${ljsjb.LJTH }</td>
-										<td class="text-center">${ljsjb.ZXZQ }</td>
-										<td>${ljsjb.JC }</td>
-										<td>${ljsjb.WLBM }</td>
-										<td>${ljsjb.LQSJ }</td>
-										<td>${ljsjb.LJSB_JC }</td>
-										<td>${ljsjb.scantime }</td>
-										<td class="text-center">
-											<a type="button" class="btn bg-olive btn-xs" data-toggle="modal"
-											   data-target="#exampleModal" onclick="location.href='${pageContext.request.contextPath}/ljsjb/findById.do?id=${ljsjb.id }'">
-												详情
-											</a>
-										</td>
-									</tr>
-								</c:forEach>
-								</tbody>
-
-							</table>
-							<!--数据列表/-->
 
 						</div>
 						<!-- 数据表格 /-->
 
 
 					</div>
-					<!-- /.box-body -->
-
-					<!-- .box-footer-->
-					<div class="box-footer">
-						<div class="pull-left">
-							<div class="form-group form-inline">
-								总共${pageInfo.pages} 页，共${pageInfo.total}条数据。 每页
-								<select class="form-control" id="changePageSize" onchange="changePageSize()">
-									<option>15</option>
-									<option>20</option>
-									<option>25</option>
-									<option>30</option>
-									<option>35</option>
-								</select> 条
-							</div>
-						</div>
-
-						<div class="box-tools pull-right">
-							<ul class="pagination">
-								<li>
-									<a href="${pageContext.request.contextPath}/ljsjb/findAllljsj.do?page=1&size=${pageInfo.pageSize}"
-									   aria-label="Previous">首页</a></li>
-								<li>
-									<a href="${pageContext.request.contextPath}/ljsjb/findAllljsj.do?page=${pageInfo.pageNum-1}&size=${pageInfo.pageSize}">上一页</a>
-								</li>
-								<c:forEach begin="${pageInfo.pageNum}" end="${pageInfo.pageNum}" var="pageNum">
-									<li>
-										<a href="${pageContext.request.contextPath}/ljsjb/findAllljsj.do?page=${pageNum}&size=${pageInfo.pageSize}">${pageNum}</a>
-									</li>
-								</c:forEach>
-								<li>
-									<a href="${pageContext.request.contextPath}/ljsjb/findAllljsj.do?page=${pageInfo.pageNum+1}&size=${pageInfo.pageSize}">下一页</a>
-								</li>
-								<li>
-									<a href="${pageContext.request.contextPath}/ljsjb/findAllljsj.do?page=${pageInfo.pages}&size=${pageInfo.pageSize}"
-									   aria-label="Next">尾页</a></li>
-							</ul>
-						</div>
-
-					</div>
-					<!-- /.box-footer-->
 
 
 				</div>
