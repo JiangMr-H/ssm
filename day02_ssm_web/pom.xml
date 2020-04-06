@@ -29,6 +29,7 @@
             <version>4.11</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>com.gree.day02ssm</groupId>
             <artifactId>day02_ssm_domain</artifactId>

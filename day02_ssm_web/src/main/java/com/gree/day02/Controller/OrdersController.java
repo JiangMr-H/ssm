@@ -61,16 +61,4 @@ public class OrdersController {
          return mv;
     }
 
-
-
-    //查询全部订单--未分页
-/*    @RequestMapping("/findAll.do")
-    public ModelAndView findAll()throws Exception{
-        ModelAndView mv=new ModelAndView();
-        List<Orders> ordersList = iOrdersService.findAll();
-        mv.addObject("ordersList",ordersList);
-        mv.setViewName("orders-list");
-        return mv;
-    }*/
-
 }

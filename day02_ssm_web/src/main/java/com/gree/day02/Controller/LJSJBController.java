@@ -69,20 +69,6 @@ public class LJSJBController {
     }
 
     /**
-     * 查看界面
-     * @return
-     */
-  /*  @RequestMapping("/findljsjbById.do")
-    public ModelAndView findljsjbById(@RequestParam(name = "id",required = true)int id){
-     *//*   ModelAndView mv =new ModelAndView();
-        List<Lsjb> LsjbList = iLsjbService.findljsjbById(id);
-        PageInfo pageInfo = new PageInfo(LsjbList);
-        mv.addObject("pageInfo",pageInfo);
-        mv.setViewName("");*//*
-        return ;
-    }*/
-
-    /**
      * 查询质控审核列表
      * @param page
      * @param size
