@@ -28,7 +28,7 @@ public interface IGycsDao {
 
 
     @Insert("INSERT INTO \"ZS_GYCS_1\" z (CPMC,JYY,JCBM,BC,JCRQ,YL1,YL2,YL3,YL4,YL5,YL6,YL7,SD1,SD2,SD3,SD4,SD5,SD6,SD7,WZ1,WZ2,WZ3,WZ4,WZ5,WZ6,WZ7,WD1,WD2,WD3,WD4,WD5,WD6,WD7,SJ,LQ,BYA,JCSJ,BZ,\"scantime\",\"LB_Id\" )VALUES(\n" +
-            "#{CPMC},#{JYY},#{JCBM},#{BC},#{JCRQ},#{YL1},#{YL2},#{YL3},#{YL4},#{YL5},#{YL6},#{YL7},#{SD1},#{SD2},#{SD3},#{SD4},#{SD5},#{SD6},#{SD7},#{WZ1},#{WZ2},#{WZ3},#{WZ4},#{WZ5},#{WZ6},#{WZ7},#{WD1},#{WD2},#{WD3},#{WD4},#{WD5},#{WD6},#{WD7},#{SJ},#{LQ},#{BYA},#{JCSJ},#{BZ},SYSDATE,2\n" +
+            "#{CPMC},#{JYY},#{JCBM},#{BC},#{JCRQ},#{YL1},#{YL2},#{YL3},#{YL4},#{YL5},#{YL6},#{YL7},#{SD1},#{SD2},#{SD3},#{SD4},#{SD5},#{SD6},#{SD7},#{WZ1},#{WZ2},#{WZ3},#{WZ4},#{WZ5},#{WZ6},#{WZ7},#{WD1},#{WD2},#{WD3},#{WD4},#{WD5},#{WD6},#{WD7},#{SJ},#{LQ},#{BYA},#{JCSJ},#{BZ},SYSDATE,3\n" +
             ")")
     void gycsAdd(GYCS gycs);
 

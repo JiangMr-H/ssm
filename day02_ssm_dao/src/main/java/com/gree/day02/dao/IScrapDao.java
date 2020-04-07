@@ -21,7 +21,7 @@ public interface IScrapDao {
     public List<Scrap> findTSY();
 
     /*
-    Â¼Èë±¨·Ïµ¥ĞÅÏ¢
+    å½•å…¥æŠ¥åºŸå•ä¿¡æ¯
      */
     @Insert("insert into \"scrap\"(SCRQ,BZ,CPBM,GZBM,CLYS,JCBM,GYTS,QL,HBD,HW,QW,YS,SBW,SS,LSL,LBH,SJ,BX,SY,DKDL,YWB,SC,DS,HS,NM,MC,TJBL,SYBL,SM,SLHJ,JK,CZG,\"remake\",\"scantime\",\"courseId\")values(" +
             "#{SCRQ},#{BZ},#{CPBM},#{GZBM},#{CLYS},#{JCBM},#{GYTS},#{QL},#{HBD},#{HW},#{QW},#{YS},#{SBW},#{SS},#{LSL},#{LBH},#{SJ},#{BX},#{SY},#{DKDL},#{YWB},#{SC},#{DS},#{HS},#{NM},#{MC},#{TJBL},#{SYBL},#{SM},#{SLHJ},#{JK},#{CZG},#{remake},SYSDATE,1)")
@@ -32,7 +32,7 @@ public interface IScrapDao {
     Scrap findscrapById(int scrapId);
 
     /**
-     * ²éÑ¯µ÷ÊÔÔ±ÁĞ±í
+     * æŸ¥è¯¢è°ƒè¯•å‘˜åˆ—è¡¨
      * @return
      */
     @Select("SELECT s.\"id\",s.SCRQ,s.BZ,s.CPBM,s.GZBM,s.CLYS,s.JCBM,co.\"currentProcess\" course from \"scrap\" s\n" +
@@ -50,7 +50,7 @@ public interface IScrapDao {
     List<Scrap> findAll(int count);
 
     /**
-     * ĞŞ¸Ä×´Ì¬£¨µ÷ÊÔÔ±ÉóÅúºó£©
+     * ä¿®æ”¹çŠ¶æ€ï¼ˆè°ƒè¯•å‘˜å®¡æ‰¹åï¼‰
      */
     @Update("update \"scrap\" SET \"courseId\"=2 where \"id\"=#{scarpid}")
     void ScarpUpdate(int scarpid);
@@ -59,27 +59,27 @@ public interface IScrapDao {
 
 
     /**
-     * ĞŞ¸Ä×´Ì¬£¨µ÷ÊÔÔ±ÉóÅúºó£©
+     * ä¿®æ”¹çŠ¶æ€ï¼ˆè°ƒè¯•å‘˜å®¡æ‰¹åï¼‰
      */
     @Update("update \"scrap\" SET \"courseId\"=3 where \"id\"=#{scarpid}")
     void ScarpUpdateZz(int scarpid);
     /**
-     * ĞŞ¸Ä×´Ì¬£¨µ÷ÊÔÔ±ÉóÅúºó£©
+     * ä¿®æ”¹çŠ¶æ€ï¼ˆè°ƒè¯•å‘˜å®¡æ‰¹åï¼‰
      */
     @Update("update \"scrap\" SET \"courseId\"=4 where \"id\"=#{scarpid}")
     void ScarpUpdateJYy(int scarpid);
     /**
-     * ĞŞ¸Ä×´Ì¬£¨µ÷ÊÔÔ±ÉóÅúºó£©
+     * ä¿®æ”¹çŠ¶æ€ï¼ˆè°ƒè¯•å‘˜å®¡æ‰¹åï¼‰
      */
     @Update("update \"scrap\" SET \"courseId\"=5 where \"id\"=#{scarpid}")
     void ScarpUpdateJSY(int scarpid);
     /**
-     * ĞŞ¸Ä×´Ì¬£¨µ÷ÊÔÔ±ÉóÅúºó£©
+     * ä¿®æ”¹çŠ¶æ€ï¼ˆè°ƒè¯•å‘˜å®¡æ‰¹åï¼‰
      */
     @Update("update \"scrap\" SET \"courseId\"=6 where \"id\"=#{scarpid}")
     void ScarpUpdateZLJS(int scarpid);
     /**
-     * ĞŞ¸Ä×´Ì¬£¨µ÷ÊÔÔ±ÉóÅúºó£©
+     * ä¿®æ”¹çŠ¶æ€ï¼ˆè°ƒè¯•å‘˜å®¡æ‰¹åï¼‰
      */
     @Update("update \"scrap\" SET \"courseId\"=7 where \"id\"=#{scarpid}")
     void ScarpUpdateCZ(int scarpid);
@@ -92,7 +92,7 @@ public interface IScrapDao {
 
 
     /**
-     * Â¼Èëµ÷ÊÔÔ±ÃèÊöĞÅÏ¢
+     * å½•å…¥è°ƒè¯•å‘˜æè¿°ä¿¡æ¯
      * @param id
      * @param
      * @param
