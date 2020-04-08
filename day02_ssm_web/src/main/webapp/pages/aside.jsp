@@ -24,13 +24,16 @@
 					class="fa fa-dashboard"></i> <span>首页</span></a></li>
 
 			<%--设置权限 只有权限为USER时 系统管理方可见--%>
-			<%--<security:authorize access="hasRole('USER')">--%>
-			<li class="treeview"><a href="#"> <i class="fa fa-cogs"></i>
+
+			<li class="treeview">
+				<a href="#"> <i class="fa fa-cogs"></i>
 					<span>系统管理</span> <span class="pull-right-container"> <i
 						class="fa fa-angle-left pull-right"></i>
 				</span>
-			</a>
+			    </a>
+
 				<ul class="treeview-menu">
+					<security:authorize access="hasRole('ADMIN')">
 					<li id="system-setting">
 						<a
 						href="${pageContext.request.contextPath}/user/findAll.do"> <i
@@ -49,87 +52,100 @@
 						href="${pageContext.request.contextPath}/sysLog/findAll.do"> <i
 							class="fa fa-circle-o"></i> 访问日志
 					</a></li>
+					</security:authorize>
 				</ul>
 			</li>
+
+
+
 			<li class="treeview"><a href="#"> <i class="fa fa-wordpress"></i>
 				<span>报废管理</span> <span class="pull-right-container"> <i
 						class="fa fa-angle-left pull-right"></i>
 				</span>
 			</a>
 				<ul class="treeview-menu">
+
 					<li >
 						<a
 								href="${pageContext.request.contextPath}/scrap/findNewPage.do"> <i
 								class="fa fa-circle-o"></i> 填写报废单
 						</a>
 					</li>
-					<li ><a
-							href="${pageContext.request.contextPath}/scrap/findAll.do?count=1"> <i
-							class="fa fa-circle-o"></i> 调试员审核
-					</a></li>
+
+					<security:authorize access="hasAnyRole('SCRAP_BZ','ADMIN')">
 					<li ><a
 							href="${pageContext.request.contextPath}/scrap/findAll.do?count=2">
-						<i class="fa fa-circle-o"></i> 组长审核
+						<i class="fa fa-circle-o"></i> 班长审核
 					</a></li>
+					</security:authorize>
+					<security:authorize access="hasAnyRole('SCRAP_ZLJS','ADMIN')">
 					<li ><a
 							href="${pageContext.request.contextPath}/scrap/findAll.do?count=3"> <i
-							class="fa fa-circle-o"></i> 检验员审核
+							class="fa fa-circle-o"></i> 质量技术员审核
 					</a></li>
+					</security:authorize>
+					<security:authorize access="hasAnyRole('SCRAP_JSY','ADMIN')">
+						<li ><a
+								href="${pageContext.request.contextPath}/scrap/findAll.do?count=4">
+							<i class="fa fa-circle-o"></i> 接收员核实
+						</a></li>
+					</security:authorize>
+					<security:authorize access="hasAnyRole('SCRAP_ZLKZ','ADMIN')">
 					<li ><a
 							href="${pageContext.request.contextPath}/scrap/findAll.do?count=5"> <i
 							class="fa fa-circle-o"></i> 质量科长审核
 					</a></li>
+					</security:authorize>
+					<security:authorize access="hasAnyRole('SCRAP_CZ','ADMIN')">
 					<li ><a
 							href="${pageContext.request.contextPath}/scrap/findAll.do?count=6"> <i
 							class="fa fa-circle-o"></i> 厂长审核
 					</a></li>
-					<li ><a
-							href="${pageContext.request.contextPath}/scrap/findAll.do?count=4">
-						<i class="fa fa-circle-o"></i> 接收员核实
-					</a></li>
+					</security:authorize>
+
 					<%--<li ><a
 							href="${pageContext.request.contextPath}/scrap/findNewPage.do"> <i
 							class="fa fa-circle-o"></i> 进程查询
 					</a></li>--%>
 				</ul>
 			</li>
+
+
+
 			<li class="treeview"><a href="#"> <i class="fa fa-bathtub"></i>
 				<span>无纸化点检</span> <span class="pull-right-container"> <i
 						class="fa fa-angle-left pull-right"></i>
 				</span>
 			</a>
 				<ul class="treeview-menu">
+
+
 					<li>
 						<a
 							href="${pageContext.request.contextPath}/GYCS/findGycs.do"> <i
 							class="fa fa-circle-o"></i> 工艺参数表
 						</a>
 					</li>
-				<%--	<li ><a
-							href="${pageContext.request.contextPath}/GYCS/findGycs2.do?count=1"> <i
-							class="fa fa-circle-o"></i> 检验员审核
-					</a></li>--%>
-					<li ><a
-							href="${pageContext.request.contextPath}/GYCS/findGycs2.do?count=2">
-						<i class="fa fa-circle-o"></i> 调机员、班组
-					</a></li>
+
+
+					<security:authorize access="hasAnyRole('GYCS_ZK','ADMIN')">
 					<li ><a
 							href="${pageContext.request.contextPath}/GYCS/findGycs2.do?count=3"> <i
 							class="fa fa-circle-o"></i> 质控确认
 					</a></li>
+					</security:authorize>
+					<security:authorize access="hasAnyRole('GYCS_GY','ADMIN')">
 					<li ><a
 							href="${pageContext.request.contextPath}/GYCS/findGycs2.do?count=4">
 						<i class="fa fa-circle-o"></i> 工艺确认
 					</a></li>
-
+					</security:authorize>
+					<security:authorize access="hasAnyRole('GYCS_ZK','ADMIN')">
 					<li ><a
 							href="${pageContext.request.contextPath}/GYCS/findGycs2.do?count=6">
 						<i class="fa fa-circle-o"></i> 参数修改确认
 					</a></li>
-					<%--<li ><a
-							href="${pageContext.request.contextPath}/pages/paperless-TJY-show.jsp"> <i
-							class="fa fa-circle-o"></i> 进程查询
-					</a></li>--%>
+					</security:authorize>
 				</ul>
 			</li>
 
@@ -140,23 +156,24 @@
 				</span>
 			</a>
 				<ul class="treeview-menu">
+
 					<li >
 						<a
 								href="${pageContext.request.contextPath}/ljsjb/findAllljsj.do"> <i
 								class="fa fa-circle-o"></i> 填写零件首检表
 						</a>
 					</li>
+
+					<security:authorize access="hasAnyRole('LJSJB_ZK','ADMIN')">
 					<li >
 						<a
 								href="${pageContext.request.contextPath}/ljsjb/findZKSK.do"> <i
 								class="fa fa-circle-o"></i> 质控审批
 						</a>
 					</li>
+					</security:authorize>
 				</ul>
 			</li>
-
-
-
 
 			<li class="treeview"><a href="#"> <i class="fa fa-cube"></i>
 					<span>用户设置</span> <span class="pull-right-container"> <i
@@ -164,7 +181,7 @@
 				</span>
 			</a>
 				<ul class="treeview-menu">
-
+					<security:authorize access="hasAnyRole('ADMIN')">
 					<li ><a
 						href="${pageContext.request.contextPath}/pages/ChangePassword.jsp">
 							<i class="fa fa-circle-o"></i> 修改密码
@@ -174,27 +191,10 @@
 						href="${pageContext.request.contextPath}/pages/ForgetPassword.jsp"> <i
 							class="fa fa-circle-o"></i> 忘记密码
 					</a></li>
-
+					</security:authorize>
 				</ul>
 			</li>
-			<%--<li class="treeview"><a href="#"> <i class="fa fa-cube"></i>
-            <span>基础数据</span> <span class="pull-right-container"> <i
-                    class="fa fa-angle-left pull-right"></i>
-            </span>
-        </a>
-            <ul class="treeview-menu">
 
-                <li ><a
-                        href="${pageContext.request.contextPath}/product/findAll.do">
-                    <i class="fa fa-circle-o"></i> 产品管理
-                </a></li>
-                <li ><a
-                &lt;%&ndash;表示分页时 默认它为第一页 每页显示4条&ndash;%&gt;
-                        href="${pageContext.request.contextPath}/orders/findAll.do?page=1&pageSize=4"> <i
-                        class="fa fa-circle-o"></i> 订单管理
-                </a></li>
-            </ul>
-        </li>--%>
 		</ul>
 	</section>
 	<!-- /.sidebar -->

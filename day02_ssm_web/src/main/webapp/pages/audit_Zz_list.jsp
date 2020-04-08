@@ -166,12 +166,12 @@
 			<!-- 内容头部 -->
 			<section class="content-header">
 				<h1>
-					数据列表<small>组长审核</small>
+					数据列表<small>班长审核</small>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
 					<li><a href="#">报废管理</a></li>
-					<li class="active" name="ZZ">组长审核</li>
+					<li class="active" name="ZZ">班长审核</li>
 				</ol>
 			</section>
 			<!-- 内容头部 /-->

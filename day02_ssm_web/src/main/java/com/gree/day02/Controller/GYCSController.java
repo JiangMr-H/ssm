@@ -61,10 +61,7 @@ public class GYCSController {
     public  ModelAndView findAll2(@RequestParam(name = "page",required = true,defaultValue = "1")int page, @RequestParam(name = "size",required = true,defaultValue = "5")int size,int count) throws Exception {
         ModelAndView mv = new ModelAndView();
         List<GYCS> scrapList=null;
-        if(count==2){
-            scrapList = iGycsService.findGycs2(page,size,count);
-            mv.setViewName("paperless-TJY-list");
-        }else if(count==3){
+        if(count==3){
             scrapList = iGycsService.findGycs2(page,size,count);
             mv.setViewName("paperless-ZK-list");
         }else if(count==4){

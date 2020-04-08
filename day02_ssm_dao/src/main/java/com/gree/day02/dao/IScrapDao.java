@@ -18,13 +18,13 @@ public interface IScrapDao {
             @Result(property = "JCBM",column = "JCBM"),
             @Result(property = "course",column = "course")
     })
-    public List<Scrap> findTSY();
+    List<Scrap> findTSY();
 
     /*
-    录入报废单信息
+    录入报废单信息(进入班长审核)
      */
     @Insert("insert into \"scrap\"(SCRQ,BZ,CPBM,GZBM,CLYS,JCBM,GYTS,QL,HBD,HW,QW,YS,SBW,SS,LSL,LBH,SJ,BX,SY,DKDL,YWB,SC,DS,HS,NM,MC,TJBL,SYBL,SM,SLHJ,JK,CZG,\"remake\",\"scantime\",\"courseId\")values(" +
-            "#{SCRQ},#{BZ},#{CPBM},#{GZBM},#{CLYS},#{JCBM},#{GYTS},#{QL},#{HBD},#{HW},#{QW},#{YS},#{SBW},#{SS},#{LSL},#{LBH},#{SJ},#{BX},#{SY},#{DKDL},#{YWB},#{SC},#{DS},#{HS},#{NM},#{MC},#{TJBL},#{SYBL},#{SM},#{SLHJ},#{JK},#{CZG},#{remake},SYSDATE,1)")
+            "#{SCRQ},#{BZ},#{CPBM},#{GZBM},#{CLYS},#{JCBM},#{GYTS},#{QL},#{HBD},#{HW},#{QW},#{YS},#{SBW},#{SS},#{LSL},#{LBH},#{SJ},#{BX},#{SY},#{DKDL},#{YWB},#{SC},#{DS},#{HS},#{NM},#{MC},#{TJBL},#{SYBL},#{SM},#{SLHJ},#{JK},#{CZG},#{remake},SYSDATE,2)")
     void scrapAdd(Scrap scrap);
 
 
@@ -32,7 +32,7 @@ public interface IScrapDao {
     Scrap findscrapById(int scrapId);
 
     /**
-     * 查询调试员列表
+     * 查询列表
      * @return
      */
     @Select("SELECT s.\"id\",s.SCRQ,s.BZ,s.CPBM,s.GZBM,s.CLYS,s.JCBM,co.\"currentProcess\" course from \"scrap\" s\n" +
@@ -50,36 +50,27 @@ public interface IScrapDao {
     List<Scrap> findAll(int count);
 
     /**
-     * 修改状态（调试员审批后）
-     */
-    @Update("update \"scrap\" SET \"courseId\"=2 where \"id\"=#{scarpid}")
-    void ScarpUpdate(int scarpid);
-
-
-
-
-    /**
-     * 修改状态（调试员审批后）
+     * 修改状态（待质量技术员审核）
      */
     @Update("update \"scrap\" SET \"courseId\"=3 where \"id\"=#{scarpid}")
     void ScarpUpdateZz(int scarpid);
     /**
-     * 修改状态（调试员审批后）
+     * 修改状态（待接收员确认）
      */
     @Update("update \"scrap\" SET \"courseId\"=4 where \"id\"=#{scarpid}")
     void ScarpUpdateJYy(int scarpid);
     /**
-     * 修改状态（调试员审批后）
+     * 修改状态（质量技术领导审核）
      */
     @Update("update \"scrap\" SET \"courseId\"=5 where \"id\"=#{scarpid}")
     void ScarpUpdateJSY(int scarpid);
     /**
-     * 修改状态（调试员审批后）
+     * 修改状态（厂长审核）
      */
     @Update("update \"scrap\" SET \"courseId\"=6 where \"id\"=#{scarpid}")
     void ScarpUpdateZLJS(int scarpid);
     /**
-     * 修改状态（调试员审批后）
+     * 修改状态（已结单）
      */
     @Update("update \"scrap\" SET \"courseId\"=7 where \"id\"=#{scarpid}")
     void ScarpUpdateCZ(int scarpid);

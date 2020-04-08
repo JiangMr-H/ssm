@@ -185,7 +185,7 @@
 				href="${pageContext.request.contextPath}/pages/main.jsp"><i
 					class="fa fa-dashboard"></i> <span>首页</span></a></li>
 
-			<li class="treeview"><a href="#"> <i class="fa fa-cogs"></i>
+<%--			<li class="treeview"><a href="#"> <i class="fa fa-cogs"></i>
 					<span>系统管理</span> <span class="pull-right-container"> <i
 						class="fa fa-angle-left pull-right"></i>
 				</span>
@@ -207,8 +207,8 @@
 							class="fa fa-circle-o"></i> 访问日志
 					</a></li>
 
-				</ul></li>
-			<li class="treeview"><a href="#"> <i class="fa fa-cube"></i>
+				</ul></li>--%>
+<%--			<li class="treeview"><a href="#"> <i class="fa fa-cube"></i>
 					<span>基础数据</span> <span class="pull-right-container"> <i
 						class="fa fa-angle-left pull-right"></i>
 				</span>
@@ -224,7 +224,7 @@
 							<i class="fa fa-circle-o"></i> 订单管理
 					</a></li>
 
-				</ul></li>
+				</ul></li>--%>
 
 		</ul>
 	</section>

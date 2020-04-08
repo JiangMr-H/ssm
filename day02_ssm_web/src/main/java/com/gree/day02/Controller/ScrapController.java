@@ -49,26 +49,28 @@ public class ScrapController {
     public  ModelAndView findAll(@RequestParam(name = "page",required = true,defaultValue = "1")int page, @RequestParam(name = "size",required = true,defaultValue = "15")int size,int count) throws Exception {
         ModelAndView mv = new ModelAndView();
         List<Scrap> scrapList=null;
-        if(count==1){
+      /*  if(count==1){
             scrapList = scrapService.findAll(page,size,count);
             mv.setViewName("audit_TSY_list"); //调机员
-        }else if(count==2){
-             scrapList = scrapService.findAll(page,size,count);
+        }else*/
+        scrapList = scrapService.findAll(page,size,count);
+        if(count==2){
+
             mv.setViewName("audit_Zz_list"); //班长
         }else if(count==3){
-             scrapList = scrapService.findAll(page,size,count);
+
             mv.setViewName("audit_JYy_list"); //检验员
         }else if(count==4){
-             scrapList = scrapService.findAll(page,size,count);
+
             mv.setViewName("audit_JSY_list"); //接收员
         }else if(count==5){
-             scrapList = scrapService.findAll(page,size,count);
+
             mv.setViewName("audit_ZLJS_list"); //质量科长
         }else if(count==6){
-             scrapList = scrapService.findAll(page,size,count);
+
             mv.setViewName("audit_CZ_list");  //厂长
         }else if(count==7){
-             scrapList = scrapService.findAll(page,size,count);
+
             mv.setViewName("audit_ProcessQuery"); //进程查询
         }
         PageInfo pageInfo = new PageInfo(scrapList);
@@ -188,13 +190,13 @@ public class ScrapController {
     }
 
 
-    @RequestMapping("/updateTJY.do")
+  /*  @RequestMapping("/updateTJY.do")
     public String scrapUpdate(@RequestParam(name = "id",required = true)int id,@RequestParam(name = "RoleName_TJY",required = true)String RoleName_TJY,@RequestParam(name = "RoleDescription_TJY",required = true)String RoleDescription_TJY)throws Exception
     {
         scrapService.insertTJY(id,RoleName_TJY,RoleDescription_TJY);
         scrapService.ScarpUpdate(id);
         return "redirect:findAll.do?count=1";
-    }
+    }*/
     @RequestMapping("/updateZz.do")
     public String scrapUpdateZz(@RequestParam(name = "id",required = true)int id,@RequestParam(name = "RoleName_Zz",required = true)String RoleName_Zz,@RequestParam(name = "RoleDescription_Zz",required = true)String RoleDescription_Zz)throws Exception
     {

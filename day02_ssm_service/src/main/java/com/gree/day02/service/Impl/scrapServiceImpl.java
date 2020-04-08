@@ -61,10 +61,10 @@ public class scrapServiceImpl implements IScrapService {
     }
 
 
-    @Override
+    /*@Override
     public void ScarpUpdate(int scarpid) throws Exception{
         iScrapDao.ScarpUpdate(scarpid);
-    }
+    }*/
 
 
     @Override
