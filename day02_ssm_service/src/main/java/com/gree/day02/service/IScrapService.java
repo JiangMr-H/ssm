@@ -19,9 +19,9 @@ public interface IScrapService {
 
     //void ScarpUpdate(int scrapId)throws Exception;
 
-   void insertTJY(int T_id,String RoleName_TJY,String RoleDescription_TJY)throws Exception;
+   //void insertTJY(int T_id,String RoleName_TJY,String RoleDescription_TJY)throws Exception;
 
-    void UpdateZz(int id, String roleName_zz, String roleDescription_zz);
+    void insertZz(int id, String roleName_zz, String roleDescription_zz);
 
     void UpdateJYy(int id, String roleName_jYy, String roleDescription_jYy);
 
@@ -40,4 +40,14 @@ public interface IScrapService {
     void ScarpUpdateZLJS(int id);
 
     void ScarpUpdateCZ(int id);
+
+   void UpdateScrapForZz(int id, String roleName_zz);
+
+   void UpdateScrapForJYy(int id, String roleName_jYy);
+
+   void UpdateScrapForJSY(int id, String roleName_jsy);
+
+   void UpdateScrapForZLJS(int id, String roleDescription_zljs);
+
+   void UpdateScrapForCZ(int id, String roleDescription_cz);
 }

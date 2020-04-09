@@ -235,35 +235,35 @@
 												  method="post" onsubmit="return check(this)">
 												<table class="table table-bordered modal-lg" >
 													<tr>
-														<td style='width:85px;text-align: center;'><b>零件名称</b></td>
+														<td style='width:85px;text-align: center;'><i style="color: red">* </i><b>零件名称</b></td>
 														<td colspan="2" style='width:250px'><input type="text" style="width: 250px" name="LJMC"
 																								   placeholder=""></td>
-														<td style='width:85px'><b>工装编号</b></td>
+														<td style='width:85px'><i style="color: red">* </i><b>工装编号</b></td>
 														<td colspan="2" style='width:130px'><input type="text" style="width: 150px" name="GZBM"
 																								   placeholder=""></td>
-														<td style='width:85px'><b>包装</b></td>
+														<td style='width:85px'><i style="color: red">* </i><b>包装</b></td>
 														<td style='width:130px'><input type="text" style="width: 100px" name="BZ"
 																					   placeholder=""></td>
 													</tr>
 													<tr>
-														<td style='width:85px' class="tds">零件图号</td>
+														<td style='width:85px' class="tds"><i style="color: red">* </i>零件图号</td>
 														<td colspan="2" style='width:250px'><input type="text" style="width: 250px" name="LJTH"
 																								   placeholder=""></td>
-														<td style='width:85px'class="tds">整形周期</td>
+														<td style='width:85px'class="tds"><i style="color: red">* </i>整形周期</td>
 														<td colspan="2" style='width:130px'><input type="text" style="width: 150px" name="ZXZQ"
 																								   placeholder=""></td>
-														<td style='width:85px'class="tds">机床</td>
+														<td style='width:85px'class="tds"><i style="color: red">* </i>机床</td>
 														<td style='width:130px'><input type="text" style="width: 100px" name="JC"
 																					   placeholder=""></td>
 													</tr>
 													<tr>
-														<td style='width:85px'class="tds">物料编码</td>
+														<td style='width:85px'class="tds"><i style="color: red">* </i>物料编码</td>
 														<td colspan="2" style='width:250px'><input type="text" style="width: 250px" name="WLBM"
 																								   placeholder=""></td>
-														<td style='width:85px'class="tds">冷却时间</td>
+														<td style='width:85px'class="tds"><i style="color: red">* </i>冷却时间</td>
 														<td colspan="2" style='width:130px'><input type="text" style="width: 150px" name="LQSJ"
 																								   placeholder=""></td>
-														<td style='width:85px'class="tds">日期</td>
+														<td style='width:85px'class="tds"><i style="color: red">* </i>日期</td>
 														<td style='width:130px'><input type="text" style="width: 100px" name="RQ"
 																					   placeholder=""></td>
 													</tr>
@@ -459,19 +459,19 @@
 																			   placeholder=""></td>
 													</tr>
 													<tr>
-														<td class="tds">操作工</td>
+														<td class="tds"><i style="color: red">* </i>操作工</td>
 														<td colspan="2"><input type="text" style="width: 200px" name="CZG"
 																			   placeholder=""></td>
-														<td class="tds">首检人</td>
+														<td class="tds"><i style="color: red">* </i>首检人</td>
 														<td colspan="4"><input type="text" style="width: 250px" name="JYY"
 																			   placeholder=""></td>
 
 													</tr>
 													<tr>
-														<td class="tds">测量仪器</td>
+														<td class="tds"><i style="color: red">* </i>测量仪器</td>
 														<td colspan="2"><input type="text" style="width: 200px" name="CLYQ"
 																			   placeholder=""></td>
-														<td class="tds">首检班组</td>
+														<td class="tds"><i style="color: red">* </i>首检班组</td>
 														<td colspan="4"><input type="text" style="width: 250px" name="JYDW"
 																			   placeholder=""></td>
 
@@ -715,6 +715,67 @@
 	<script
 		src="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js"></script>
 	<script>
+
+		function check(form) {
+			if(form.LJMC.value==''){
+				alert("请输入零件名称！")
+				form.LJMC.focus();
+				return false;
+			}else if(form.GZBM.value==''){
+				alert("请输入工装编号！")
+				form.GZBM.focus();
+				return false;
+			}else if(form.BZ.value==''){
+				alert("包装不能为空！")
+				form.BZ.focus();
+				return false;
+			}else if(form.LJTH.value==''){
+				alert("零件图号不能为空！")
+				form.LJTH.focus();
+				return false;
+			}else if(form.ZXZQ.value==''){
+				alert("整形周期不能为空！")
+				form.ZXZQ.focus();
+				return false;
+			}else if(form.JC.value==''){
+				alert("机床不能为空！")
+				form.JC.focus();
+				return false;
+			}else if(form.WLBM.value==''){
+				alert("物料编码不能为空！")
+				form.WLBM.focus();
+				return false;
+			}else if(form.LQSJ.value==''){
+				alert("冷却时间不能为空！")
+				form.LQSJ.focus();
+				return false;
+			}else if(form.RQ.value==''){
+				alert("日期不能为空！")
+				form.RQ.focus();
+				return false;
+			}else if(form.CZG.value==''){
+				alert("操作工不能为空！")
+				form.CZG.focus();
+				return false;
+			}else if(form.JYY.value==''){
+				alert("首检人不能为空！")
+				form.JYY.focus();
+				return false;
+			}else if(form.CLYQ.value==''){
+				alert("测量仪器不能为空！")
+				form.CLYQ.focus();
+				return false;
+			}else if(form.JYDW.value==''){
+				alert("首检班组不能为空！")
+				form.JYDW.focus();
+				return false;
+			}
+
+			return true;
+		}
+
+
+
 		$(document).ready(function() {
 			// 选择框
 			$(".select2").select2();

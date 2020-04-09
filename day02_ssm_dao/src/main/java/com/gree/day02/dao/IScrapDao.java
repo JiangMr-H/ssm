@@ -28,7 +28,7 @@ public interface IScrapDao {
     void scrapAdd(Scrap scrap);
 
 
-    @Select("SELECT \"id\",SCRQ,BZ,CPBM,GZBM,CLYS,JCBM,GYTS,QL,HBD,HW,QW,YS,SBW,SS,LSL,LBH,SJ,BX,SY,DKDL,YWB,SC,DS,HS,NM,MC,TJBL,SYBL,SM,SLHJ,JK,CZG,\"remake\" from \"scrap\" where \"id\"=#{scrapId}")
+    @Select("SELECT \"id\",SCRQ,BZ,CPBM,GZBM,CLYS,JCBM,GYTS,QL,HBD,HW,QW,YS,SBW,SS,LSL,LBH,SJ,BX,SY,DKDL,YWB,SC,DS,HS,NM,MC,TJBL,SYBL,SM,SLHJ,JK,CZG,\"BZZ\",\"JYY\",\"JSY\",\"ZLYJ\",\"CZYJ\",\"remake\" from \"scrap\" where \"id\"=#{scrapId}")
     Scrap findscrapById(int scrapId);
 
     /**
@@ -88,21 +88,36 @@ public interface IScrapDao {
      * @param
      * @param
      */
-    @Insert("insert into \"ZS_Approval\"(\"scrap_id\",\"RoleName_TJY\",\"RoleDescription_TJY\",\"scantime_TJY\")values(#{id},#{RoleName_TJY},#{RoleDescription_TJY},SYSDATE)")
-    void insertTJY(@Param("id") int id,@Param("RoleName_TJY") String RoleName_TJY,@Param("RoleDescription_TJY") String RoleDescription_TJY);
+   /* @Insert("insert into \"ZS_Approval\"(\"scrap_id\",\"RoleName_Bz\",\"RoleDescription_Bz\",\"scantime_Bz\")values(#{id},#{RoleName_Zz},#{RoleDescription_Zz},SYSDATE)")
+    void insertTJY(@Param("id") int id,@Param("RoleName_TJY") String RoleName_TJY,@Param("RoleDescription_TJY") String RoleDescription_TJY);*/
 
-    @Update("update \"ZS_Approval\" SET \"RoleName_Bz\"=#{RoleName_Zz},\"RoleDescription_Bz\"=#{RoleDescription_Zz} where \"scrap_id\"=#{id}")
-    void UpdateZz(@Param("id")int id, @Param("RoleName_Zz") String RoleName_Zz, @Param("RoleDescription_Zz")String RoleDescription_Zz);
+    @Insert("insert into \"ZS_Approval\"(\"scrap_id\",\"RoleName_Bz\",\"RoleDescription_Bz\",\"scantime_Bz\")values(#{id},#{RoleName_Zz},#{RoleDescription_Zz},SYSDATE)")
+    void insertZz(@Param("id")int id, @Param("RoleName_Zz") String RoleName_Zz, @Param("RoleDescription_Zz")String RoleDescription_Zz);
 
-    @Update("update \"ZS_Approval\" SET \"RoleName_JYY\"=#{RoleName_JYy},\"RoleDescription_JYY\"=#{RoleDescription_JYy} where \"scrap_id\"=#{id}")
+    @Update("update \"scrap\" set \"BZZ\"=#{RoleName_Zz} where \"id\"=#{id}")
+    void UpdateScrapForZz(@Param("id")int id,@Param("RoleName_Zz") String RoleName_Zz);
+
+    @Update("update \"ZS_Approval\" SET \"RoleName_JYY\"=#{RoleName_JYy},\"RoleDescription_JYY\"=#{RoleDescription_JYy},\"scantime_JYY\"=SYSDATE where \"scrap_id\"=#{id}")
     void UpdateJYy(@Param("id")int id, @Param("RoleName_JYy")String RoleName_JYy,@Param("RoleDescription_JYy") String RoleDescription_JYy);
 
-    @Update("update \"ZS_Approval\" SET \"RoleName_JSY\"=#{RoleName_JSY},\"RoleDescription_JSY\"=#{RoleDescription_JSY} where \"scrap_id\"=#{id}")
+    @Update("update \"scrap\" set \"JYY\"=#{RoleName_JYy} where \"id\"=#{id}")
+    void UpdateScrapForJYy(@Param("id")int id,@Param("RoleName_JYy") String RoleName_JYy);
+
+    @Update("update \"ZS_Approval\" SET \"RoleName_JSY\"=#{RoleName_JSY},\"RoleDescription_JSY\"=#{RoleDescription_JSY},\"scantime_JSY\"=SYSDATE where \"scrap_id\"=#{id}")
     void UpdateJSY(@Param("id")int id, @Param("RoleName_JSY")String RoleName_JSY, @Param("RoleDescription_JSY")String RoleDescription_JSY);
 
-    @Update("update \"ZS_Approval\" SET \"RoleName_ZL\"=#{RoleName_ZLJS},\"RoleDescription_ZL\"=#{RoleDescription_ZLJS} where \"scrap_id\"=#{id}")
+    @Update("update \"scrap\" set \"JSY\"=#{RoleName_JSY} where \"id\"=#{id}")
+    void UpdateScrapForJSY(@Param("id")int id,@Param("RoleName_JSY") String RoleName_JSY);
+
+    @Update("update \"ZS_Approval\" SET \"RoleName_ZL\"=#{RoleName_ZLJS},\"RoleDescription_ZL\"=#{RoleDescription_ZLJS},\"scantime_ZL\"=SYSDATE where \"scrap_id\"=#{id}")
     void UpdateZLJS(@Param("id")int id, @Param("RoleName_ZLJS")String RoleName_ZLJS, @Param("RoleDescription_ZLJS")String RoleDescription_ZLJS);
 
-    @Update("update \"ZS_Approval\" SET \"RoleName_CZ\"=#{RoleName_CZ},\"RoleDescription_CZ\"=#{RoleDescription_CZ} where \"scrap_id\"=#{id}")
+    @Update("update \"scrap\" set \"ZLYJ\"=#{RoleDescription_ZLJS} where \"id\"=#{id}")
+    void UpdateScrapForZLJS(@Param("id")int id,@Param("RoleDescription_ZLJS") String RoleDescription_ZLJS);
+
+    @Update("update \"ZS_Approval\" SET \"RoleName_CZ\"=#{RoleName_CZ},\"RoleDescription_CZ\"=#{RoleDescription_CZ},\"scantime_CZ\"=SYSDATE where \"scrap_id\"=#{id}")
     void insertCZ(@Param("id")int id, @Param("RoleName_CZ")String RoleName_CZ, @Param("RoleDescription_CZ")String RoleDescription_CZ);
+
+    @Update("update \"scrap\" set \"CZYJ\"=#{RoleDescription_CZ} where \"id\"=#{id}")
+    void UpdateScrapForCZ(@Param("id")int id,@Param("RoleDescription_CZ") String RoleDescription_CZ);
 }

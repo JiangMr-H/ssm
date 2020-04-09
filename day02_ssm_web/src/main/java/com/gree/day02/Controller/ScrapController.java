@@ -17,6 +17,8 @@ import com.gree.day02.dao.Scrap;
 import com.gree.day02.service.IScrapService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.test.annotation.Rollback;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -34,6 +36,7 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/scrap")
+@Transactional
 public class ScrapController {
 
      @Autowired
@@ -97,11 +100,6 @@ public class ScrapController {
         mv.setViewName("scrap-list");
         return mv;
     }
-
-
-
-
-
     /**
      *
      * @param scrapId
@@ -189,19 +187,12 @@ public class ScrapController {
         return "redirect:findNewPage.do";
     }
 
-
-  /*  @RequestMapping("/updateTJY.do")
-    public String scrapUpdate(@RequestParam(name = "id",required = true)int id,@RequestParam(name = "RoleName_TJY",required = true)String RoleName_TJY,@RequestParam(name = "RoleDescription_TJY",required = true)String RoleDescription_TJY)throws Exception
-    {
-        scrapService.insertTJY(id,RoleName_TJY,RoleDescription_TJY);
-        scrapService.ScarpUpdate(id);
-        return "redirect:findAll.do?count=1";
-    }*/
     @RequestMapping("/updateZz.do")
     public String scrapUpdateZz(@RequestParam(name = "id",required = true)int id,@RequestParam(name = "RoleName_Zz",required = true)String RoleName_Zz,@RequestParam(name = "RoleDescription_Zz",required = true)String RoleDescription_Zz)throws Exception
     {
-        scrapService.UpdateZz(id,RoleName_Zz,RoleDescription_Zz);
+        scrapService.insertZz(id,RoleName_Zz,RoleDescription_Zz);
         scrapService.ScarpUpdateZz(id);
+        scrapService.UpdateScrapForZz(id,RoleName_Zz);
         return "redirect:findAll.do?count=2";
     }
     @RequestMapping("/updateJYy.do")
@@ -209,6 +200,7 @@ public class ScrapController {
     {
         scrapService.UpdateJYy(id,RoleName_JYy,RoleDescription_JYy);
         scrapService.ScarpUpdateJYy(id);
+        scrapService.UpdateScrapForJYy(id,RoleName_JYy);
         return "redirect:findAll.do?count=3";
     }
     @RequestMapping("/updateJSY.do")
@@ -216,6 +208,7 @@ public class ScrapController {
     {
         scrapService.UpdateJSY(id,RoleName_JSY,RoleDescription_JSY);
         scrapService.ScarpUpdateJSY(id);
+        scrapService.UpdateScrapForJSY(id,RoleName_JSY);
         return "redirect:findAll.do?count=4";
     }
     @RequestMapping("/updateZLJS.do")
@@ -223,6 +216,7 @@ public class ScrapController {
     {
         scrapService.UpdateZLJS(id,RoleName_ZLJS,RoleDescription_ZLJS);
         scrapService.ScarpUpdateZLJS(id);
+        scrapService.UpdateScrapForZLJS(id,RoleDescription_ZLJS);
         return "redirect:findAll.do?count=5";
     }
     @RequestMapping("/updateCZ.do")
@@ -230,6 +224,7 @@ public class ScrapController {
     {
         scrapService.insertCZ(id,RoleName_CZ,RoleDescription_CZ);
         scrapService.ScarpUpdateCZ(id);
+        scrapService.UpdateScrapForCZ(id,RoleDescription_CZ);
         return "redirect:findAll.do?count=6";
     }
 

@@ -96,9 +96,9 @@ public interface ILsjbDao {
             "XJ, \n" +
             "CLYQ, \n" +
             "JYDW, \n" +
-            "BAZ,SJJL,LJSB_JC\"scantime\"\n" +
+            "BZZ,SJJL,LJSB_JC\"scantime\"\n" +
             ")values(#{LJMC},#{GZBM},#{BZ},#{LJTH},#{ZXZQ},#{JC},#{WLBM},#{LQSJ},#{RQ},#{CL_YQ},#{CL_JG},#{CL_JL},#{YS_YQ},#{YS_JG},#{YS_JL},#{SCZ_YQ},#{SCZ_JG},#{SCZ_JL},#{ROHS_YQ},#{ROHS_JG},#{ROHS_JL},#{CC_YQ1},#{CC_JG1},#{CC_JL1},#{CC_YQ2},#{CC_YQ3},#{CC_YQ4}," +
-            "#{CC_YQ5},#{CC_YQ6},#{CC_JG2},#{CC_JG3},#{CC_JG4},#{CC_JG5},#{CC_JG6},#{CC_JL2},#{CC_JL3},#{CC_JL4},#{CC_JL5},#{CC_JL6},#{JG1},#{JL1},#{JG2},#{JL2},#{JG3},#{JL3},#{JG4},#{JL4},#{JG5},#{JL5},#{JG6},#{JL6},#{JG7},#{JL7},#{JG8},#{JL8},#{JG9},#{JL9},#{JG10},#{JL10},#{CZG},#{LB},#{JYY},#{XJ},#{CLYQ},#{JYDW},#{BAZ},#{SJJL},#{LJSB_JC},SYSDATE")
+            "#{CC_YQ5},#{CC_YQ6},#{CC_JG2},#{CC_JG3},#{CC_JG4},#{CC_JG5},#{CC_JG6},#{CC_JL2},#{CC_JL3},#{CC_JL4},#{CC_JL5},#{CC_JL6},#{JG1},#{JL1},#{JG2},#{JL2},#{JG3},#{JL3},#{JG4},#{JL4},#{JG5},#{JL5},#{JG6},#{JL6},#{JG7},#{JL7},#{JG8},#{JL8},#{JG9},#{JL9},#{JG10},#{JL10},#{CZG},#{LB},#{JYY},#{XJ},#{CLYQ},#{JYDW},#{BZZ},#{SJJL},#{LJSB_JC},SYSDATE")
      void saveLjsj(Lsjb lsjb)throws Exception;
 
 

@@ -67,15 +67,15 @@ public class scrapServiceImpl implements IScrapService {
     }*/
 
 
-    @Override
+  /*  @Override
     public void insertTJY(int T_id,String RoleName_TJY,String RoleDescription_TJY) throws Exception {
        System.out.println("======================="+T_id);
         iScrapDao.insertTJY(T_id,RoleName_TJY,RoleDescription_TJY);
-    }
+    }*/
 
     @Override
-    public void UpdateZz(int id, String roleName_zz, String roleDescription_zz) {
-     iScrapDao.UpdateZz(id,roleName_zz,roleDescription_zz);
+    public void insertZz(int id, String roleName_zz, String roleDescription_zz) {
+     iScrapDao.insertZz(id,roleName_zz,roleDescription_zz);
     }
 
     @Override
@@ -123,6 +123,31 @@ public class scrapServiceImpl implements IScrapService {
     @Override
     public void ScarpUpdateCZ(int id) {
      iScrapDao.ScarpUpdateCZ(id);
+    }
+
+    @Override
+    public void UpdateScrapForZz(int id, String roleName_zz) {
+        iScrapDao.UpdateScrapForZz(id,roleName_zz);
+    }
+
+    @Override
+    public void UpdateScrapForJYy(int id, String roleName_jYy) {
+        iScrapDao.UpdateScrapForJYy(id,roleName_jYy);
+    }
+
+    @Override
+    public void UpdateScrapForJSY(int id, String roleName_jsy) {
+     iScrapDao.UpdateScrapForJSY(id,roleName_jsy);
+    }
+
+    @Override
+    public void UpdateScrapForZLJS(int id, String roleDescription_zljs) {
+     iScrapDao.UpdateScrapForZLJS(id,roleDescription_zljs);
+    }
+
+    @Override
+    public void UpdateScrapForCZ(int id, String roleDescription_cz) {
+     iScrapDao.UpdateScrapForCZ(id,roleDescription_cz);
     }
 
 

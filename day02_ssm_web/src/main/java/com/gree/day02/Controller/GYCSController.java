@@ -100,7 +100,7 @@ public class GYCSController {
     @RequestMapping("/updateTJY.do")
     public String scrapUpdate(int id,@RequestParam(name = "roleName",required = true)String roleName,@RequestParam(name = "roleDesc",required = true)String roleDesc,int count)throws Exception
     {
-        iGycsService.insertTJY(id,roleName,roleDesc);
+        iGycsService.insertZK(id,roleName,roleDesc);
         iGycsService.ScarpUpdate(id,count);
         return "redirect:findGycs2.do?count="+(count-1);
     }

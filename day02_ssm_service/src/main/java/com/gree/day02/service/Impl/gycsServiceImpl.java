@@ -59,37 +59,22 @@ public class gycsServiceImpl implements IGycsService {
         return iGycsDao.findByTJYId(scrapId);
     }
 
-    /**
-     *
-     * @param id
-     * @param roleName
-     * @param roleDesc
-     */
-    @Override
+/*    @Override
     public void insertTJY(int id, String roleName, String roleDesc) {
                iGycsDao.insertTJY(id,roleName,roleDesc);
-    }
+    }*/
 
-    /**
-     * �޸����״̬
-     * @param id
-     * @param count
-     */
+
     @Override
     public void ScarpUpdate(int id, int count) {
         iGycsDao.ScarpUpdate(id,count);
     }
 
-    /**
-     * ¼��ڶ�����Ϣ
-     * @param id
-     * @param roleName
-     * @param roleDesc
-     */
-    @Override
+
+   /* @Override
     public void updateByJC_ZK(int id, String roleName, String roleDesc) throws Exception{
         iGycsDao.updateByJC_ZK(id,roleName,roleDesc);
-    }
+    }*/
 
     @Override
     public void updateByJC_GY(int id, String roleName, String roleDesc) throws Exception{
@@ -109,6 +94,11 @@ public class gycsServiceImpl implements IGycsService {
     @Override
     public void saveGycsById(int id, String zKname, String zKdesc) {
         iGycsDao.saveGycsById(id,zKname,zKdesc);
+    }
+
+    @Override
+    public void insertZK(int id, String roleName, String roleDesc) {
+        iGycsDao.insertZK(id,roleName,roleDesc);
     }
 
 

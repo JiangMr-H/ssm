@@ -24,7 +24,7 @@ public interface IGycsDao {
             @Result(property = "scantime",column = "scantime"),
             @Result(property = "LB_Id",column = "LB_Id"),
     })
-    public List<GYCS> findGycs();
+    List<GYCS> findGycs();
 
 
     @Insert("INSERT INTO \"ZS_GYCS_1\" z (CPMC,JYY,JCBM,BC,JCRQ,YL1,YL2,YL3,YL4,YL5,YL6,YL7,SD1,SD2,SD3,SD4,SD5,SD6,SD7,WZ1,WZ2,WZ3,WZ4,WZ5,WZ6,WZ7,WD1,WD2,WD3,WD4,WD5,WD6,WD7,SJ,LQ,BYA,JCSJ,BZ,\"scantime\",\"LB_Id\" )VALUES(\n" +
@@ -59,14 +59,12 @@ public interface IGycsDao {
      * @param roleName
      * @param roleDesc
      */
-    @Insert("INSERT INTO \"ZS_GYCS_Audit\"(\"gycs_id\",\"roleName_TJY\",\"roleDesc_TJY\",\"scantime_TJY\")VALUES(#{id},#{roleName},#{roleDesc},SYSDATE)")
-    void insertTJY(@Param("id")int id, @Param("roleName")String roleName, @Param("roleDesc")String roleDesc);
+    @Insert("INSERT INTO \"ZS_GYCS_Audit\"(\"gycs_id\",\"roleName_ZK\",\"roleDesc_ZK\",\"scantime_ZK\")VALUES(#{id},#{roleName},#{roleDesc},SYSDATE)")
+    void insertZK(@Param("id")int id, @Param("roleName")String roleName, @Param("roleDesc")String roleDesc);
 
-    /**
-     * 修改该进程的信息，添加进程信息
-     */
+   /*
     @Update("update \"ZS_GYCS_Audit\" set \"roleName_ZK\"=#{roleName},\"roleDesc_ZK\"=#{roleDesc},\"scantime_ZK\"=SYSDATE where \"gycs_id\"=#{id}")
-    void updateByJC_ZK(@Param("id")int id, @Param("roleName")String roleName, @Param("roleDesc")String roleDesc)throws Exception;
+    void updateByJC_ZK(@Param("id")int id, @Param("roleName")String roleName, @Param("roleDesc")String roleDesc)throws Exception;*/
 
     /**
      * 修改该进程的信息，添加进程信息

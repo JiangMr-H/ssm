@@ -38,7 +38,7 @@ public class Scrap {
     private String JK;
     private String CZG;
     private String TJY;
-    private String BaZ;
+    private String BZZ;
     private String JYY;
     private String JSY;
     private String ZLYJ;
@@ -327,12 +327,12 @@ public class Scrap {
         this.TJY = TJY;
     }
 
-    public String getBaZ() {
-        return BaZ;
+    public String getBZZ() {
+        return BZZ;
     }
 
-    public void setBaZ(String baZ) {
-        BaZ = baZ;
+    public void setBZZ(String BZZ) {
+        this.BZZ = BZZ;
     }
 
     public String getJYY() {

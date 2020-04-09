@@ -37,10 +37,6 @@ public class ProductController {
     @Autowired
     private IProductService productService;
 
-    /*
-     * 在这里参数为这产品对象 可以将整个对象录入
-     */
-    //添加所有用户
     @RequestMapping("/add.do")
     public String add(Product product)throws Exception{
         productService.add(product);
@@ -48,7 +44,7 @@ public class ProductController {
     }
 
 
-    //查询全部产品
+    //查询全部
     @RequestMapping("/findAll.do")
     public ModelAndView findAll()throws Exception{
         ModelAndView mv=new ModelAndView();

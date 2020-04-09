@@ -357,9 +357,8 @@
 												<td colspan="3" class="text-center"><i style="color: red">* </i>操作工</td>
 												<td colspan="3"><input type="text" style="width: 150px" name="CZG"
 																	   placeholder="操作工"></td>
-												<td colspan="2" class="text-center">调机员</td>
-												<td colspan="3"><input type="text" style="width: 150px" name="TJY"
-																	   placeholder="调机员" disabled></td>
+												<td colspan="2" class="text-center"></td>
+												<td colspan="3"></td>
 												<td colspan="2" class="text-center">班长</td>
 												<td colspan="3"><input type="text" style="width: 150px" name="BaZ"
 																	   placeholder="班长" disabled></td>

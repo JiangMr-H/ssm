@@ -11,6 +11,8 @@
 
 package com.gree.day02.dao;
 
+import java.util.Date;
+
 /**
  * @author 891649
  * @create 2019/10/9
@@ -85,7 +87,7 @@ public class Lsjb {
     private String JYDW;
     private String BAZ;
     private String SJJL;
-    private String scantime;
+    private Date scantime;
 
     public String getId() {
         return id;
@@ -623,11 +625,11 @@ public class Lsjb {
         this.SJJL = SJJL;
     }
 
-    public String getScantime() {
+    public Date getScantime() {
         return scantime;
     }
 
-    public void setScantime(String scantime) {
+    public void setScantime(Date scantime) {
         this.scantime = scantime;
     }
 }

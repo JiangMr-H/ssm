@@ -535,6 +535,31 @@
 <script
 		src="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js"></script>
 <script>
+	function check(form) {
+		if (form.CPMC.value == '') {
+			alert("请输入产品名称！")
+			form.CPMC.focus();
+			return false;
+		}else if (form.JYY.value == '') {
+			alert("请输入检验员！")
+			form.JYY.focus();
+			return false;
+		}else if (form.JCBM.value == '') {
+			alert("请输入机床编码！")
+			form.JCBM.focus();
+			return false;
+		}else if (form.BC.value == '') {
+			alert("请输入班次！")
+			form.BC.focus();
+			return false;
+		}else if (form.JCRQ.value == '') {
+			alert("请输入检查日期！")
+			form.JCRQ.focus();
+			return false;
+		}
+		return true;
+	}
+
     $(document).ready(function() {
         // 选择框
         $(".select2").select2();

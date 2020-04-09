@@ -87,7 +87,7 @@ public class UserImplController {
     @RequestMapping("/save.do")
     public String save(UserInfo userInfo)throws Exception{
         //对密码进行加密处理
-        userInfo.setPassword(bCryptPasswordEncoder.encode(userInfo.getPassword()));
+        //userInfo.setPassword(bCryptPasswordEncoder.encode(userInfo.getPassword()));
         userInfoService.save(userInfo);
         return "redirect:findAll.do";
     }

@@ -37,7 +37,6 @@ public class OrdersController {
     @Autowired
     private IOrdersService iOrdersService;
 
-    //查询全部订单分页
     @RequestMapping("/findAll.do")
     public ModelAndView findAll(@RequestParam(name = "page",required = true,defaultValue = "1")int page,@RequestParam(name = "size",required = true,defaultValue = "10")int size)throws Exception{
         ModelAndView mv=new ModelAndView();

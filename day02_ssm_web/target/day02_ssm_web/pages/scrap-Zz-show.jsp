@@ -166,12 +166,12 @@
 			<!-- 内容头部 -->
 			<section class="content-header">
 				<h1>
-					数据列表<small>组长审核</small>
+					数据列表<small>班长审核</small>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
 					<li><a href="#">报废管理</a></li>
-					<li class="active">组长审核</li>
+					<li class="active">班长审核</li>
 				</ol>
 			</section>
 			<!-- 内容头部 /-->
@@ -283,31 +283,34 @@
 												<td><input type="text" style="width: 40px" name="SLHJ" value="${TSYscrap.SLHJ }" disabled></td>
 												<td><input type="text" style="width: 40px" name="JK" value="${TSYscrap.JK }" disabled></td>
 											</tr>
+
+
 											<tr>
 												<td colspan="3" class="text-center"><i style="color: red">* </i>操作工</td>
 												<td colspan="3"><input type="text" style="width: 150px" name="CZG"
 																	   placeholder="操作工" value="${TSYscrap.CZG }" disabled></td>
-												<td colspan="2" class="text-center">调机员</td>
-												<td colspan="3"><input type="text" style="width: 150px" name="TJY"
-																	   placeholder="调机员" value="${TSYscrap.TJY }" disabled></td>
+												<td colspan="2" class="text-center"></td>
+												<td colspan="3"></td>
 												<td colspan="2" class="text-center">班长</td>
-												<td colspan="3"><input type="text" style="width: 150px" name="BaZ"
-																	   placeholder="班长" disabled></td>
+												<td colspan="3"><input type="text" style="width: 150px" name="BZZ"
+																	   placeholder="班长" value="${TSYscrap.BZZ }" disabled></td>
 												<td colspan="2" class="text-center">检验员</td>
 												<td colspan="3"><input type="text" style="width: 150px" name="JYY"
-																	   placeholder="检验员" disabled></td>
+																	   placeholder="检验员" value="${TSYscrap.JYY }" disabled></td>
 												<td colspan="2" class="text-center">接收人</td>
 												<td colspan="4"><input type="text" style="width: 150px" name="JSY"
-																	   placeholder="接收人"  disabled></td>
+																	   placeholder="接收人"  value="${TSYscrap.JSY }" disabled></td>
 											</tr>
 											<tr>
 												<td colspan="4" class="text-center">质量技术领导意见:</td>
 												<td colspan="9"><input type="text" style="width: 520px" name="ZLYJ"
-																	   placeholder="质量技术领导意见"  disabled></td>
+																	   placeholder="质量技术领导意见" value="${TSYscrap.ZLYJ }" disabled></td>
 												<td colspan="3" class="text-center">厂长意见:</td>
 												<td colspan="11"><input type="text" style="width: 520px" name="CZYJ"
-																		placeholder="厂长意见"  disabled></td>
+																		placeholder="厂长意见" value="${TSYscrap.CZYJ }" disabled></td>
 											</tr>
+
+
 											<tr>
 												<td colspan="3" class="text-center">备注：</td>
 												<td colspan="24"><input type="text" style="width: 640px"
@@ -319,7 +322,6 @@
 													2、当生产机床型号＜530和≥240时，报废50-100件由质量技术员及以上领导签字确认，大于100件必须由厂长及以上领导签字确认；<br/>
 													3、当生产机床型号＜240时，报废100件-200件由质量技术员及以上领导签字确认，大于200件必须由厂长及以上领导签字确认。
 												</td>
-
 											</tr>
 										</table>
 										<span style="color: red;font-size: 14px">注：*为必填项</span>
@@ -333,7 +335,7 @@
 									<section class="content"> <!--产品信息-->
 
 										<div class="panel panel-default">
-											<div class="panel-heading">组长审核</div>
+											<div class="panel-heading">班长审核</div>
 											<div class="row data-type">
 
 												<div class="col-md-2 title">角色名称</div>

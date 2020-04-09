@@ -455,7 +455,7 @@
 														<td class="tds">备注</td>
 														<td colspan="2"><input type="text" style="width: 200px" name="BAZ"
 																			   placeholder="" value="${LsjbList.BAZ}"></td>
-														<td class="tds">首检结论</td>
+														<td class="tds"><i style="color: red">* </i>首检结论</td>
 														<td colspan="4"><input type="text" style="width: 250px" name="SJJL"
 																			   placeholder="" value="${LsjbList.SJJL}"></td>
 													</tr>
@@ -584,6 +584,17 @@
 	<script
 		src="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js"></script>
 	<script>
+
+		function check(form) {
+			if (form.LJMC.value == '') {
+				alert("请输入零件名称！")
+				form.LJMC.focus();
+				return false;
+			}
+			return true;
+		}
+
+
 		$(document).ready(function() {
 			// 选择框
 			$(".select2").select2();
