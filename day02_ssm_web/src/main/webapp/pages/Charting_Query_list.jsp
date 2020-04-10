@@ -371,10 +371,9 @@
                                                   详情
                                               </button>--%>
 										<a type="button" class="btn bg-olive btn-xs" data-toggle="modal"
-										   data-target="#exampleModal" onclick="location.href='${pageContext.request.contextPath}/GYCS/findGycsByGyId.do?id=${gycs.id }'">
+											data-target="#exampleModal" onclick="location.href='${pageContext.request.contextPath}/GYCS/findGycsByGyId.do?id=${gycs.id }'">
 											详情
 										</a>
-
 									</td>
 								</tr>
 							</c:forEach>

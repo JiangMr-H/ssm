@@ -36,7 +36,7 @@ public interface IGycsService {
 
     //void insertTJY(int id, String roleName, String roleDesc);
 
-    void ScarpUpdate(int id, int count);
+    void GycsUpdate(int id, int count);
 
     //void updateByJC_ZK(int id, String roleName, String roleDesc)throws Exception;
 
@@ -50,4 +50,8 @@ public interface IGycsService {
     void saveGycsById(int id, String zKname, String zKdesc);
 
     void insertZK(int id, String roleName, String roleDesc);
+
+    void updateGycsForZK(int id, String roleName, String roleDesc);
+
+    void updateGycsForGY(int id, String roleName, String roleDesc);
 }

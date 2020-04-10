@@ -304,12 +304,12 @@
 											<div class="panel-heading" name="count">质控审核</div>
 											<div class="row data-type">
 
-												<div class="col-md-2 title">角色名称</div>
+												<div class="col-md-2 title">审核人</div>
 												<div class="col-md-4 data">
 													<input type="text" class="form-control" name="roleName"
 														   placeholder="角色名称" value="">
 												</div>
-												<div class="col-md-2 title">角色描述</div>
+												<div class="col-md-2 title">描述</div>
 												<div class="col-md-4 data">
 													<input type="text" class="form-control" name="roleDesc"
 														   placeholder="角色描述" value="">

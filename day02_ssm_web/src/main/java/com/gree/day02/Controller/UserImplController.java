@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -43,6 +44,7 @@ public class UserImplController {
 
     //给用户添加角色
     @RequestMapping("/addRoleToUser.do")
+    @Transactional
     public String addRoleToUser(@RequestParam(name = "userId",required = true)String userId,@RequestParam(name = "ids",required = true)String[] roleIds){
       userInfoService.addRoleToUser(userId,roleIds);
         return "redirect:findAll.do";
@@ -85,6 +87,7 @@ public class UserImplController {
     }
 
     @RequestMapping("/save.do")
+    @Transactional
     public String save(UserInfo userInfo)throws Exception{
         //对密码进行加密处理
         //userInfo.setPassword(bCryptPasswordEncoder.encode(userInfo.getPassword()));

@@ -15,6 +15,7 @@ import com.gree.day02.dao.Product;
 import com.gree.day02.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -38,6 +39,7 @@ public class ProductController {
     private IProductService productService;
 
     @RequestMapping("/add.do")
+    @Transactional
     public String add(Product product)throws Exception{
         productService.add(product);
       return "redirect:findAll.do";

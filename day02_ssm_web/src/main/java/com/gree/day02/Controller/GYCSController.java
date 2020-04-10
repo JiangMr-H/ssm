@@ -17,6 +17,7 @@ import com.gree.day02.dao.Scrap;
 import com.gree.day02.service.IGycsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -34,6 +35,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/GYCS")
+@Transactional
 public class GYCSController {
 
    @Autowired
@@ -57,6 +59,14 @@ public class GYCSController {
       return mv;
    }
 
+    /**
+     * 进程li
+     * @param page
+     * @param size
+     * @param count
+     * @return
+     * @throws Exception
+     */
    @RequestMapping("/findGycs2.do")
     public  ModelAndView findAll2(@RequestParam(name = "page",required = true,defaultValue = "1")int page, @RequestParam(name = "size",required = true,defaultValue = "5")int size,int count) throws Exception {
         ModelAndView mv = new ModelAndView();
@@ -70,7 +80,11 @@ public class GYCSController {
         }else if(count==6){
             scrapList = iGycsService.findGycs2(page,size,count);
             mv.setViewName("ZK-list");
+        }else if(count==5){
+            scrapList = iGycsService.findGycs2(page,size,count);
+            mv.setViewName("Update_GYCS_list");
         }
+
         PageInfo pageInfo = new PageInfo(scrapList);
         mv.addObject("pageInfo",pageInfo);
         return mv;
@@ -83,7 +97,6 @@ public class GYCSController {
     */
    @RequestMapping("/save.do")
    public String gycsAdd(GYCS gycs){
-       System.out.println("gycs===================="+gycs);
       iGycsService.gycsAdd(gycs);
       return "redirect:findGycs.do";
    }
@@ -101,7 +114,8 @@ public class GYCSController {
     public String scrapUpdate(int id,@RequestParam(name = "roleName",required = true)String roleName,@RequestParam(name = "roleDesc",required = true)String roleDesc,int count)throws Exception
     {
         iGycsService.insertZK(id,roleName,roleDesc);
-        iGycsService.ScarpUpdate(id,count);
+        iGycsService.updateGycsForZK(id,roleName,roleDesc);
+        iGycsService.GycsUpdate(id,count);
         return "redirect:findGycs2.do?count="+(count-1);
     }
 
@@ -118,16 +132,26 @@ public class GYCSController {
     public String updateByJL(int id,@RequestParam(name = "roleName",required = true)String roleName,@RequestParam(name = "roleDesc",required = true)String roleDesc,int count)throws Exception
     {
         if(count==4){
-            iGycsService.updateByJC_ZK(id,roleName,roleDesc);
+            iGycsService.insertZK(id,roleName,roleDesc);
+            iGycsService.updateGycsForZK(id,roleName,roleDesc);
         }else if(count==5){
             iGycsService.updateByJC_GY(id,roleName,roleDesc);
+            iGycsService.updateGycsForGY(id,roleName,roleDesc);
         }
-        iGycsService.ScarpUpdate(id,count);
+        iGycsService.GycsUpdate(id,count);
         return "redirect:findGycs2.do?count="+(count-1);
     }
 
+
+    /**
+     * 参数修改后保存质控审核数据
+     * @param id
+     * @param ZKname
+     * @param ZKdesc
+     * @return
+     */
     @RequestMapping("/saveGycsById.do")
-    public String saveGycsById(@RequestParam(name = "id",required = true)int id,@RequestParam(name = "ZKname",required = true)String ZKname,@RequestParam(name = "ZKdesc",required = true)String ZKdesc){
+    public String saveGycsById(@RequestParam(name = "id",required = true)int id,@RequestParam(name = "zKname",required = true)String ZKname,@RequestParam(name = "zKdesc",required = true)String ZKdesc){
 
         iGycsService.saveGycsById(id,ZKname,ZKdesc);
         return "redirect:findGycs2.do?count=6";
@@ -174,9 +198,6 @@ public class GYCSController {
         return mv;
     }
 
-
-
-
     /**
      *
      * @param scrapId
@@ -211,6 +232,16 @@ public class GYCSController {
         GYCS TSYscrap =  iGycsService.findByTJYId(scrapId);
         mv.addObject("TSYscrap",TSYscrap);
         mv.setViewName("paperless-GY-show");
+        return mv;
+    }
+
+    @RequestMapping("/updateByGycsId.do")
+    public ModelAndView updateByGycsId(@RequestParam(name = "id",required = true)int scrapId)
+    {
+        ModelAndView mv=new ModelAndView();
+        GYCS TSYscrap =  iGycsService.findByTJYId(scrapId);
+        mv.addObject("TSYscrap",TSYscrap);
+        mv.setViewName("Update_Gycs");
         return mv;
     }
 

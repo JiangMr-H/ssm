@@ -176,8 +176,6 @@
 		</section>
 		<!-- 内容头部 /-->
 
-
-
 			<!-- .box-body -->
 			<div class="box box-primary">
 				<div class="box-header with-border">
@@ -298,7 +296,7 @@
 										</div>
 										<section class="content"> <!--产品信息-->
 
-											<div class="panel panel-default">
+										<%--	<div class="panel panel-default">
 												<div class="panel-heading" name="count">调机员审核</div>
 												<div class="row data-type">
 
@@ -318,23 +316,22 @@
 															   placeholder="角色描述" disabled value="${TSYscrap.scantime_TJY}">
 													</div>
 												</div>
-											</div>
+											</div>--%>
 
 											<div class="panel panel-default">
 												<div class="panel-heading" name="count">质控审核</div>
 												<div class="row data-type">
-
-													<div class="col-md-1 title">角色名称</div>
+													<div class="col-md-1 title">审核人</div>
 													<div class="col-md-3 data">
 														<input type="text" class="form-control" name="roleName_ZK"
 															   placeholder="角色名称" disabled value="${TSYscrap.roleName_ZK}">
 													</div>
-													<div class="col-md-1 title">角色描述</div>
+													<div class="col-md-1 title">描述</div>
 													<div class="col-md-3 data">
 														<input type="text" class="form-control" name="roleDesc_ZK"
 															   placeholder="角色描述" disabled value="${TSYscrap.roleDesc_ZK}">
 													</div>
-													<div class="col-md-1 title">录入时间</div>
+													<div class="col-md-1 title">时间</div>
 													<div class="col-md-3 data">
 														<input type="text" class="form-control" name="scantime_ZK"
 															   placeholder="角色描述" disabled value="${TSYscrap.scantime_ZK}">
@@ -346,17 +343,17 @@
 												<div class="panel-heading" name="count">工艺审核</div>
 												<div class="row data-type">
 
-													<div class="col-md-1 title">角色名称</div>
+													<div class="col-md-1 title">审核人</div>
 													<div class="col-md-3 data">
 														<input type="text" class="form-control" name="roleName_GY"
 															   placeholder="角色名称" disabled value="${TSYscrap.roleName_GY}">
 													</div>
-													<div class="col-md-1 title">角色描述</div>
+													<div class="col-md-1 title">描述</div>
 													<div class="col-md-3 data">
 														<input type="text" class="form-control" name="roleDesc_GY"
 															   placeholder="角色描述" disabled value="${TSYscrap.roleDesc_GY}">
 													</div>
-													<div class="col-md-1 title">录入时间</div>
+													<div class="col-md-1 title">时间</div>
 													<div class="col-md-3 data">
 														<input type="text" class="form-control" name="scantime_GY"
 															   placeholder="角色描述" disabled value="${TSYscrap.scantime_GY}">
@@ -367,17 +364,16 @@
 												<div class="panel-heading" name="count">参数审核</div>
 												<div class="row data-type">
 
-													<div class="col-md-1 title">角色名称</div>
+													<div class="col-md-1 title">审核人</div>
 													<div class="col-md-3 data">
-														<input type="text" class="form-control" name="ZKname"
-															   placeholder="角色名称" value="${TSYscrap.ZKname}">
+														<input type="text" class="form-control" name="zKname"
+															   placeholder="角色名称" value="${TSYscrap.zKname}">
 													</div>
-													<div class="col-md-1 title">角色描述</div>
+													<div class="col-md-1 title">描述</div>
 													<div class="col-md-3 data">
-														<input type="text" class="form-control" name="ZKdesc"
-															   placeholder="角色描述" value="${TSYscrap.ZKdesc}">
+														<input type="text" class="form-control" name="zKdesc"
+															   placeholder="角色描述" value="${TSYscrap.zKdesc}">
 													</div>
-
 												</div>
 											</div>
 

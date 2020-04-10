@@ -76,23 +76,23 @@ public class GYCS {
     private String roleName_GY;
     private String roleDesc_GY;
     private Date scantime_GY;
-    private String ZKname;
-    private String ZKdesc;
+    private String zKname;
+    private String zKdesc;
 
-    public String getZKname() {
-        return ZKname;
+    public String getzKname() {
+        return zKname;
     }
 
-    public void setZKname(String ZKname) {
-        this.ZKname = ZKname;
+    public void setzKname(String zKname) {
+        this.zKname = zKname;
     }
 
-    public String getZKdesc() {
-        return ZKdesc;
+    public String getzKdesc() {
+        return zKdesc;
     }
 
-    public void setZKdesc(String ZKdesc) {
-        this.ZKdesc = ZKdesc;
+    public void setzKdesc(String zKdesc) {
+        this.zKdesc = zKdesc;
     }
 
     public String getRoleName_TJY() {

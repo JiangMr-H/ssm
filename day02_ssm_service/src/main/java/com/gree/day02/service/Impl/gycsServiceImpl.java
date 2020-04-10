@@ -21,12 +21,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-/**
- * ��һ�仰���ܼ�����<br>
- * @author 891649
- * @create 2019/10/8
- * @since 1.0.0
- */
 @Service
 @Transactional
 public class gycsServiceImpl implements IGycsService {
@@ -53,7 +47,6 @@ public class gycsServiceImpl implements IGycsService {
         return iGycsDao.findGycs2(count);
     }
 
-
     @Override
     public GYCS findByTJYId(int scrapId) {
         return iGycsDao.findByTJYId(scrapId);
@@ -66,10 +59,9 @@ public class gycsServiceImpl implements IGycsService {
 
 
     @Override
-    public void ScarpUpdate(int id, int count) {
-        iGycsDao.ScarpUpdate(id,count);
+    public void GycsUpdate(int id, int count) {
+        iGycsDao.GycsUpdate(id,count);
     }
-
 
    /* @Override
     public void updateByJC_ZK(int id, String roleName, String roleDesc) throws Exception{
@@ -99,6 +91,16 @@ public class gycsServiceImpl implements IGycsService {
     @Override
     public void insertZK(int id, String roleName, String roleDesc) {
         iGycsDao.insertZK(id,roleName,roleDesc);
+    }
+
+    @Override
+    public void updateGycsForZK(int id, String roleName, String roleDesc) {
+        iGycsDao.updateGycsForZK(id,roleName,roleDesc);
+    }
+
+    @Override
+    public void updateGycsForGY(int id, String roleName, String roleDesc) {
+        iGycsDao.updateGycsForGY(id,roleName,roleDesc);
     }
 
 

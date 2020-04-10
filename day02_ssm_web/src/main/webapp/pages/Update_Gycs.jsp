@@ -171,7 +171,7 @@
 			<ol class="breadcrumb">
 				<li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
 				<li><a href="#">无纸化点检</a></li>
-				<li class="active">工艺审核</li>
+				<li class="active">参数修改</li>
 			</ol>
 		</section>
 		<!-- 内容头部 /-->
@@ -202,7 +202,6 @@
 												工艺参数记录表</h4>
 										</div>
 										<div class="modal-body modal-lg"  style="width: 950px">
-
 											<table class="table table-bordered modal-lg" >
 												<tr>
 													<td class="text-center"><i style="color: red">* </i>

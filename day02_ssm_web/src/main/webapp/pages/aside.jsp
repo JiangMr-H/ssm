@@ -140,6 +140,12 @@
 						<i class="fa fa-circle-o"></i> 工艺确认
 					</a></li>
 					</security:authorize>
+					<li>
+						<a
+								href="${pageContext.request.contextPath}/GYCS/findGycs2.do?count=5"> <i
+								class="fa fa-circle-o"></i> 参数表修改
+						</a>
+					</li>
 					<security:authorize access="hasAnyRole('GYCS_ZK','ADMIN')">
 					<li ><a
 							href="${pageContext.request.contextPath}/GYCS/findGycs2.do?count=6">

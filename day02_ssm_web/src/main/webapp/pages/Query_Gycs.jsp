@@ -202,6 +202,7 @@
 												工艺参数记录表</h4>
 										</div>
 										<div class="modal-body modal-lg"  style="width: 950px">
+
 											<table class="table table-bordered modal-lg" >
 												<tr>
 													<td class="text-center"><i style="color: red">* </i>
@@ -222,7 +223,6 @@
 													<td class="text-center"><i style="color: red">* </i>
 														检查日期：</td>
 													<td colspan="3"><input type="date"  name="JCRQ" placeholder="" value="${TSYscrap.JCRQ}"></td>
-
 												</tr>
 												<tr>
 													<td class="text-center" rowspan="5"style="padding-top: 60px">注塑</br>工艺参数</td>
@@ -297,47 +297,24 @@
 
 										</div>
 										<section class="content"> <!--产品信息-->
-
-											<div class="panel panel-default">
-												<div class="panel-heading" name="count">调机员审核</div>
-												<div class="row data-type">
-
-													<div class="col-md-1 title">角色名称</div>
-													<div class="col-md-3 data">
-														<input type="text" class="form-control" name="roleName_TJY"
-															   placeholder="角色名称" disabled value="${TSYscrap.roleName_TJY}">
-													</div>
-													<div class="col-md-1 title">角色描述</div>
-													<div class="col-md-3 data">
-														<input type="text" class="form-control" name="roleDesc_TJY"
-															   placeholder="角色描述" disabled value="${TSYscrap.roleDesc_TJY}">
-													</div>
-													<div class="col-md-1 title">录入时间</div>
-													<div class="col-md-3 data">
-														<input type="text" class="form-control" name="scantime_TJY"
-															   placeholder="角色描述" disabled value="${TSYscrap.scantime_TJY}">
-													</div>
-												</div>
-											</div>
-
 											<div class="panel panel-default">
 												<div class="panel-heading" name="count">质控审核</div>
 												<div class="row data-type">
 
-													<div class="col-md-1 title">角色名称</div>
+													<div class="col-md-1 title">审核人</div>
 													<div class="col-md-3 data">
 														<input type="text" class="form-control" name="roleName_ZK"
 															   placeholder="角色名称" disabled value="${TSYscrap.roleName_ZK}">
 													</div>
-													<div class="col-md-1 title">角色描述</div>
+													<div class="col-md-1 title">描述</div>
 													<div class="col-md-3 data">
 														<input type="text" class="form-control" name="roleDesc_ZK"
 															   placeholder="角色描述" disabled value="${TSYscrap.roleDesc_ZK}">
 													</div>
-													<div class="col-md-1 title">录入时间</div>
+													<div class="col-md-1 title">时间</div>
 													<div class="col-md-3 data">
 														<input type="text" class="form-control" name="scantime_ZK"
-															   placeholder="角色描述" disabled value="${TSYscrap.scantime_ZK}">
+															   placeholder="录入时间" disabled value="${TSYscrap.scantime_ZK}">
 													</div>
 												</div>
 											</div>
@@ -346,20 +323,20 @@
 												<div class="panel-heading" name="count">工艺审核</div>
 												<div class="row data-type">
 
-													<div class="col-md-1 title">角色名称</div>
+													<div class="col-md-1 title">审核人</div>
 													<div class="col-md-3 data">
 														<input type="text" class="form-control" name="roleName_GY"
 															   placeholder="角色名称" disabled value="${TSYscrap.roleName_GY}">
 													</div>
-													<div class="col-md-1 title">角色描述</div>
+													<div class="col-md-1 title">描述</div>
 													<div class="col-md-3 data">
 														<input type="text" class="form-control" name="roleDesc_GY"
 															   placeholder="角色描述" disabled value="${TSYscrap.roleDesc_GY}">
 													</div>
-													<div class="col-md-1 title">录入时间</div>
+													<div class="col-md-1 title">时间</div>
 													<div class="col-md-3 data">
 														<input type="text" class="form-control" name="scantime_GY"
-															   placeholder="角色描述" disabled value="${TSYscrap.scantime_GY}">
+															   placeholder="录入时间" disabled value="${TSYscrap.scantime_GY}">
 													</div>
 												</div>
 											</div>

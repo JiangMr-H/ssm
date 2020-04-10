@@ -16,6 +16,7 @@ import com.gree.day02.dao.Role;
 import com.gree.day02.service.IRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -32,6 +33,7 @@ import java.util.List;
  */
 @RequestMapping("/role")
 @Controller
+@Transactional
 public class RoleController {
 
     @Autowired

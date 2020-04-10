@@ -16,6 +16,7 @@ import com.gree.day02.dao.Permission;
 import com.gree.day02.service.IPermissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -44,6 +45,7 @@ public class PermissionController {
 }
 
     @RequestMapping("/save.do")
+    @Transactional
    public String save(Permission permission)throws Exception{
         permissionService.save(permission);
 
