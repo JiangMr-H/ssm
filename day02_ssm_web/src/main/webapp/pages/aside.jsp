@@ -44,14 +44,14 @@
 						href="${pageContext.request.contextPath}/role/findAll.do"> <i
 							class="fa fa-circle-o"></i> 角色管理
 					</a></li>
-					<li ><a
+					<%--<li ><a
 						href="${pageContext.request.contextPath}/permission/findAll.do">
 							<i class="fa fa-circle-o"></i> 资源权限管理
-					</a></li>
-					<li ><a
+					</a></li>--%>
+					<%--<li ><a
 						href="${pageContext.request.contextPath}/sysLog/findAll.do"> <i
 							class="fa fa-circle-o"></i> 访问日志
-					</a></li>
+					</a></li>--%>
 					</security:authorize>
 				</ul>
 			</li>
@@ -162,7 +162,6 @@
 				</span>
 			</a>
 				<ul class="treeview-menu">
-
 					<li >
 						<a
 								href="${pageContext.request.contextPath}/ljsjb/findAllljsj.do"> <i

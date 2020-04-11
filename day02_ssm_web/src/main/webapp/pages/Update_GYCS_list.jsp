@@ -349,7 +349,7 @@
 										<td>${gycs.JCBM }</td>
 										<td>${gycs.BC }</td>
 										<td class="text-center">${gycs.JCRQ }</td>
-										<td class="text-center">${gycs.JC }</td>
+										<td class="text-center">${gycs.LB_Id }</td>
 										<td>${gycs.scantime }</td>
 										<td class="text-center">
 												<%--<button type="button" class="btn bg-olive btn-xs">订单</button>--%>
@@ -359,7 +359,7 @@
                                                   </button>--%>
 													<a type="button" class="btn bg-olive btn-xs" data-toggle="modal"
 													   data-target="#exampleModal" onclick="location.href='${pageContext.request.contextPath}/GYCS/updateByGycsId.do?id=${gycs.id }'">
-														审批
+														修改
 													</a>
 												<%--<button type="button" class="btn bg-olive btn-xs">编辑</button>--%>
 										</td>

@@ -81,7 +81,7 @@ public class GYCSController {
             scrapList = iGycsService.findGycs2(page,size,count);
             mv.setViewName("ZK-list");
         }else if(count==5){
-            scrapList = iGycsService.findGycs2(page,size,count);
+            scrapList = iGycsService.findGycs(page,size);   //查出所有可修改的记录
             mv.setViewName("Update_GYCS_list");
         }
 
@@ -154,6 +154,7 @@ public class GYCSController {
     public String saveGycsById(@RequestParam(name = "id",required = true)int id,@RequestParam(name = "zKname",required = true)String ZKname,@RequestParam(name = "zKdesc",required = true)String ZKdesc){
 
         iGycsService.saveGycsById(id,ZKname,ZKdesc);
+        iGycsService.GycsUpdate(id,8);
         return "redirect:findGycs2.do?count=6";
     }
 
@@ -172,6 +173,21 @@ public class GYCSController {
     }
 
     /**
+     * 查询
+     * @param scrapId
+     * @return
+     */
+    @RequestMapping("/updateByGycsId.do")
+    public ModelAndView updateByGycsId(@RequestParam(name = "id",required = true)int scrapId)
+    {
+        ModelAndView mv=new ModelAndView();
+        GYCS TSYscrap =  iGycsService.findByTJYId(scrapId);
+        mv.addObject("TSYscrap",TSYscrap);
+        mv.setViewName("Update_Gycs");
+        return mv;
+    }
+
+    /**
      * 修改工艺参数
      * @param gyId
      * @return
@@ -185,7 +201,7 @@ public class GYCSController {
                                  @RequestParam(name = "JCBM",required = true)String JCBM,@RequestParam(name = "BC",required = true)String BC,@RequestParam(name = "JCRQ",required = true)String JCRQ,@RequestParam(name = "SJ",required = true)String SJ,@RequestParam(name = "LQ",required = true)String LQ,
                                  @RequestParam(name = "BYA",required = true)String BYA,@RequestParam(name = "JCSJ",required = true)String JCSJ,@RequestParam(name = "BZ",required = true)String BZ)throws Exception{
               iGycsService.updateGycsById(gyId,YL1,YL2,YL3,YL4,YL5,YL6,YL7,SD1,SD2,SD3,SD4,SD5,SD6,SD7,WZ1,WZ2,WZ3,WZ4,WZ5,WZ6,WZ7,WD1,WD2,WD3,WD4,WD5,WD6,WD7,CPMC,JYY,JCBM,BC,JCRQ,SJ,LQ,BYA,JCSJ,BZ);
-              return "redirect:findGycs.do";
+              return "redirect:updateByGycsId.do";
     }
 
     @RequestMapping("/findByGycsId.do")
@@ -235,15 +251,7 @@ public class GYCSController {
         return mv;
     }
 
-    @RequestMapping("/updateByGycsId.do")
-    public ModelAndView updateByGycsId(@RequestParam(name = "id",required = true)int scrapId)
-    {
-        ModelAndView mv=new ModelAndView();
-        GYCS TSYscrap =  iGycsService.findByTJYId(scrapId);
-        mv.addObject("TSYscrap",TSYscrap);
-        mv.setViewName("Update_Gycs");
-        return mv;
-    }
+
 
 
 

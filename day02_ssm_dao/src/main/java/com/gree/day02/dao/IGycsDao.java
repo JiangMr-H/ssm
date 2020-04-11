@@ -11,10 +11,11 @@ public interface IGycsDao {
             "\tWHEN 1 THEN '待检验员审核'\n" +
             "\tWHEN 3 THEN '待质控审核'\n" +
             "\tWHEN 4 THEN '待工艺审核'\n" +
-            "\tWHEN 6 THEN '工艺参数修改，待质控确认'\n" +
+            "\tWHEN 5 THEN '已结单'\n" +
             "\tWHEN 8 THEN '已结单(参数修改)'\n" +
-            "\tWHEN 7 THEN '质控确认修改'\n" +
-            "\tELSE '已结单' END AS LB_Id FROM \"ZS_GYCS_1\" z order by \"scantime\" desc")
+            "\tWHEN 6 THEN '待质控确认修改'\n" +
+            "\tWHEN 7 THEN '工艺参数修改，待质控确认'\n" +
+            "\tELSE '异常' END AS LB_Id FROM \"ZS_GYCS_1\" z order by \"scantime\" desc")
     @Results({
             @Result(id = true, property = "id", column = "id"),
             @Result(property = "CPMC", column = "CPMC"),
