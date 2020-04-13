@@ -186,7 +186,6 @@
 				</span>
 			</a>
 				<ul class="treeview-menu">
-					<security:authorize access="hasAnyRole('ADMIN')">
 					<li ><a
 						href="${pageContext.request.contextPath}/pages/ChangePassword.jsp">
 							<i class="fa fa-circle-o"></i> 修改密码
@@ -196,7 +195,13 @@
 						href="${pageContext.request.contextPath}/pages/ForgetPassword.jsp"> <i
 							class="fa fa-circle-o"></i> 忘记密码
 					</a></li>
-					</security:authorize>
+
+					<li ><a
+
+							href="${pageContext.request.contextPath}/pages/email.jsp"> <i
+							class="fa fa-circle-o"></i> 邮件设置
+					</a></li>
+
 				</ul>
 			</li>
 
