@@ -201,7 +201,7 @@ public class GYCSController {
                                  @RequestParam(name = "JCBM",required = true)String JCBM,@RequestParam(name = "BC",required = true)String BC,@RequestParam(name = "JCRQ",required = true)String JCRQ,@RequestParam(name = "SJ",required = true)String SJ,@RequestParam(name = "LQ",required = true)String LQ,
                                  @RequestParam(name = "BYA",required = true)String BYA,@RequestParam(name = "JCSJ",required = true)String JCSJ,@RequestParam(name = "BZ",required = true)String BZ)throws Exception{
               iGycsService.updateGycsById(gyId,YL1,YL2,YL3,YL4,YL5,YL6,YL7,SD1,SD2,SD3,SD4,SD5,SD6,SD7,WZ1,WZ2,WZ3,WZ4,WZ5,WZ6,WZ7,WD1,WD2,WD3,WD4,WD5,WD6,WD7,CPMC,JYY,JCBM,BC,JCRQ,SJ,LQ,BYA,JCSJ,BZ);
-              return "redirect:updateByGycsId.do";
+              return "redirect:findGycs2.do?count="+5;
     }
 
     @RequestMapping("/findByGycsId.do")

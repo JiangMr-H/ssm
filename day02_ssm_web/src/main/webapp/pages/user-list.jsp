@@ -139,7 +139,7 @@
 										<th class="sorting_desc">用户名</th>
 										<th class="sorting_asc sorting_asc_disabled">邮箱</th>
 										<th class="sorting_desc sorting_desc_disabled">联系电话</th>
-										<th class="sorting">状态</th>
+										<%--<th class="sorting">状态</th>--%>
 										<th class="text-center">操作</th>
 									</tr>
 								</thead>
@@ -151,7 +151,7 @@
 											<td>${user.username }</td>
 											<td>${user.email }</td>
 											<td>${user.phoneNum }</td>
-											<td>${user.statusStr }</td>											
+											<%--<td>${user.statusStr }</td>--%>
 											<td class="text-center">
 												<a href="${pageContext.request.contextPath}/user/findById.do?id=${user.id}" class="btn bg-olive btn-xs">详情</a>
 												<a href="${pageContext.request.contextPath}/user/findUserByIdAndAllRole.do?id=${user.id}" class="btn bg-olive btn-xs">添加角色</a>
