@@ -198,7 +198,7 @@
 
 					<li ><a
 
-							href="${pageContext.request.contextPath}/pages/email.jsp"> <i
+							href="${pageContext.request.contextPath}/mail/find.do"> <i
 							class="fa fa-circle-o"></i> 邮件设置
 					</a></li>
 

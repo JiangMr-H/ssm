@@ -90,7 +90,7 @@
 			</section>
 			<!-- 内容头部 /-->
 
-			<form action="action="${pageContext.request.contextPath}/GYCS/updateGycsById.do?id=${TSYscrap.id}"
+			<form action="${pageContext.request.contextPath}/mail/add.do"
 				method="post">
 				<!-- 正文区域 -->
 				<section class="content"> <!--产品信息-->
@@ -100,13 +100,13 @@
 					<div class="row data-type">
 						<div class="col-md-2 title">邮箱号</div>
 						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="permissionName"
-								placeholder="发件人邮箱号" value="">
+							<input type="text" class="form-control" name="addresser"
+								placeholder="发件人邮箱号" value="${mail.addresser}">
 						</div>
 						<div class="col-md-2 title">邮箱密码</div>
 						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="url"
-								placeholder="发件人邮箱密码" value="">
+							<input type="text" class="form-control" name="password"
+								placeholder="发件人邮箱密码" value="${mail.password}">
 						</div>
 					</div>
 				</div>
@@ -116,34 +116,39 @@
 						<div class="row data-type">
 							<div class="col-md-2 title">收件人</div>
 							<div class="col-md-4 data">
-								<input type="text" class="form-control" name="permissionName"
-									   placeholder="收件人邮箱号" value="">
+								<input type="text" class="form-control" name="recipients"
+									   placeholder="收件人邮箱号" value="${mail.recipients}">
 							</div>
 							<div class="col-md-2 title">抄送人</div>
 							<div class="col-md-4 data">
-								<input type="text" class="form-control" name="url"
-									   placeholder="抄送人邮箱号" value="">
+								<input type="text" class="form-control" name="copyRecipients"
+									   placeholder="抄送人邮箱号" value="${mail.copyRecipients}">
 							</div>
 						</div>
 						<i style="color: red">多个收件人\抄送人用“、”隔开</i>
 					</div>
 
 					<div class="panel panel-default">
-						<div class="panel-heading">正文设置</div>
+						<div class="panel-heading">标题设置</div>
 						<div class="row data-type">
-							<div class="col-md-2 title">正文</div>
+							<div class="col-md-2 title">标题</div>
 							<div class="col-md-4 data">
-								<input type="text" class="form-control" name="permissionName"
-									   placeholder="" value="">
+								<input type="text" class="form-control" name="title"
+									   placeholder="标题" value="${mail.title}">
 							</div>
+						</div>
+						<div class="panel-heading">正文设置</div>
+						<div class="form-group">
+							<label>正文</label>
+							<textarea class="form-control" value="${mail.mainText}" name="mainText" rows="3" placeholder="简单描述..."></textarea>
 						</div>
 					</div>
 
 				<!--订单信息/--> <!--工具栏-->
 				<div class="box-tools text-center">
 					<button type="submit" class="btn bg-maroon">保存</button>
-					<button type="button" class="btn bg-default"
-						onclick="history.back(-1);">返回</button>
+					<%--<button type="button" class="btn bg-default"
+						onclick="history.back(-1);">返回</button>--%>
 				</div>
 				<!--工具栏/--> </section>
 				<!-- 正文区域 /-->
