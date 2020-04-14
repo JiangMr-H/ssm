@@ -40,7 +40,7 @@ public class sendMailController {
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Mail mail =iSendMailService.findMail(authentication.getName());
-        SendTextMails.SendTextMail(mail.getAddresser(),mail.getPassword(),mail.getRecipients(),mail.getCopyRecipients(),mail.getTitle(),mail.getMainText());
+        SendTextMails.SendTextMail(mail.getAddresser(),mail.getMailPwd(),mail.getRecipients(),mail.getCopyRecipients(),mail.getTitle(),mail.getMainText());
     }
 
 

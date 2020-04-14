@@ -191,6 +191,7 @@ public class ScrapController {
     @RequestMapping("/save.do")
     public String scrapAdd(Scrap scrap){
         scrapService.scrapAdd(scrap);
+
         return "redirect:findNewPage.do";
     }
 
@@ -203,7 +204,7 @@ public class ScrapController {
         //发送邮件
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Mail mail =iSendMailService.findMail(authentication.getName());
-        SendTextMails.SendTextMail(mail.getAddresser(),mail.getPassword(),mail.getRecipients(),mail.getCopyRecipients(),mail.getTitle(),mail.getMainText());
+        SendTextMails.SendTextMail(mail.getAddresser(),mail.getMailPwd(),mail.getRecipients(),mail.getCopyRecipients(),mail.getTitle(),mail.getMainText());
         return "redirect:findAll.do?count=2";
     }
     @RequestMapping("/updateJYy.do")
@@ -215,7 +216,7 @@ public class ScrapController {
         //发送邮件
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Mail mail =iSendMailService.findMail(authentication.getName());
-        SendTextMails.SendTextMail(mail.getAddresser(),mail.getPassword(),mail.getRecipients(),mail.getCopyRecipients(),mail.getTitle(),mail.getMainText());
+        SendTextMails.SendTextMail(mail.getAddresser(),mail.getMailPwd(),mail.getRecipients(),mail.getCopyRecipients(),mail.getTitle(),mail.getMainText());
         return "redirect:findAll.do?count=3";
     }
     @RequestMapping("/updateJSY.do")
@@ -227,7 +228,7 @@ public class ScrapController {
         //发送邮件
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Mail mail =iSendMailService.findMail(authentication.getName());
-        SendTextMails.SendTextMail(mail.getAddresser(),mail.getPassword(),mail.getRecipients(),mail.getCopyRecipients(),mail.getTitle(),mail.getMainText());
+        SendTextMails.SendTextMail(mail.getAddresser(),mail.getMailPwd(),mail.getRecipients(),mail.getCopyRecipients(),mail.getTitle(),mail.getMainText());
         return "redirect:findAll.do?count=4";
     }
     @RequestMapping("/updateZLJS.do")
@@ -239,7 +240,7 @@ public class ScrapController {
         //发送邮件
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Mail mail =iSendMailService.findMail(authentication.getName());
-        SendTextMails.SendTextMail(mail.getAddresser(),mail.getPassword(),mail.getRecipients(),mail.getCopyRecipients(),mail.getTitle(),mail.getMainText());
+        SendTextMails.SendTextMail(mail.getAddresser(),mail.getMailPwd(),mail.getRecipients(),mail.getCopyRecipients(),mail.getTitle(),mail.getMainText());
         return "redirect:findAll.do?count=5";
     }
     @RequestMapping("/updateCZ.do")
@@ -251,7 +252,7 @@ public class ScrapController {
         //发送邮件
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Mail mail =iSendMailService.findMail(authentication.getName());
-        SendTextMails.SendTextMail(mail.getAddresser(),mail.getPassword(),mail.getRecipients(),mail.getCopyRecipients(),mail.getTitle(),mail.getMainText());
+        SendTextMails.SendTextMail(mail.getAddresser(),mail.getMailPwd(),mail.getRecipients(),mail.getCopyRecipients(),mail.getTitle(),mail.getMainText());
         return "redirect:findAll.do?count=6";
     }
 

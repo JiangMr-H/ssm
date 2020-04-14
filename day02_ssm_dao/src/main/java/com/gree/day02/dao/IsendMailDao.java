@@ -11,7 +11,7 @@ public interface IsendMailDao {
             "where username=#{name}")
     Mail findMail(String name);
 
-    @Insert("insert into \"mail\"(\"userId\",\"username\",\"password\",\"time\") values(#{userId},#{username},#{password},SYSDATE)")
+    @Insert("insert into \"mail\"(\"userId\",\"username\",\"mailPwd\",\"time\") values(#{userId},#{username},#{mailPwd},SYSDATE)")
     void saveMail(Mail mail);
 
     @Insert("insert into \"mailBox\"(\"userId\",\"title\",\"mainText\",\"addresser\",\"recipients\",\"copyRecipients\",\"inputTime\")values(#{userId}," +

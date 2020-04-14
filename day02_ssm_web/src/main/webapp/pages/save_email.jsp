@@ -105,8 +105,8 @@
 						</div>
 						<div class="col-md-2 title">邮箱密码</div>
 						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="password"
-								placeholder="发件人邮箱密码" value="${mail.password}">
+							<input type="text" class="form-control" name="mailPwd"
+								placeholder="发件人邮箱密码" value="${mail.mailPwd}">
 						</div>
 					</div>
 				</div>

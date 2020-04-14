@@ -13,7 +13,7 @@ public class Mail {
 
     private String username; //” œ‰∫≈
 
-    private String password;  //√‹¬Î
+    private String mailPwd;  //√‹¬Î
 
     private String title;    //±ÍÃ‚
 
@@ -53,12 +53,12 @@ public class Mail {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
+    public String getMailPwd() {
+        return mailPwd;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setMailPwd(String mailPwd) {
+        this.mailPwd = mailPwd;
     }
 
     public String getTitle() {
