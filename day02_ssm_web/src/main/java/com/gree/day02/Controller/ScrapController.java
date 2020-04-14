@@ -13,11 +13,15 @@ package com.gree.day02.Controller;
 
 
 import com.github.pagehelper.PageInfo;
+import com.gree.day02.dao.Mail;
 import com.gree.day02.dao.Scrap;
 import com.gree.day02.service.IScrapService;
+import com.gree.day02.service.ISendMailService;
+import com.gree.day02.utils.SendTextMails;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -41,6 +45,9 @@ public class ScrapController {
 
      @Autowired
      private IScrapService scrapService;
+
+    @Autowired
+    private ISendMailService iSendMailService;
     /**
      * 菜单栏 打开页面跳转
      * @param page
@@ -193,6 +200,10 @@ public class ScrapController {
         scrapService.insertZz(id,RoleName_Zz,RoleDescription_Zz);
         scrapService.ScarpUpdateZz(id);
         scrapService.UpdateScrapForZz(id,RoleName_Zz);
+        //发送邮件
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Mail mail =iSendMailService.findMail(authentication.getName());
+        SendTextMails.SendTextMail(mail.getAddresser(),mail.getPassword(),mail.getRecipients(),mail.getCopyRecipients(),mail.getTitle(),mail.getMainText());
         return "redirect:findAll.do?count=2";
     }
     @RequestMapping("/updateJYy.do")
@@ -201,6 +212,10 @@ public class ScrapController {
         scrapService.UpdateJYy(id,RoleName_JYy,RoleDescription_JYy);
         scrapService.ScarpUpdateJYy(id);
         scrapService.UpdateScrapForJYy(id,RoleName_JYy);
+        //发送邮件
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Mail mail =iSendMailService.findMail(authentication.getName());
+        SendTextMails.SendTextMail(mail.getAddresser(),mail.getPassword(),mail.getRecipients(),mail.getCopyRecipients(),mail.getTitle(),mail.getMainText());
         return "redirect:findAll.do?count=3";
     }
     @RequestMapping("/updateJSY.do")
@@ -209,6 +224,10 @@ public class ScrapController {
         scrapService.UpdateJSY(id,RoleName_JSY,RoleDescription_JSY);
         scrapService.ScarpUpdateJSY(id);
         scrapService.UpdateScrapForJSY(id,RoleName_JSY);
+        //发送邮件
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Mail mail =iSendMailService.findMail(authentication.getName());
+        SendTextMails.SendTextMail(mail.getAddresser(),mail.getPassword(),mail.getRecipients(),mail.getCopyRecipients(),mail.getTitle(),mail.getMainText());
         return "redirect:findAll.do?count=4";
     }
     @RequestMapping("/updateZLJS.do")
@@ -217,6 +236,10 @@ public class ScrapController {
         scrapService.UpdateZLJS(id,RoleName_ZLJS,RoleDescription_ZLJS);
         scrapService.ScarpUpdateZLJS(id);
         scrapService.UpdateScrapForZLJS(id,RoleDescription_ZLJS);
+        //发送邮件
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Mail mail =iSendMailService.findMail(authentication.getName());
+        SendTextMails.SendTextMail(mail.getAddresser(),mail.getPassword(),mail.getRecipients(),mail.getCopyRecipients(),mail.getTitle(),mail.getMainText());
         return "redirect:findAll.do?count=5";
     }
     @RequestMapping("/updateCZ.do")
@@ -225,6 +248,10 @@ public class ScrapController {
         scrapService.insertCZ(id,RoleName_CZ,RoleDescription_CZ);
         scrapService.ScarpUpdateCZ(id);
         scrapService.UpdateScrapForCZ(id,RoleDescription_CZ);
+        //发送邮件
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Mail mail =iSendMailService.findMail(authentication.getName());
+        SendTextMails.SendTextMail(mail.getAddresser(),mail.getPassword(),mail.getRecipients(),mail.getCopyRecipients(),mail.getTitle(),mail.getMainText());
         return "redirect:findAll.do?count=6";
     }
 

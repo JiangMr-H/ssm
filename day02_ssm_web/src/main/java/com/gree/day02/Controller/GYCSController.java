@@ -1,21 +1,14 @@
-/**
- * Copyright (C), 2015-2019, XXX有限公司
- * FileName: GYCSController
- * Author:   891649
- * Date:     2019/10/8 9:32
- * Description:
- * History:
- * <author>          <time>          <version>          <desc>
- * 作者姓名           修改时间           版本号              描述
- */
-
 package com.gree.day02.Controller;
 
 import com.github.pagehelper.PageInfo;
 import com.gree.day02.dao.GYCS;
-import com.gree.day02.dao.Scrap;
+import com.gree.day02.dao.Mail;
 import com.gree.day02.service.IGycsService;
+import com.gree.day02.service.ISendMailService;
+import com.gree.day02.utils.SendTextMails;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,14 +17,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
-/**
- * 〈一句话功能简述〉<br> 
- * 〈〉
- *
- * @author 891649
- * @create 2019/10/8
- * @since 1.0.0
- */
 
 @Controller
 @RequestMapping("/GYCS")
@@ -40,15 +25,16 @@ public class GYCSController {
 
    @Autowired
    private IGycsService iGycsService;
+    @Autowired
+    private ISendMailService iSendMailService;
 
-
-   /**
-    * 查询工艺参数表(打开界面)
-    * @param page
-    * @param size
-    * @return
-    * @throws Exception
-    */
+    /**
+     * 查询工艺参数表(打开界面)
+     * @param page
+     * @param size
+     * @return
+     * @throws Exception
+     */
    @RequestMapping("/findGycs.do")
    public ModelAndView findGycs(@RequestParam(name = "page",required = true,defaultValue = "1")int page, @RequestParam(name = "size",required = true,defaultValue = "15")int size) throws Exception {
       ModelAndView mv = new ModelAndView();
@@ -60,7 +46,7 @@ public class GYCSController {
    }
 
     /**
-     * 进程li
+     * 初始界面
      * @param page
      * @param size
      * @param count
@@ -116,6 +102,10 @@ public class GYCSController {
         iGycsService.insertZK(id,roleName,roleDesc);
         iGycsService.updateGycsForZK(id,roleName,roleDesc);
         iGycsService.GycsUpdate(id,count);
+        //发送邮件
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Mail mail =iSendMailService.findMail(authentication.getName());
+        SendTextMails.SendTextMail(mail.getAddresser(),mail.getPassword(),mail.getRecipients(),mail.getCopyRecipients(),mail.getTitle(),mail.getMainText());
         return "redirect:findGycs2.do?count="+(count-1);
     }
 
@@ -134,9 +124,17 @@ public class GYCSController {
         if(count==4){
             iGycsService.insertZK(id,roleName,roleDesc);
             iGycsService.updateGycsForZK(id,roleName,roleDesc);
+            //发送邮件
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            Mail mail =iSendMailService.findMail(authentication.getName());
+            SendTextMails.SendTextMail(mail.getAddresser(),mail.getPassword(),mail.getRecipients(),mail.getCopyRecipients(),mail.getTitle(),mail.getMainText());
         }else if(count==5){
             iGycsService.updateByJC_GY(id,roleName,roleDesc);
             iGycsService.updateGycsForGY(id,roleName,roleDesc);
+            //发送邮件
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            Mail mail =iSendMailService.findMail(authentication.getName());
+            SendTextMails.SendTextMail(mail.getAddresser(),mail.getPassword(),mail.getRecipients(),mail.getCopyRecipients(),mail.getTitle(),mail.getMainText());
         }
         iGycsService.GycsUpdate(id,count);
         return "redirect:findGycs2.do?count="+(count-1);
@@ -151,10 +149,14 @@ public class GYCSController {
      * @return
      */
     @RequestMapping("/saveGycsById.do")
-    public String saveGycsById(@RequestParam(name = "id",required = true)int id,@RequestParam(name = "zKname",required = true)String ZKname,@RequestParam(name = "zKdesc",required = true)String ZKdesc){
+    public String saveGycsById(@RequestParam(name = "id",required = true)int id,@RequestParam(name = "zKname",required = true)String ZKname,@RequestParam(name = "zKdesc",required = true)String ZKdesc)throws Exception{
 
         iGycsService.saveGycsById(id,ZKname,ZKdesc);
         iGycsService.GycsUpdate(id,8);
+        //发送邮件
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Mail mail =iSendMailService.findMail(authentication.getName());
+        SendTextMails.SendTextMail(mail.getAddresser(),mail.getPassword(),mail.getRecipients(),mail.getCopyRecipients(),mail.getTitle(),mail.getMainText());
         return "redirect:findGycs2.do?count=6";
     }
 
@@ -201,6 +203,10 @@ public class GYCSController {
                                  @RequestParam(name = "JCBM",required = true)String JCBM,@RequestParam(name = "BC",required = true)String BC,@RequestParam(name = "JCRQ",required = true)String JCRQ,@RequestParam(name = "SJ",required = true)String SJ,@RequestParam(name = "LQ",required = true)String LQ,
                                  @RequestParam(name = "BYA",required = true)String BYA,@RequestParam(name = "JCSJ",required = true)String JCSJ,@RequestParam(name = "BZ",required = true)String BZ)throws Exception{
               iGycsService.updateGycsById(gyId,YL1,YL2,YL3,YL4,YL5,YL6,YL7,SD1,SD2,SD3,SD4,SD5,SD6,SD7,WZ1,WZ2,WZ3,WZ4,WZ5,WZ6,WZ7,WD1,WD2,WD3,WD4,WD5,WD6,WD7,CPMC,JYY,JCBM,BC,JCRQ,SJ,LQ,BYA,JCSJ,BZ);
+        //发送邮件
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Mail mail =iSendMailService.findMail(authentication.getName());
+        SendTextMails.SendTextMail(mail.getAddresser(),mail.getPassword(),mail.getRecipients(),mail.getCopyRecipients(),mail.getTitle(),mail.getMainText());
               return "redirect:findGycs2.do?count="+5;
     }
 

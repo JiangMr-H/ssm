@@ -11,16 +11,18 @@
 
 package com.gree.day02.Controller;
 
-import com.gree.day02.dao.mail;
-import com.gree.day02.dao.mailBox;
+import com.gree.day02.dao.Mail;
 import com.gree.day02.service.ISendMailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * 〈一句话功能简述〉<br>
@@ -32,7 +34,7 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 @RequestMapping("/mail")
-public class SendMailController {
+public class SetMailController {
 
     @Autowired
     private ISendMailService iSendMailService;
@@ -46,20 +48,38 @@ public class SendMailController {
     public ModelAndView MailforText() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         ModelAndView mv = new ModelAndView();
-        mail mail = iSendMailService.findMail(authentication.getName());
-
+        Mail mail = iSendMailService.findMail(authentication.getName());
         mv.addObject("mail", mail);
-        mv.setViewName("email");
+        if (mail !=null && !StringUtils.isEmpty(mail) ) {  //已设置邮箱  转入修改界面
+            mv.setViewName("update_email");
+        }else {                                           //没有设置邮箱  转入设置界面
+            mv.addObject("mail", mail);
+            mv.setViewName("save_email");
+        }
         return mv;
     }
 
     @RequestMapping("/add.do")
     @Transactional
-    public String addMail(mail mail, mailBox mailBox){
-
-        iSendMailService.addMail(mail,mailBox);
+    public String addMail(Mail mail){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String userId =iSendMailService.findUserIdByusername(authentication.getName());
+        mail.setUserId(userId);
+        mail.setUsername(authentication.getName());
+        iSendMailService.addMail(mail);
         return "redirect:find.do";
     }
 
+
+    @RequestMapping("/update.do")
+    @Transactional
+    public String updateMail(Mail mail,HttpServletResponse response){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String userId =iSendMailService.findUserIdByusername(authentication.getName());
+        mail.setUserId(userId);
+        mail.setUsername(authentication.getName());
+        iSendMailService.updateMail(mail);
+        return "messages";
+    }
 
 }

@@ -12,11 +12,14 @@
 package com.gree.day02.Controller;
 
 import com.github.pagehelper.PageInfo;
-import com.gree.day02.dao.GYCS;
 import com.gree.day02.dao.Lsjb;
+import com.gree.day02.dao.Mail;
 import com.gree.day02.service.ILjsjService;
-import com.gree.day02.service.ILsjbService;
+import com.gree.day02.service.ISendMailService;
+import com.gree.day02.utils.SendTextMails;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,6 +44,9 @@ public class LJSJBController {
 
     @Autowired
     private ILjsjService iLjsjService;
+
+    @Autowired
+    private ISendMailService iSendMailService;
 
     /**
      * 列表查询
@@ -67,6 +73,10 @@ public class LJSJBController {
     @RequestMapping("/saveLjsj.do")
     public String saveLjsj(Lsjb lsjb)throws Exception {
         iLjsjService.saveLjsj(lsjb);
+        //发送邮件
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Mail mail =iSendMailService.findMail(authentication.getName());
+        SendTextMails.SendTextMail(mail.getAddresser(),mail.getPassword(),mail.getRecipients(),mail.getCopyRecipients(),mail.getTitle(),mail.getMainText());
         return "redirect:findAllljsj.do";
     }
 
@@ -90,6 +100,10 @@ public class LJSJBController {
     @RequestMapping("/updateZKSK")
     public String updateZKSK(@RequestParam(name = "id",required = true)int id,@RequestParam(name = "SJJL",required = true)String SJJL)throws Exception {
         iLjsjService.updateZKSK(id,SJJL);
+        //发送邮件
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Mail mail =iSendMailService.findMail(authentication.getName());
+        SendTextMails.SendTextMail(mail.getAddresser(),mail.getPassword(),mail.getRecipients(),mail.getCopyRecipients(),mail.getTitle(),mail.getMainText());
         return "redirect:findZKSK.do";
     }
 
