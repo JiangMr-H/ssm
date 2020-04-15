@@ -208,7 +208,7 @@
 												<td class="text-center"><i style="color: red">* </i>
 													产品名称：</td>
 												<td colspan="4"><input type="text"  name="CPMC" placeholder="" value="${TSYscrap.CPMC}"></td>
-												<td class="text-center" ><i style="color: red">* </i>检验员：</td>
+												<td class="text-center" ><i style="color: red">* </i>操作员：</td>
 												<td colspan="3"><input type="text" style="width: 150px" name="JYY"
 																	   placeholder="" value="${TSYscrap.JYY}"></td>
 												<td colspan="4" rowspan="2" style="padding-top:27px ">参数变化情况</td>

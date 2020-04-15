@@ -8,9 +8,6 @@ import javax.mail.internet.MimeMessage;
 import java.util.Date;
 import java.util.Properties;
 
-/**
- * ÍâÍø·¢ËÍÓÊ¼ş
- */
 public class SendTextMails {
 
     public static void SendTextMail(String addresser,String password,String recipients,String copyRecipients,String title,String mainText)throws Exception{

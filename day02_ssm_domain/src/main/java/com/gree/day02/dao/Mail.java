@@ -9,25 +9,25 @@ public class Mail {
 
     private Integer id;
 
-    private String userId; // 登录账号
+    private String userId;
 
-    private String username; //邮箱号
+    private String username;
 
-    private String mailPwd;  //密码
+    private String mailPwd;
 
-    private String title;    //标题
+    private String title;
 
-    private String mainText;  //正文
+    private String mainText;
 
-    private String addresser;  //发件人
+    private String addresser;
 
-    private String recipients;  //收件人
+    private String recipients;
 
-    private String copyRecipients;//抄送人
+    private String copyRecipients;
 
-    private Date sernTime;  //发送时间
+    private Date sernTime;
 
-    private Date inputTime; //录入时间
+    private Date inputTime;
 
     public Integer getId() {
         return id;
