@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Update;
 
 public interface IsendMailDao {
 
-    @Select("SELECT * FROM USERS u INNER JOIN \"mail\" m on u.\"ID\"=m.\"userId\"\n" +
+    @Select("SELECT m.\"username\",m.\"mailPwd\" ,b.* FROM USERS u INNER JOIN \"mail\" m on u.\"ID\"=m.\"userId\"\n" +
             "LEFT JOIN \"mailBox\" b on m.\"userId\"=b.\"userId\"\n" +
             "where username=#{name}")
     Mail findMail(String name);

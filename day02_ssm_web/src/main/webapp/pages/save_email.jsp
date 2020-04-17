@@ -91,19 +91,19 @@
 			<!-- 内容头部 /-->
 
 			<form action="${pageContext.request.contextPath}/mail/add.do"
-				method="post">
+				method="post" onsubmit="return check(this)">
 				<!-- 正文区域 -->
 				<section class="content"> <!--产品信息-->
 
 				<div class="panel panel-default">
 					<div class="panel-heading">邮箱设置</div>
 					<div class="row data-type">
-						<div class="col-md-2 title">邮箱号</div>
+						<div class="col-md-2 title"><i style="color: red">* </i>邮箱号</div>
 						<div class="col-md-4 data">
 							<input type="text" class="form-control" name="addresser"
 								placeholder="发件人邮箱号" value="${mail.addresser}">
 						</div>
-						<div class="col-md-2 title">邮箱密码</div>
+						<div class="col-md-2 title"><i style="color: red">* </i>邮箱密码</div>
 						<div class="col-md-4 data">
 							<input type="text" class="form-control" name="mailPwd"
 								placeholder="发件人邮箱密码" value="${mail.mailPwd}">
@@ -114,12 +114,12 @@
 					<div class="panel panel-default">
 						<div class="panel-heading">收件人设置</div>
 						<div class="row data-type">
-							<div class="col-md-2 title">收件人</div>
+							<div class="col-md-2 title"><i style="color: red">* </i>收件人</div>
 							<div class="col-md-4 data">
 								<input type="text" class="form-control" name="recipients"
 									   placeholder="收件人邮箱号" value="${mail.recipients}">
 							</div>
-							<div class="col-md-2 title">抄送人</div>
+							<div class="col-md-2 title"><i style="color: red">* </i>抄送人</div>
 							<div class="col-md-4 data">
 								<input type="text" class="form-control" name="copyRecipients"
 									   placeholder="抄送人邮箱号" value="${mail.copyRecipients}">
@@ -131,7 +131,7 @@
 					<div class="panel panel-default">
 						<div class="panel-heading">标题设置</div>
 						<div class="row data-type">
-							<div class="col-md-2 title">标题</div>
+							<div class="col-md-2 title"><i style="color: red">* </i>标题</div>
 							<div class="col-md-4 data">
 								<input type="text" class="form-control" name="title"
 									   placeholder="标题" value="${mail.title}">
@@ -139,7 +139,7 @@
 						</div>
 						<div class="panel-heading">正文设置</div>
 						<div class="form-group">
-							<label>正文</label>
+							<label><i style="color: red">* </i>正文</label>
 							<textarea class="form-control" value="${mail.mainText}" name="mainText" rows="3" placeholder="简单描述..."></textarea>
 						</div>
 					</div>
@@ -250,6 +250,42 @@
 		src="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
 
 	<script>
+
+		function check(form) {
+			if(form.addresser.value==''){
+				alert("请输入邮箱号！")
+				form.addresser.focus();
+				return false;
+			}else if(form.mailPwd.value==''){
+				alert("请输入邮箱密码！")
+				form.mailPwd.focus();
+				return false;
+
+			}else if(form.recipients.value==''){
+				alert("请输入收件人！")
+				form.recipients.focus();
+				return false;
+
+			}else if(form.copyRecipients.value==''){
+				alert("请输入抄送人！")
+				form.copyRecipients.focus();
+				return false;
+
+			}else if(form.title.value==''){
+				alert("请输入标题！")
+				form.title.focus();
+				return false;
+
+			}else if(form.mainText.value==''){
+				alert("请输入正文！")
+				form.mainText.focus();
+				return false;
+
+			}
+			return true;
+		}
+
+
 		$(document).ready(function() {
 			// 选择框
 			$(".select2").select2();

@@ -4,8 +4,8 @@ import com.gree.day02.dao.Mail;
 import com.gree.day02.service.ISendMailService;
 import com.gree.day02.utils.SendTextMails;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -20,8 +20,8 @@ public class sendMailController {
     @RequestMapping("/send")
     public void sendMail()throws Exception{
 
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        Mail mail =iSendMailService.findMail(authentication.getName());
+        UserDetails authentication =  (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Mail mail =iSendMailService.findMail(authentication.getUsername());
         SendTextMails.SendTextMail(mail.getAddresser(),mail.getMailPwd(),mail.getRecipients(),mail.getCopyRecipients(),mail.getTitle(),mail.getMainText());
     }
 

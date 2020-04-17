@@ -19,8 +19,8 @@ import com.gree.day02.service.IScrapService;
 import com.gree.day02.service.ISendMailService;
 import com.gree.day02.utils.SendTextMails;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -189,8 +189,13 @@ public class ScrapController {
      * @return
      */
     @RequestMapping("/save.do")
-    public String scrapAdd(Scrap scrap){
+    public String scrapAdd(Scrap scrap)throws Exception{
         scrapService.scrapAdd(scrap);
+
+        //发送邮件
+        UserDetails authentication =  (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Mail mail =iSendMailService.findMail(authentication.getUsername());
+        SendTextMails.SendTextMail(mail.getAddresser(),mail.getMailPwd(),mail.getRecipients(),mail.getCopyRecipients(),mail.getTitle(),mail.getMainText());
 
         return "redirect:findNewPage.do";
     }
@@ -202,8 +207,8 @@ public class ScrapController {
         scrapService.ScarpUpdateZz(id);
         scrapService.UpdateScrapForZz(id,RoleName_Zz);
         //发送邮件
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        Mail mail =iSendMailService.findMail(authentication.getName());
+        UserDetails authentication =  (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Mail mail =iSendMailService.findMail(authentication.getUsername());
         SendTextMails.SendTextMail(mail.getAddresser(),mail.getMailPwd(),mail.getRecipients(),mail.getCopyRecipients(),mail.getTitle(),mail.getMainText());
         return "redirect:findAll.do?count=2";
     }
@@ -214,8 +219,8 @@ public class ScrapController {
         scrapService.ScarpUpdateJYy(id);
         scrapService.UpdateScrapForJYy(id,RoleName_JYy);
         //发送邮件
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        Mail mail =iSendMailService.findMail(authentication.getName());
+        UserDetails authentication =  (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Mail mail =iSendMailService.findMail(authentication.getUsername());
         SendTextMails.SendTextMail(mail.getAddresser(),mail.getMailPwd(),mail.getRecipients(),mail.getCopyRecipients(),mail.getTitle(),mail.getMainText());
         return "redirect:findAll.do?count=3";
     }
@@ -226,8 +231,8 @@ public class ScrapController {
         scrapService.ScarpUpdateJSY(id);
         scrapService.UpdateScrapForJSY(id,RoleName_JSY);
         //发送邮件
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        Mail mail =iSendMailService.findMail(authentication.getName());
+        UserDetails authentication =  (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Mail mail =iSendMailService.findMail(authentication.getUsername());
         SendTextMails.SendTextMail(mail.getAddresser(),mail.getMailPwd(),mail.getRecipients(),mail.getCopyRecipients(),mail.getTitle(),mail.getMainText());
         return "redirect:findAll.do?count=4";
     }
@@ -238,8 +243,8 @@ public class ScrapController {
         scrapService.ScarpUpdateZLJS(id);
         scrapService.UpdateScrapForZLJS(id,RoleDescription_ZLJS);
         //发送邮件
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        Mail mail =iSendMailService.findMail(authentication.getName());
+        UserDetails authentication =  (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Mail mail =iSendMailService.findMail(authentication.getUsername());
         SendTextMails.SendTextMail(mail.getAddresser(),mail.getMailPwd(),mail.getRecipients(),mail.getCopyRecipients(),mail.getTitle(),mail.getMainText());
         return "redirect:findAll.do?count=5";
     }
@@ -250,8 +255,8 @@ public class ScrapController {
         scrapService.ScarpUpdateCZ(id);
         scrapService.UpdateScrapForCZ(id,RoleDescription_CZ);
         //发送邮件
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        Mail mail =iSendMailService.findMail(authentication.getName());
+        UserDetails authentication =  (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Mail mail =iSendMailService.findMail(authentication.getUsername());
         SendTextMails.SendTextMail(mail.getAddresser(),mail.getMailPwd(),mail.getRecipients(),mail.getCopyRecipients(),mail.getTitle(),mail.getMainText());
         return "redirect:findAll.do?count=6";
     }

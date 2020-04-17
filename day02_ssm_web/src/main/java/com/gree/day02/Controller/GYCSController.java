@@ -7,8 +7,8 @@ import com.gree.day02.service.IGycsService;
 import com.gree.day02.service.ISendMailService;
 import com.gree.day02.utils.SendTextMails;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -82,8 +82,12 @@ public class GYCSController {
     * @return
     */
    @RequestMapping("/save.do")
-   public String gycsAdd(GYCS gycs){
+   public String gycsAdd(GYCS gycs)throws Exception{
       iGycsService.gycsAdd(gycs);
+
+       UserDetails authentication =  (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+       Mail mail =iSendMailService.findMail(authentication.getUsername());
+       SendTextMails.SendTextMail(mail.getAddresser(),mail.getMailPwd(),mail.getRecipients(),mail.getCopyRecipients(),mail.getTitle(),mail.getMainText());
       return "redirect:findGycs.do";
    }
 
@@ -103,8 +107,8 @@ public class GYCSController {
         iGycsService.updateGycsForZK(id,roleName,roleDesc);
         iGycsService.GycsUpdate(id,count);
         //发送邮件
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        Mail mail =iSendMailService.findMail(authentication.getName());
+        UserDetails authentication =  (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Mail mail =iSendMailService.findMail(authentication.getUsername());
         SendTextMails.SendTextMail(mail.getAddresser(),mail.getMailPwd(),mail.getRecipients(),mail.getCopyRecipients(),mail.getTitle(),mail.getMainText());
         return "redirect:findGycs2.do?count="+(count-1);
     }
@@ -125,15 +129,15 @@ public class GYCSController {
             iGycsService.insertZK(id,roleName,roleDesc);
             iGycsService.updateGycsForZK(id,roleName,roleDesc);
             //发送邮件
-            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-            Mail mail =iSendMailService.findMail(authentication.getName());
+            UserDetails authentication =  (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            Mail mail =iSendMailService.findMail(authentication.getUsername());
             SendTextMails.SendTextMail(mail.getAddresser(),mail.getMailPwd(),mail.getRecipients(),mail.getCopyRecipients(),mail.getTitle(),mail.getMainText());
         }else if(count==5){
             iGycsService.updateByJC_GY(id,roleName,roleDesc);
             iGycsService.updateGycsForGY(id,roleName,roleDesc);
             //发送邮件
-            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-            Mail mail =iSendMailService.findMail(authentication.getName());
+            UserDetails authentication =  (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            Mail mail =iSendMailService.findMail(authentication.getUsername());
             SendTextMails.SendTextMail(mail.getAddresser(),mail.getMailPwd(),mail.getRecipients(),mail.getCopyRecipients(),mail.getTitle(),mail.getMainText());
         }
         iGycsService.GycsUpdate(id,count);
@@ -154,8 +158,8 @@ public class GYCSController {
         iGycsService.saveGycsById(id,ZKname,ZKdesc);
         iGycsService.GycsUpdate(id,8);
         //发送邮件
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        Mail mail =iSendMailService.findMail(authentication.getName());
+        UserDetails authentication =  (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Mail mail =iSendMailService.findMail(authentication.getUsername());
         SendTextMails.SendTextMail(mail.getAddresser(),mail.getMailPwd(),mail.getRecipients(),mail.getCopyRecipients(),mail.getTitle(),mail.getMainText());
         return "redirect:findGycs2.do?count=6";
     }
@@ -204,8 +208,8 @@ public class GYCSController {
                                  @RequestParam(name = "BYA",required = true)String BYA,@RequestParam(name = "JCSJ",required = true)String JCSJ,@RequestParam(name = "BZ",required = true)String BZ)throws Exception{
               iGycsService.updateGycsById(gyId,YL1,YL2,YL3,YL4,YL5,YL6,YL7,SD1,SD2,SD3,SD4,SD5,SD6,SD7,WZ1,WZ2,WZ3,WZ4,WZ5,WZ6,WZ7,WD1,WD2,WD3,WD4,WD5,WD6,WD7,CPMC,JYY,JCBM,BC,JCRQ,SJ,LQ,BYA,JCSJ,BZ);
         //发送邮件
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        Mail mail =iSendMailService.findMail(authentication.getName());
+        UserDetails authentication =  (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Mail mail =iSendMailService.findMail(authentication.getUsername());
         SendTextMails.SendTextMail(mail.getAddresser(),mail.getMailPwd(),mail.getRecipients(),mail.getCopyRecipients(),mail.getTitle(),mail.getMainText());
               return "redirect:findGycs2.do?count="+5;
     }
